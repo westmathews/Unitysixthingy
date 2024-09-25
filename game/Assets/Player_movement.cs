@@ -10,6 +10,7 @@ public class Player_Movement : MonoBehaviour
     private float ySpeed = 0f; // Vertical speed
     public bool isGrounded; // Check if the player is grounded
     private float jumpVelocity;
+
     void Start()
     {
         jumpVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -43,5 +44,8 @@ public class Player_Movement : MonoBehaviour
 
         // Move the player
         controller.Move(move * speed * Time.deltaTime + new Vector3(0, ySpeed, 0) * Time.deltaTime);
+
+        
     }
+    
 }

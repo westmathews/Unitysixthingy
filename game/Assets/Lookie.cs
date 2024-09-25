@@ -8,6 +8,7 @@ public class Lookie : MonoBehaviour
     public Transform playerBody; // Reference to the player's body for rotation
     private float xRotation = 0f; // Vertical rotation
 
+
     void Start()
     {
         // Lock the cursor to the center of the screen
