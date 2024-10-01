@@ -20,6 +20,11 @@ public class Player_Movement : MonoBehaviour
         // Check if the player is grounded
         isGrounded = controller.isGrounded;
 
+        if (isGrounded && ySpeed < 0)
+        {
+            ySpeed = -1f;
+        }
+
         // Jumping
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
