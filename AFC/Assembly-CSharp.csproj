@@ -61,6 +61,7 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/6000.0.18f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Scripts/PlayerScript.cs" />
     <Compile Include="Assets/GIbbityGone.cs" />
     <Compile Include="Assets/Scripts/PewPew.cs" />
     <Compile Include="Assets/Scripts/CameraSwitch.cs" />
@@ -74,14 +75,15 @@
     <None Include="Assets/ScriptTemplates/52-Mirror__Network Authenticator-NewNetworkAuthenticator.cs.txt" />
     <None Include="Assets/Mirror/Plugins/BouncyCastle/Mirror.BouncyCastle.Cryptography.dll" />
     <None Include="Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Pdb.dll" />
-    <None Include="Assets/Mirror/version.txt" />
     <None Include="Assets/ScriptTemplates/56-Mirror__Network Discovery-NewNetworkDiscovery.cs.txt" />
     <None Include="Assets/ScriptTemplates/51-Mirror__Network Manager With Actions-NewNetworkManagerWithActions.cs.txt" />
     <None Include="Assets/ScriptTemplates/53-Mirror__Network Behaviour With Actions-NewNetworkBehaviourWithActions.cs.txt" />
     <None Include="Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Rocks.dll" />
+    <None Include="Assets/Mirror/Version.txt" />
     <None Include="Assets/Mirror/Readme.txt" />
     <None Include="Assets/ScriptTemplates/57-Mirror__Network Transform-NewNetworkTransform.cs.txt" />
     <None Include="Assets/ScriptTemplates/52-Mirror__Network Behaviour-NewNetworkBehaviour.cs.txt" />
+    <None Include="Assets/Mirror/Notice.txt" />
     <None Include="Assets/Mirror/Plugins/Mono.Cecil/License.txt" />
     <None Include="Assets/ScriptTemplates/55-Mirror__Network Room Player-NewNetworkRoomPlayer.cs.txt" />
     <None Include="Assets/ScriptTemplates/54-Mirror__Custom Interest Management-CustomInterestManagement.cs.txt" />
@@ -554,6 +556,14 @@
       <HintPath>/Applications/Unity/Hub/Editor/6000.0.18f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.XRModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Mono.CecilX">
+      <HintPath>Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mono.CecilX.Mdb">
+      <HintPath>Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Mdb.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library/PackageCache/com.unity.ext.nunit/net40/unity-custom/nunit.framework.dll</HintPath>
       <Private>False</Private>
@@ -562,44 +572,24 @@
       <HintPath>Library/PackageCache/com.unity.testtools.codecoverage/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>Library/PackageCache/com.unity.visualscripting/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Mono.CecilX.Mdb">
-      <HintPath>Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Mdb.dll</HintPath>
+    <Reference Include="Mirror.BouncyCastle.Cryptography">
+      <HintPath>Assets/Mirror/Plugins/BouncyCastle/Mirror.BouncyCastle.Cryptography.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.CecilX.Pdb">
       <HintPath>Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Pdb.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Library/PackageCache/com.unity.nuget.newtonsoft-json/Runtime/Newtonsoft.Json.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Mono.CecilX">
-      <HintPath>Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Mono.CecilX.Rocks">
       <HintPath>Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Rocks.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Mirror.BouncyCastle.Cryptography">
-      <HintPath>Assets/Mirror/Plugins/BouncyCastle/Mirror.BouncyCastle.Cryptography.dll</HintPath>
+    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
+      <HintPath>Library/PackageCache/com.unity.visualscripting/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>/Applications/Unity/Hub/Editor/6000.0.18f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>/Applications/Unity/Hub/Editor/6000.0.18f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEditor.Apple.Extensions.Common">
-      <HintPath>/Applications/Unity/Hub/Editor/6000.0.18f1/PlaybackEngines/iOSSupport/UnityEditor.Apple.Extensions.Common.dll</HintPath>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library/PackageCache/com.unity.nuget.newtonsoft-json/Runtime/Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Android.Types">
@@ -1216,21 +1206,21 @@
       <Project>{67CAB205-CA06-116D-3867-6BB56103ACB2}</Project>
       <Name>Mirror.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="kcp2k.csproj">
-      <Project>{94AA72E8-95A8-0FF5-6CE7-33EE69CF2DDB}</Project>
-      <Name>kcp2k</Name>
-    </ProjectReference>
-    <ProjectReference Include="Mirror.Examples.csproj">
-      <Project>{8CEA6CF3-E237-FC7F-0113-14CC777E9BBE}</Project>
-      <Name>Mirror.Examples</Name>
-    </ProjectReference>
     <ProjectReference Include="Edgegap.csproj">
       <Project>{D023C9A2-6DF9-EB5B-57EF-3920913C4C1E}</Project>
       <Name>Edgegap</Name>
     </ProjectReference>
+    <ProjectReference Include="kcp2k.csproj">
+      <Project>{94AA72E8-95A8-0FF5-6CE7-33EE69CF2DDB}</Project>
+      <Name>kcp2k</Name>
+    </ProjectReference>
     <ProjectReference Include="Mirror.csproj">
       <Project>{DD638FEA-E007-693D-819C-2D68D03D7004}</Project>
       <Name>Mirror</Name>
+    </ProjectReference>
+    <ProjectReference Include="Mirror.Examples.csproj">
+      <Project>{8CEA6CF3-E237-FC7F-0113-14CC777E9BBE}</Project>
+      <Name>Mirror.Examples</Name>
     </ProjectReference>
     <ProjectReference Include="SimpleWebTransport.csproj">
       <Project>{9C092B40-D8D3-5884-8642-EC232CCEBEEC}</Project>
