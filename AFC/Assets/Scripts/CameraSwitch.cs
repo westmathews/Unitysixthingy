@@ -12,7 +12,7 @@ public class CameraSwitchWithRotation : MonoBehaviour
     public float maxVerticalAngle = 60f; // Maximum vertical camera angle (looking up)
 
     private Vector3 currentOffset; // Current camera offset
-    private bool isThirdPerson = false; // Check if in third-person view
+    public bool isThirdPerson = false; // Check if in third-person view
     private float pitch = 0f; // Camera pitch (vertical rotation)
     private float yaw = 0f; // Camera yaw (horizontal rotation)
     private bool isSwitchingToThirdPerson = false; // Check if we're transitioning to third-person
