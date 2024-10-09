@@ -61,12 +61,13 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/6000.0.18f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/GIbbityGone.cs" />
     <Compile Include="Assets/Scripts/PewPew.cs" />
     <Compile Include="Assets/Scripts/CameraSwitch.cs" />
     <Compile Include="Assets/Scripts/Lookie.cs" />
-    <Compile Include="Assets/GunShmove.cs" />
+    <Compile Include="Assets/Scripts/Crosshair.cs" />
+    <Compile Include="Assets/Scripts/GIbbityGone.cs" />
     <Compile Include="Assets/Scripts/Player_movement.cs" />
+    <Compile Include="Assets/Scripts/GunShmove.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll" />
@@ -554,6 +555,14 @@
       <HintPath>/Applications/Unity/Hub/Editor/6000.0.18f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.XRModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Mono.CecilX">
+      <HintPath>Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mono.CecilX.Mdb">
+      <HintPath>Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Mdb.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library/PackageCache/com.unity.ext.nunit/net40/unity-custom/nunit.framework.dll</HintPath>
       <Private>False</Private>
@@ -562,32 +571,24 @@
       <HintPath>Library/PackageCache/com.unity.testtools.codecoverage/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>Library/PackageCache/com.unity.visualscripting/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Mono.CecilX.Mdb">
-      <HintPath>Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Mdb.dll</HintPath>
+    <Reference Include="Mirror.BouncyCastle.Cryptography">
+      <HintPath>Assets/Mirror/Plugins/BouncyCastle/Mirror.BouncyCastle.Cryptography.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.CecilX.Pdb">
       <HintPath>Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Pdb.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Library/PackageCache/com.unity.nuget.newtonsoft-json/Runtime/Newtonsoft.Json.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Mono.CecilX">
-      <HintPath>Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Mono.CecilX.Rocks">
       <HintPath>Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.Rocks.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Mirror.BouncyCastle.Cryptography">
-      <HintPath>Assets/Mirror/Plugins/BouncyCastle/Mirror.BouncyCastle.Cryptography.dll</HintPath>
+    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
+      <HintPath>Library/PackageCache/com.unity.visualscripting/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library/PackageCache/com.unity.nuget.newtonsoft-json/Runtime/Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
@@ -1170,6 +1171,10 @@
       <HintPath>Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1216,21 +1221,21 @@
       <Project>{67CAB205-CA06-116D-3867-6BB56103ACB2}</Project>
       <Name>Mirror.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="kcp2k.csproj">
-      <Project>{94AA72E8-95A8-0FF5-6CE7-33EE69CF2DDB}</Project>
-      <Name>kcp2k</Name>
-    </ProjectReference>
-    <ProjectReference Include="Mirror.Examples.csproj">
-      <Project>{8CEA6CF3-E237-FC7F-0113-14CC777E9BBE}</Project>
-      <Name>Mirror.Examples</Name>
-    </ProjectReference>
     <ProjectReference Include="Edgegap.csproj">
       <Project>{D023C9A2-6DF9-EB5B-57EF-3920913C4C1E}</Project>
       <Name>Edgegap</Name>
     </ProjectReference>
+    <ProjectReference Include="kcp2k.csproj">
+      <Project>{94AA72E8-95A8-0FF5-6CE7-33EE69CF2DDB}</Project>
+      <Name>kcp2k</Name>
+    </ProjectReference>
     <ProjectReference Include="Mirror.csproj">
       <Project>{DD638FEA-E007-693D-819C-2D68D03D7004}</Project>
       <Name>Mirror</Name>
+    </ProjectReference>
+    <ProjectReference Include="Mirror.Examples.csproj">
+      <Project>{8CEA6CF3-E237-FC7F-0113-14CC777E9BBE}</Project>
+      <Name>Mirror.Examples</Name>
     </ProjectReference>
     <ProjectReference Include="SimpleWebTransport.csproj">
       <Project>{9C092B40-D8D3-5884-8642-EC232CCEBEEC}</Project>

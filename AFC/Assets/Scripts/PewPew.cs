@@ -9,18 +9,25 @@ public class PewPew : MonoBehaviour
     public Vector3 target;
     void Update()
     {
-
-
-        Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
-        Debug.DrawRay(transform.position, forward, Color.red);
-        if (Input.GetMouseButtonDown(0)) // Default is left mouse button
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            This(transform.position, new Vector3(1, -1, 0));
+
         }
+        else
+        {
+            Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
+            Debug.DrawRay(transform.position, forward, Color.red);
+            if (Input.GetMouseButtonDown(0)) // Default is left mouse button
+            {
+                This(transform.position, new Vector3(1, -1, 0));
+            }
+        }
+
     }
 
     void Shoot()
     {
+        
         Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); // Shoot from the center of the screen
         Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
         Debug.DrawRay(transform.position, forward, Color.green);

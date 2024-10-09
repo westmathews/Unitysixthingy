@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 32688482}
   - component: {fileID: 32688484}
   - component: {fileID: 32688485}
+  - component: {fileID: 32688486}
   m_Layer: 0
   m_Name: Sticky Camera
   m_TagString: Untagged
@@ -242,6 +243,24 @@ MonoBehaviour:
   mouseSensitivity: 5000
   playerBody: {fileID: 665496347}
   thirdpers: 0
+--- !u!114 &32688486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32688480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7a9693c4db2243aa9d3f9467104e0fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 32688483}
+  shootingRange: 100
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  target: {x: 0, y: 0, z: 0}
 --- !u!4 &665496347 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6231125914145256025, guid: 9d6bd48e034d045c6ab7b5258a635d3c, type: 3}
@@ -466,7 +485,7 @@ GameObject:
   - component: {fileID: 1181508399}
   m_Layer: 0
   m_Name: Capsule (2)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1245,7 +1264,7 @@ GameObject:
   - component: {fileID: 2042900194}
   m_Layer: 0
   m_Name: Capsule (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
