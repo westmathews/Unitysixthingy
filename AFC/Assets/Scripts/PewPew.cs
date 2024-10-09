@@ -5,10 +5,25 @@ public class PewPew : MonoBehaviour
     public Camera playerCamera; // Assign your camera in the inspector
     public float shootingRange = 100f; // How far the ray can go
     public LayerMask targetLayer; // Specify which layer to detect hits
-
+    public float ammo;
     public Vector3 target;
+    public float rtime;
+    public bool reloading;
+    private void Start()
+    {
+        ammo = 10;
+
+    }
     void Update()
     {
+
+        rtime = rtime - Time.deltaTime;
+        if (Input.GetKey(KeyCode.R))
+        {
+            reload();
+        }
+
+
         if (Input.GetKey(KeyCode.LeftShift))
         {
 
@@ -17,14 +32,40 @@ public class PewPew : MonoBehaviour
         {
             Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
             Debug.DrawRay(transform.position, forward, Color.red);
-            if (Input.GetMouseButtonDown(0)) // Default is left mouse button
+            if (Input.GetMouseButtonDown(0) && ammo > 0) // Default is left mouse button
             {
+                ammo = ammo - 1;
                 This(transform.position, new Vector3(1, -1, 0));
+            }
+            else
+            {
+               if (ammo < 1)
+               {
+                    reload();
+               }
             }
         }
 
     }
+    void reload()
+    {
+        if (!reloading)
+        {
+            rtime = 3;
+            ammo = 0;
+            reloading = true;
+        }
+        if (rtime <= 0)
+        {
+            ammo = 10f;
+            reloading = false;
+        }
 
+        Debug.Log("reloading");
+        
+        
+        
+    }
     void Shoot()
     {
         
