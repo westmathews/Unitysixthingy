@@ -11,6 +11,7 @@ public class PewPew : MonoBehaviour
     public static bool reloading;
     public bool shotcooldown;
     private float nospam;
+    public string thing_hit = "nothingyet";
     private void Start()
     {
         ammo = 10;
@@ -104,7 +105,7 @@ public class PewPew : MonoBehaviour
         {
             target = hit.transform.position;
             Debug.Log("Hit object tag: " + hit.collider.tag);
-
+            thing_hit = (hit.collider.tag);
             // Check if the hit object has the "Player" tag
             if (hit.collider.CompareTag("Player"))
             {
