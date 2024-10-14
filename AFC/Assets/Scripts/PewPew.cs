@@ -7,8 +7,10 @@ public class PewPew : MonoBehaviour
     public LayerMask targetLayer; // Specify which layer to detect hits
     public float ammo;
     public Vector3 target;
-    public float rtime;
-    public bool reloading;
+    private float rtime;
+    public static bool reloading;
+    public bool shotcooldown;
+    private float nospam;
     private void Start()
     {
         ammo = 10;
@@ -16,6 +18,16 @@ public class PewPew : MonoBehaviour
     }
     void Update()
     {
+
+        if (nospam > 0)
+        {
+            shotcooldown = true;
+        }
+        else
+        {
+            shotcooldown = false;
+        }
+        nospam = nospam - Time.deltaTime;
 
         rtime = rtime - Time.deltaTime;
         if (Input.GetKey(KeyCode.R))
@@ -32,10 +44,11 @@ public class PewPew : MonoBehaviour
         {
             Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
             Debug.DrawRay(transform.position, forward, Color.red);
-            if (Input.GetMouseButtonDown(0) && ammo > 0) // Default is left mouse button
+            if (Input.GetMouseButtonDown(0) && ammo > 0 && !shotcooldown) //Are you allowed to shooting
             {
                 ammo = ammo - 1;
                 This(transform.position, new Vector3(1, -1, 0));
+                nospam = 0.3f;
             }
             else
             {
@@ -61,7 +74,7 @@ public class PewPew : MonoBehaviour
             reloading = false;
         }
 
-        Debug.Log("reloading");
+       
         
         
         
@@ -77,7 +90,7 @@ public class PewPew : MonoBehaviour
         if (Physics.Raycast(ray, out hit, shootingRange, targetLayer))
         {
             Debug.Log("Hit: " + hit.collider.name);
-            // Add your hit logic here (e.g., damage, effects)
+            //Did ya hit?
         }
     }
 
@@ -90,10 +103,12 @@ public class PewPew : MonoBehaviour
         if (Physics.Raycast(ray, out hit, shootingRange))
         {
             target = hit.transform.position;
+            Debug.Log("Hit object tag: " + hit.collider.tag);
 
             // Check if the hit object has the "Player" tag
             if (hit.collider.CompareTag("Player"))
             {
+                
                 // Logic for hitting a player
                 Debug.Log("Hit a player!");
                 // You can add additional actions here, like applying damage or triggering an effect
