@@ -109,7 +109,9 @@ public class PewPew : MonoBehaviour
             // Check if the hit object has the "Player" tag
             if (hit.collider.CompareTag("Player"))
             {
-                
+                //gets health script owner
+                hit.collider.gameObject.GetComponent<Health>().hepo -= GetComponentInChildren<Rifle>().dmg;
+               
                 // Logic for hitting a player
                 Debug.Log("Hit a player!");
                 // You can add additional actions here, like applying damage or triggering an effect
