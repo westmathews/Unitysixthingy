@@ -8,7 +8,7 @@ public class PewPew : MonoBehaviour
     public float ammo;
     public Vector3 target;
     private float rtime;
-    public static bool reloading;
+    public bool reloading;
     public bool shotcooldown;
     private float nospam;
     public string thing_hit = "nothingyet";
