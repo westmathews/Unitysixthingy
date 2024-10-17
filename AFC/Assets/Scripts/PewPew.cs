@@ -3,7 +3,7 @@ using UnityEngine;
 public class PewPew : MonoBehaviour
 {
     public Camera playerCamera; // Assign your camera in the inspector
-    public float shootingRange = 100f; // How far the ray can go
+    public float shootingRange; // How far the ray can go
     public LayerMask targetLayer; // Specify which layer to detect hits
     public float ammo;
     public Vector3 target;
@@ -12,15 +12,20 @@ public class PewPew : MonoBehaviour
     public bool shotcooldown;
     private float nospam;
     public string thing_hit = "nothingyet";
+    public float maxammo;
+    public float rspd;
+    public float shtspd;
+    public float dmg;
     private void Start()
     {
-        ammo = 10;
+
+        ammo = maxammo;
 
     }
     void Update()
     {
 
-        if (nospam > 0)
+        if (nospam < shtspd)
         {
             shotcooldown = true;
         }
@@ -28,9 +33,9 @@ public class PewPew : MonoBehaviour
         {
             shotcooldown = false;
         }
-        nospam = nospam - Time.deltaTime;
+        nospam = nospam + Time.deltaTime;
 
-        rtime = rtime - Time.deltaTime;
+        rtime = rtime + Time.deltaTime;
         if (Input.GetKey(KeyCode.R))
         {
             reload();
@@ -49,7 +54,7 @@ public class PewPew : MonoBehaviour
             {
                 ammo = ammo - 1;
                 This(transform.position, new Vector3(1, -1, 0));
-                nospam = 0.3f;
+                nospam = 0;
             }
             else
             {
@@ -65,13 +70,13 @@ public class PewPew : MonoBehaviour
     {
         if (!reloading)
         {
-            rtime = 3;
+            rtime = 0;
             ammo = 0;
             reloading = true;
         }
-        if (rtime <= 0)
+        if (rtime >= rspd)
         {
-            ammo = 10f;
+            ammo = maxammo;
             reloading = false;
         }
 
@@ -110,7 +115,7 @@ public class PewPew : MonoBehaviour
             if (hit.collider.CompareTag("Player"))
             {
                 //gets health script owner
-                hit.collider.gameObject.GetComponent<Health>().hepo -= GetComponentInChildren<Rifle>().dmg;
+                hit.collider.gameObject.GetComponent<Health>().hepo -= dmg;
                
                 // Logic for hitting a player
                 Debug.Log("Hit a player!");
