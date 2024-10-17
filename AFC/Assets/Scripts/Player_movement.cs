@@ -3,12 +3,13 @@ using UnityEngine;
 public class Player_Movement : MonoBehaviour
 {
     public CharacterController controller; // Reference to the CharacterController component
-    public float speed = 10f; // Movement speed
+    public float speed; // Movement speed
     public float gravity = -9.81f; // Gravity force
-    public float jumpHeight = 3f; // Jump height
+    public float jumpHeight; // Jump height
     public float ySpeed = 0f; // Vertical speed
     public bool isGrounded; // Check if the player is grounded
     public float jumpVelocity;
+    public float sprintspd;
 
     void Start()
     {
@@ -33,7 +34,7 @@ public class Player_Movement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            speed = 20f;
+            speed = sprintspd;
         }
         else
         {
