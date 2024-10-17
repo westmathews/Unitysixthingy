@@ -296,6 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hepo: 0
+  player: {fileID: 0}
 --- !u!1 &4160279575903367752
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,12 +618,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 4704706958977587820}
-  speed: 10
+  speed: 5
   gravity: -9.81
   jumpHeight: 3
   ySpeed: 0
   isGrounded: 0
   jumpVelocity: 0
+  sprintspd: 11
 --- !u!143 &4704706958977587820
 CharacterController:
   m_ObjectHideFlags: 0

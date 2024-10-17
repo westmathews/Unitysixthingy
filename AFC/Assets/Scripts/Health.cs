@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public static float hp;
+    
     public float hepo;
     public MeshRenderer player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        hepo = 100f;
         player.enabled = true;
     }
 

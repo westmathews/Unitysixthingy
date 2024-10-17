@@ -38,7 +38,7 @@ public class Player_Movement : MonoBehaviour
         }
         else
         {
-            speed = 10f;
+            speed = 5f;
         }
 
         // Apply gravity
