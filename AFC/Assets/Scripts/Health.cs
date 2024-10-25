@@ -5,10 +5,12 @@ public class Health : MonoBehaviour
     
     public float hepo;
     public MeshRenderer player;
+    public bool ouch;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         player.enabled = true;
+        
     }
 
     // Update is called once per frame
@@ -21,6 +23,12 @@ public class Health : MonoBehaviour
             hepo = 9999999;
             
         }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            hepo = hepo - 10;
+        }
+        
+
         
     }
 }
