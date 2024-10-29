@@ -73,7 +73,7 @@ public class CameraSwitchWithRotation : MonoBehaviour
             // Smoothly move camera to the player's head and match player rotation
             Vector3 targetPosition = player.position + player.TransformDirection(currentOffset);
             transform.position = Vector3.Lerp(transform.position, targetPosition, followSpeed * Time.deltaTime);
-            transform.rotation = Quaternion.Lerp(transform.rotation, player.rotation, followSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, player.rotation, 0);
         }
     }
 }

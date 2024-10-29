@@ -6,7 +6,7 @@ public class Lookie : MonoBehaviour
 {
     public float mouseSensitivity = 100f; // Mouse sensitivity
     public Transform playerBody; // Reference to the player's body for rotation
-    private float xRotation = 0f; // Vertical rotation
+    public float xRotation = 0f; // Vertical rotation
 
 
     void Start()

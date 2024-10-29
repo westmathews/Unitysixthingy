@@ -2,20 +2,21 @@ using UnityEngine;
 
 public class PewPew : MonoBehaviour
 {
-    public Camera playerCamera; // Assign your camera in the inspector
+    //public Camera playerCamera; // Assign your camera in the inspector
     public float shootingRange; // How far the ray can go
     public LayerMask targetLayer; // Specify which layer to detect hits
     public float ammo;
-    public Vector3 target;
+    //public Vector3 target;
     private float rtime;
     public bool reloading;
     public bool shotcooldown;
     private float nospam;
-    public string thing_hit = "nothingyet";
+    //public string thing_hit = "nothingyet";
     public float maxammo;
     public float rspd;
     public float shtspd;
     public float dmg;
+    public bool maingun;
     private void Start()
     {
 
@@ -53,11 +54,13 @@ public class PewPew : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && ammo > 0 && !shotcooldown) //Are you allowed to shooting
             {
                 ammo = ammo - 1;
-                This(transform.position, new Vector3(1, -1, 0));
+                //This(transform.position, new Vector3(1, -1, 0));
                 nospam = 0;
+                maingun = true;
             }
             else
             {
+                maingun = false;
                if (ammo < 1)
                {
                     reload();
@@ -85,44 +88,31 @@ public class PewPew : MonoBehaviour
         
         
     }
-    void Shoot()
-    {
-        
-        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); // Shoot from the center of the screen
-        Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
-        Debug.DrawRay(transform.position, forward, Color.green);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, shootingRange, targetLayer))
-        {
-            Debug.Log("Hit: " + hit.collider.name);
-            //Did ya hit?
-        }
-    }
-
-    void This(Vector3 playerPos, Vector3 offset)
-    {
-        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        RaycastHit hit;
+    
+    //void This(Vector3 playerPos, Vector3 offset)
+    //{
+        //Debug.Log("hi");
+        //Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        //RaycastHit hit;
 
 
-        if (Physics.Raycast(ray, out hit, shootingRange))
-        {
-            target = hit.transform.position;
-            Debug.Log("Hit object tag: " + hit.collider.tag);
-            thing_hit = (hit.collider.tag);
+       // if (Physics.Raycast(ray, out hit, shootingRange))
+        //{
+           // target = hit.transform.position;
+           // Debug.Log("Hit object tag: " + hit.collider.tag);
+           // thing_hit = (hit.collider.tag);
             // Check if the hit object has the "Player" tag
-            if (hit.collider.CompareTag("Player"))
-            {
+           // if (hit.collider.CompareTag("Player"))
+           // {
                 //gets health script owner
-                hit.collider.gameObject.GetComponent<Health>().hepo -= dmg;
+            //    hit.collider.gameObject.GetComponent<Health>().hepo -= dmg;
                
                 // Logic for hitting a player
-                Debug.Log("Hit a player!");
+             //   Debug.Log("Hit a player!");
                 // You can add additional actions here, like applying damage or triggering an effect
-            }
-        }
+           // }
+        //}
         //Ray raytwo = new Vector3(target)(new Vector3(offset));
-    }
+   // }
 
 }

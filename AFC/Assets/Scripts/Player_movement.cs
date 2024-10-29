@@ -10,10 +10,11 @@ public class Player_Movement : MonoBehaviour
     public bool isGrounded; // Check if the player is grounded
     public float jumpVelocity;
     public float sprintspd;
+    public float wspeed;
 
     void Start()
     {
-        speed = 10f;
+        
         jumpVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
     }
     void Update()
@@ -21,9 +22,13 @@ public class Player_Movement : MonoBehaviour
         // Check if the player is grounded
         isGrounded = controller.isGrounded;
 
-        if (isGrounded && ySpeed < 0)
+        if (isGrounded)
         {
             ySpeed = -1f;
+        }
+        else
+        {
+            ySpeed += gravity * Time.deltaTime;
         }
 
         // Jumping
@@ -38,11 +43,12 @@ public class Player_Movement : MonoBehaviour
         }
         else
         {
-            speed = 5f;
+            speed = wspeed;
         }
 
         // Apply gravity
-        ySpeed += gravity * Time.deltaTime;
+
+       
 
         // Get input for movement
         float moveX = Input.GetAxis("Horizontal");
