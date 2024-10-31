@@ -17,6 +17,11 @@ public class PewPew : MonoBehaviour
     public float shtspd;
     public float dmg;
     public bool maingun;
+    public float snddmg;
+    public bool abcool;
+    private float abtime;
+    public float abcooldown;
+    public bool secondary;
     private void Start()
     {
 
@@ -25,7 +30,14 @@ public class PewPew : MonoBehaviour
     }
     void Update()
     {
-
+        if (abtime < abcooldown)
+        {
+            abcool = true;
+        }
+        else
+        {
+            abcool = false;
+        }
         if (nospam < shtspd)
         {
             shotcooldown = true;
@@ -35,7 +47,7 @@ public class PewPew : MonoBehaviour
             shotcooldown = false;
         }
         nospam = nospam + Time.deltaTime;
-
+        abtime = abtime + Time.deltaTime;
         rtime = rtime + Time.deltaTime;
         if (Input.GetKey(KeyCode.R))
         {
@@ -54,7 +66,6 @@ public class PewPew : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && ammo > 0 && !shotcooldown) //Are you allowed to shooting
             {
                 ammo = ammo - 1;
-                //This(transform.position, new Vector3(1, -1, 0));
                 nospam = 0;
                 maingun = true;
             }
@@ -65,6 +76,16 @@ public class PewPew : MonoBehaviour
                {
                     reload();
                }
+            }
+            if (Input.GetKeyDown(KeyCode.G)&& !abcool)
+            {
+                abtime = 0;
+                secondary = true;
+
+            }
+            else
+            {
+                secondary = false;
             }
         }
 
@@ -89,30 +110,6 @@ public class PewPew : MonoBehaviour
         
     }
     
-    //void This(Vector3 playerPos, Vector3 offset)
-    //{
-        //Debug.Log("hi");
-        //Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        //RaycastHit hit;
-
-
-       // if (Physics.Raycast(ray, out hit, shootingRange))
-        //{
-           // target = hit.transform.position;
-           // Debug.Log("Hit object tag: " + hit.collider.tag);
-           // thing_hit = (hit.collider.tag);
-            // Check if the hit object has the "Player" tag
-           // if (hit.collider.CompareTag("Player"))
-           // {
-                //gets health script owner
-            //    hit.collider.gameObject.GetComponent<Health>().hepo -= dmg;
-               
-                // Logic for hitting a player
-             //   Debug.Log("Hit a player!");
-                // You can add additional actions here, like applying damage or triggering an effect
-           // }
-        //}
-        //Ray raytwo = new Vector3(target)(new Vector3(offset));
-   // }
+    
 
 }
