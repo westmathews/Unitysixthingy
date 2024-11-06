@@ -6,6 +6,8 @@ public class UI : MonoBehaviour
 {
     public TextMeshProUGUI ammer;
     public TextMeshProUGUI hbar;
+    public TextMeshProUGUI abiby;
+    private float equalizer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,6 +17,7 @@ public class UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        equalizer = (GetComponentInParent<PewPew>().abtime -5) * -1;
         hbar.text = "Health: " + GetComponentInParent<Health>().hepo.ToString();
         if (!GetComponentInParent<PewPew>().reloading)
         {
@@ -23,6 +26,14 @@ public class UI : MonoBehaviour
         else
         {
             ammer.text = "Reloading";
+        }
+        if (!GetComponentInParent<PewPew>().abcool)
+        {
+            abiby.text = "Reby"; 
+        }
+        else
+        {
+            abiby.text = "" + equalizer.ToString("F0");
         }
     }
 }

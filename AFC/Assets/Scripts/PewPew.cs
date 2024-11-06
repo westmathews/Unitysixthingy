@@ -19,7 +19,7 @@ public class PewPew : MonoBehaviour
     public bool maingun;
     public float snddmg;
     public bool abcool;
-    private float abtime;
+    public float abtime;
     public float abcooldown;
     public bool secondary;
     private void Start()

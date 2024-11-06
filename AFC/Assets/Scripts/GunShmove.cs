@@ -8,7 +8,7 @@ public class GunShmove : MonoBehaviour
     public Transform playerBody; // Reference to the player's body for rotation
     private float xRotation = 0f; // Vertical rotation
     public bool thirdpers = false;
-
+    //public GameObject sticam;
     void Start()
     {
         // Lock the cursor to the center of the screen
@@ -41,6 +41,11 @@ public class GunShmove : MonoBehaviour
             
             playerBody.Rotate(Vector3.up * mouseX);
         }
-            
+        //if (sticam.GetComponent<PewPew>().maingun)
+        //{
+            //xRotation -= mouseY + 20;
+            //transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        //}
+
     }
 }
