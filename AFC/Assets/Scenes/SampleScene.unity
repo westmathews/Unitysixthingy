@@ -517,6 +517,25 @@ MonoBehaviour:
   hepo: 100
   player: {fileID: 1181508400}
   ouch: 0
+--- !u!1 &1342281120 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1504447327222522433, guid: 008c0fef5777545c287b99f770996b56, type: 3}
+  m_PrefabInstance: {fileID: 3876890875595864402}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1342281124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342281120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf6203e50b5b4ef69adcc380232081d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tail: 1
+  Speebtime: 0
 --- !u!1 &1399295457
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,6 +1243,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lizard
       objectReference: {fileID: 0}
+    - target: {fileID: 1504447327222522433, guid: 008c0fef5777545c287b99f770996b56, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6065416775612174613, guid: 008c0fef5777545c287b99f770996b56, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1267,7 +1290,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1504447327222522433, guid: 008c0fef5777545c287b99f770996b56, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1342281124}
   m_SourcePrefab: {fileID: 100100000, guid: 008c0fef5777545c287b99f770996b56, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
