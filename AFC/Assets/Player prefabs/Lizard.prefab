@@ -691,7 +691,6 @@ MonoBehaviour:
   mouseSensitivity: 5000
   playerBody: {fileID: 6065416775612174613}
   thirdpers: 0
-  sticam: {fileID: 4825365310444567591}
 --- !u!114 &1622442918038924137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,7 +942,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 5352470651836296600}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1143,6 +1142,10 @@ MonoBehaviour:
   xRotation: 0
   Sticker: {fileID: 4825365310444567591}
   player: {fileID: 6065416775612174613}
+  starting: {x: 0, y: 0, z: 0}
+  recoilX: 0
+  recoilStrength: 0
+  recoilResetSpeed: 0
 --- !u!1 &8659261101154032429
 GameObject:
   m_ObjectHideFlags: 0
