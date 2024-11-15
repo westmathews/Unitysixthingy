@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class LizardGuns : MonoBehaviour
 {
-    
     public Camera playerCamera;
     public Vector3 target;
     public string thing_hit = "nothingyet";
@@ -65,6 +64,8 @@ public class LizardGuns : MonoBehaviour
         {
             sndshots = 0;
         }
+        
+        playerCamera.GetComponent<Lookie>().recoil();
         if (Physics.Raycast(ray, out hit, range))
         {
             target = hit.transform.position;
