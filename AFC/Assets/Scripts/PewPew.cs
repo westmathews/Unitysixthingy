@@ -9,7 +9,7 @@ public class PewPew : MonoBehaviour
     //public Vector3 target;
     private float rtime;
     public bool reloading;
-    public bool shotcooldown;
+    private bool shotcooldown;
     private float nospam;
     //public string thing_hit = "nothingyet";
     public float maxammo;

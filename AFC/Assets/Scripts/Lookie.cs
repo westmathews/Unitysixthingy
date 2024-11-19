@@ -17,14 +17,24 @@ public class Lookie : MonoBehaviour
     public bool coilin = false;
     public float initialcoil;
     public GameObject intcam;
+    public float bsmssen;
     void Start()
     {
         // Lock the cursor to the center of the screen
         Cursor.lockState = CursorLockMode.Locked;
+        bsmssen = mouseSensitivity;
     }
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            mouseSensitivity = bsmssen * 2;
+        }
+        else
+        {
+            mouseSensitivity = bsmssen;
+        }
         // Get mouse input
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
@@ -34,6 +44,7 @@ public class Lookie : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Clamp the vertical rotation
         xRotation -= recoilX;
         recoilX = Mathf.Lerp(recoilX, 0f, recoilResetSpeed * Time.deltaTime);
+      
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
         if (Sticker.GetComponent<PewPew>().maingun)

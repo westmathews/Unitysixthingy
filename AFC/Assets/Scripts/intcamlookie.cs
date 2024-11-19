@@ -7,14 +7,24 @@ public class intcamlookie : MonoBehaviour
     public float mouseSensitivity; // Mouse sensitivity
     public float xRotation; // Vertical rotation
     public GameObject mncam;
+    public float bsmssen;
     void Start()
     {
         // Lock the cursor to the center of the screen
         Cursor.lockState = CursorLockMode.Locked;
+        bsmssen = mouseSensitivity;
     }
     
     void Update()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            mouseSensitivity = 0;
+        }
+        else
+        {
+            mouseSensitivity = bsmssen;
+        }
         // Get mouse input
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;

@@ -26,6 +26,10 @@ public class GunShmove : MonoBehaviour
         {
             thirdpers = false;
         }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            xRotation = mncam.GetComponent<Lookie>().xRotation;
+        }
         // Get mouse input
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
