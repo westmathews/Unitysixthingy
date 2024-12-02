@@ -77,7 +77,7 @@ public class PewPew : MonoBehaviour
                     reload();
                }
             }
-            if (Input.GetKeyDown(KeyCode.G)&& !abcool)
+            if (Input.GetMouseButtonDown(1)&& !abcool)
             {
                 abtime = 0;
                 secondary = true;
