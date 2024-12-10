@@ -118,6 +118,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!23 &14322863 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2286328695749417847, guid: f06484c11ecab4e1d9c3ed1fccf159ff, type: 3}
+  m_PrefabInstance: {fileID: 3632021351928747032}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &465964439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2742994961383551230, guid: f06484c11ecab4e1d9c3ed1fccf159ff, type: 3}
+  m_PrefabInstance: {fileID: 3632021351928747032}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &668301836
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,6 +743,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1733740263 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 310772943735847408, guid: f06484c11ecab4e1d9c3ed1fccf159ff, type: 3}
+  m_PrefabInstance: {fileID: 3632021351928747032}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1843505916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1232,6 +1247,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 738484129726639535, guid: f06484c11ecab4e1d9c3ed1fccf159ff, type: 3}
+      propertyPath: self
+      value: 
+      objectReference: {fileID: 14322863}
+    - target: {fileID: 1080568530351544408, guid: f06484c11ecab4e1d9c3ed1fccf159ff, type: 3}
+      propertyPath: stickycam
+      value: 
+      objectReference: {fileID: 465964439}
     - target: {fileID: 2736555915743775656, guid: f06484c11ecab4e1d9c3ed1fccf159ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1284,6 +1307,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6070488447612593837, guid: f06484c11ecab4e1d9c3ed1fccf159ff, type: 3}
+      propertyPath: intcam
+      value: 
+      objectReference: {fileID: 1733740263}
     - target: {fileID: 6197599499757866755, guid: f06484c11ecab4e1d9c3ed1fccf159ff, type: 3}
       propertyPath: coilin
       value: 1

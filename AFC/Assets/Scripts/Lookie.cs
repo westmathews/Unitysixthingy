@@ -12,6 +12,7 @@ public class Lookie : MonoBehaviour
     public Vector3 starting;
     public float recoilX;
     public float recoilStrength; // How strong the recoil is
+    public float secondaryrecoilstrength;
     public float recoilResetSpeed;// Speed at which recoil resets
     public float finalcoil;
     public bool coilin = false;
@@ -67,6 +68,15 @@ public class Lookie : MonoBehaviour
         initialcoil = intcam.GetComponent<intcamlookie>().xRotation;
         finalcoil = intcam.GetComponent<intcamlookie>().xRotation - recoilStrength;
         recoilX += recoilStrength;
+        coilin = true;
+        Debug.Log("int" + intcam.GetComponent<intcamlookie>().xRotation);
+        Debug.Log("main" + xRotation);
+    }
+    public void secondaryrecoil()
+    {
+        initialcoil = intcam.GetComponent<intcamlookie>().xRotation;
+        finalcoil = intcam.GetComponent<intcamlookie>().xRotation - secondaryrecoilstrength;
+        recoilX += secondaryrecoilstrength;
         coilin = true;
     }
 }

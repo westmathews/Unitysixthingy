@@ -7,6 +7,7 @@ public class intcamlookie : MonoBehaviour
     public float mouseSensitivity; // Mouse sensitivity
     public float xRotation; // Vertical rotation
     public GameObject mncam;
+    public GameObject stickycam;
     public float bsmssen;
     void Start()
     {

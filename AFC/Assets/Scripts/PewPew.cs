@@ -3,25 +3,28 @@ using UnityEngine;
 public class PewPew : MonoBehaviour
 {
     //public Camera playerCamera; // Assign your camera in the inspector
-    public float shootingRange; // How far the ray can go
-    public LayerMask targetLayer; // Specify which layer to detect hits
+    // How far the ray can go
+    public LayerMask targetLayer;
+    [Header("Ammo")]
     public float ammo;
-    //public Vector3 target;
-    private float rtime;
-    public bool reloading;
-    private bool shotcooldown;
-    private float nospam;
-    //public string thing_hit = "nothingyet";
     public float maxammo;
+    [Header("Reloading")]
     public float rspd;
+    public float rtime;
+    public bool reloading;
+    [Header("Main")]
+    public bool shotcooldown;
+    public float nospam;
     public float shtspd;
-    public float dmg;
+    public float shootingRange;
     public bool maingun;
-    public float snddmg;
+    public float dmg;
+    [Header("Secondary")]
     public bool abcool;
     public float abtime;
     public float abcooldown;
     public bool secondary;
+    public float snddmg;
     private void Start()
     {
 

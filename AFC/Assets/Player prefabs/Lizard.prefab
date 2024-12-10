@@ -1333,6 +1333,8 @@ MonoBehaviour:
   starting: {x: 0, y: 0, z: 0}
   recoilX: 0
   recoilStrength: 5
+  secondaryrecoilstrength: 5
+  recoilmod: 0
   recoilResetSpeed: 1.5
   finalcoil: 0
   coilin: 0
@@ -1575,6 +1577,7 @@ MonoBehaviour:
   Speebtime: 0
   mvabtime: 0
   mvcool: 0
+  self: {fileID: 0}
 --- !u!1001 &698818698262892570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1658,28 +1661,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c90572d9c93524ffe9de6b4d6bdd81ea, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5722672519537725646}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c90572d9c93524ffe9de6b4d6bdd81ea, type: 3}
---- !u!1 &392897520999689547 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c90572d9c93524ffe9de6b4d6bdd81ea, type: 3}
-  m_PrefabInstance: {fileID: 698818698262892570}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5722672519537725646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 392897520999689547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fddb767d2b04643888feb47af3ef8779, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1024580572554541041 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c90572d9c93524ffe9de6b4d6bdd81ea, type: 3}
