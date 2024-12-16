@@ -7,6 +7,7 @@ public class Lizardschmove : MonoBehaviour
     public float mvabtime;
     public bool mvcool;
     public MeshRenderer self;
+    public GameObject UI;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,6 +18,16 @@ public class Lizardschmove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UI.GetComponent<UI>().mvcool = (mvabtime - 3) * -1;
+        if (!mvcool)
+        {
+            UI.GetComponent<UI>().mvready = true;
+        }
+        else
+        {
+            UI.GetComponent<UI>().mvready = false;
+
+        }
         mvabtime += Time.deltaTime;
         Speebtime += Time.deltaTime;
         if (GetComponentInChildren<Health>().hepo <= 50)
@@ -55,11 +66,16 @@ public class Lizardschmove : MonoBehaviour
         if (mvabtime < .1)
         {
             GetComponentInParent<Player_Movement>().wspeed = 100;
+            GetComponentInParent<Player_Movement>().sprintspd = 100;
             self.enabled = false;
         }
         else
         {
             GetComponentInParent<Player_Movement>().wspeed = 5;
+            GetComponentInParent<Player_Movement>().sprintspd = 11;
+        }
+        if (mvabtime > .4)
+        {
             self.enabled = true;
         }
 

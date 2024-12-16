@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class CameraSwitchWithRotation : MonoBehaviour
 {
+    public float firstpersoncameraheight;
     public Transform player; // Reference to the player's transform
-    public Vector3 firstPersonOffset = new Vector3(0, 1.8f, 0); // First-person view position (near player's head)
+    public Vector3 firstPersonOffset; // First-person view position (near player's head)
     public Vector3 thirdPersonOffset = new Vector3(0, 2, -5); // Third-person view offset (behind the player)
     public float followSpeed = 5f; // Speed of camera following the player
     public float smoothTransitionSpeed = 5f; // Speed of smooth camera transition
@@ -16,9 +17,10 @@ public class CameraSwitchWithRotation : MonoBehaviour
     private float pitch = 0f; // Camera pitch (vertical rotation)
     private float yaw = 0f; // Camera yaw (horizontal rotation)
     private bool isSwitchingToThirdPerson = false; // Check if we're transitioning to third-person
-
+    
     void Start()
     {
+        firstPersonOffset = new Vector3(0, firstpersoncameraheight, 0);
         // Start with first-person view
         currentOffset = firstPersonOffset;
         transform.position = player.position + player.TransformDirection(currentOffset);
@@ -30,6 +32,7 @@ public class CameraSwitchWithRotation : MonoBehaviour
 
     void LateUpdate()
     {
+        
         // Check if we're switching to third-person view
         if (Input.GetKey(KeyCode.LeftShift))
         {

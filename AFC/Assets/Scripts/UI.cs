@@ -10,6 +10,7 @@ public class UI : MonoBehaviour
     public TextMeshProUGUI mvabiby;
     private float equalizer;
     public float mvcool;
+    public bool mvready = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,7 +20,6 @@ public class UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mvcool = (GetComponentInParent<Lizardschmove>().mvabtime -3) * -1;
         equalizer = (GetComponentInParent<PewPew>().abtime -5) * -1;
         hbar.text = "Health: " + GetComponentInParent<Health>().hepo.ToString();
         if (!GetComponentInParent<PewPew>().reloading)
@@ -38,7 +38,7 @@ public class UI : MonoBehaviour
         {
             abiby.text = "" + equalizer.ToString("F0");
         }
-        if (!GetComponentInParent<Lizardschmove>().mvcool)
+        if (mvready)
         {
             mvabiby.text = "Redy";
         }
