@@ -4,6 +4,10 @@ using TMPro;
 public class UI : MonoBehaviour
 
 {
+    public GameObject Bulletuno;
+    public GameObject Bulletdos;
+    public GameObject Bullettres;
+    public GameObject Bulletquatro;
     public TextMeshProUGUI ammer;
     public TextMeshProUGUI hbar;
     public TextMeshProUGUI abiby;
@@ -46,5 +50,39 @@ public class UI : MonoBehaviour
         {
             mvabiby.text = "" + mvcool.ToString("F0");
         }
+        /*
+        if (GetComponentInParent<PewPew>().ammo >= 1)
+        {
+            Bulletuno.SetActive(true);
+        }
+        else
+        {
+            Bulletuno.SetActive(false);
+        }
+        if (GetComponentInParent<PewPew>().ammo >= 2)
+        {
+            Bulletdos.SetActive(true);
+        }
+        else
+        {
+            Bulletdos.SetActive(false);
+        }
+        if (GetComponentInParent<PewPew>().ammo >= 3)
+        {
+            Bullettres.SetActive(true);
+        }
+        else
+        {
+            Bullettres.SetActive(false);
+        }
+        if (GetComponentInParent<PewPew>().ammo >= 4)
+        {
+            Bulletquatro.SetActive(true);
+        }
+        else
+        {
+            Bulletquatro.SetActive(false);
+        }
+        */
     }
 }
