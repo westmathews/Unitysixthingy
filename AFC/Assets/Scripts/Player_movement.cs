@@ -11,7 +11,9 @@ public class Player_Movement : MonoBehaviour
     public float jumpVelocity;
     public float sprintspd;
     public float wspeed;
-
+    public float moveX;
+    public float moveZ;
+    public bool gliding = false;
     void Start()
     {
         
@@ -48,12 +50,19 @@ public class Player_Movement : MonoBehaviour
 
         // Apply gravity
 
-       
+
 
         // Get input for movement
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
-
+        if (gliding)
+        {
+            moveX = 0;
+            moveZ = 1;
+        }
+        else
+        {
+            moveX = Input.GetAxis("Horizontal");
+            moveZ = Input.GetAxis("Vertical");
+        }
         // Create movement vector
         Vector3 move = transform.right * moveX + transform.forward * moveZ;
 

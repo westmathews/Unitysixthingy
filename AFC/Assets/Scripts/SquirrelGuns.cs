@@ -10,6 +10,9 @@ public class SquirrelGuns : MonoBehaviour
     public float sndshots = 5;
     public bool shat = false;
     public float spreadangle = 5;
+    public MeshRenderer nade;
+    public Rigidbody grenade;
+    public Transform grenada;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -70,7 +73,10 @@ public class SquirrelGuns : MonoBehaviour
         Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
         sndshots += 1;
-
+        nade.enabled = true;
+        grenade.useGravity = true;
+        grenade.AddForce(transform.forward * 35);
+        grenada.parent = null;
         GetComponentInParent<PewPew>().nospam = 0;
         playerCamera.GetComponent<Lookie>().recoilStrength = 2.25f;
         playerCamera.GetComponent<Lookie>().recoil();
