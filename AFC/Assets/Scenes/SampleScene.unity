@@ -1488,7 +1488,6 @@ GameObject:
   - component: {fileID: 2042900192}
   - component: {fileID: 2042900191}
   - component: {fileID: 2042900190}
-  - component: {fileID: 2042900194}
   - component: {fileID: 2042900195}
   m_Layer: 0
   m_Name: Capsule (1)
@@ -1582,39 +1581,12 @@ Transform:
   m_GameObject: {fileID: 2042900189}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.61, y: 1.58, z: 0}
+  m_LocalPosition: {x: 7.61, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &2042900194
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2042900189}
-  serializedVersion: 4
-  m_Mass: 0.1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 2
 --- !u!114 &2042900195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1648,6 +1620,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sqoung
       objectReference: {fileID: 0}
+    - target: {fileID: 82343815455260014, guid: 071bb06d5471d43e79343ef78bd073dd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039601765292003508, guid: 071bb06d5471d43e79343ef78bd073dd, type: 3}
+      propertyPath: nade
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039601765292003508, guid: 071bb06d5471d43e79343ef78bd073dd, type: 3}
+      propertyPath: grenada
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039601765292003508, guid: 071bb06d5471d43e79343ef78bd073dd, type: 3}
+      propertyPath: grenade
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039601765292003508, guid: 071bb06d5471d43e79343ef78bd073dd, type: 3}
+      propertyPath: Grenaben
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039601765292003508, guid: 071bb06d5471d43e79343ef78bd073dd, type: 3}
+      propertyPath: GrenHitbox
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039601765292003508, guid: 071bb06d5471d43e79343ef78bd073dd, type: 3}
+      propertyPath: FrontDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4039601765292003508, guid: 071bb06d5471d43e79343ef78bd073dd, type: 3}
+      propertyPath: grenadeprefab
+      value: 
+      objectReference: {fileID: 1009067334264034623, guid: 72795f699ee61472cbc060d631ce0720, type: 3}
     - target: {fileID: 5588523094167816823, guid: 071bb06d5471d43e79343ef78bd073dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1688,8 +1692,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7017272576434632687, guid: 071bb06d5471d43e79343ef78bd073dd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7694713265879305772, guid: 071bb06d5471d43e79343ef78bd073dd, type: 3}
+      propertyPath: m_Mass
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7694713265879305772, guid: 071bb06d5471d43e79343ef78bd073dd, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7694713265879305772, guid: 071bb06d5471d43e79343ef78bd073dd, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2534886258948676667, guid: 071bb06d5471d43e79343ef78bd073dd, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 071bb06d5471d43e79343ef78bd073dd, type: 3}

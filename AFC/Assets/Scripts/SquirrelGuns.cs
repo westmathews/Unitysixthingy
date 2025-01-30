@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class SquirrelGuns : MonoBehaviour
 {
+    public GameObject grenadeprefab;
+    public GameObject Grenaben;
     public GameObject intcam;
     public Camera playerCamera;
     public Vector3 target;
@@ -13,6 +15,7 @@ public class SquirrelGuns : MonoBehaviour
     public MeshRenderer nade;
     public Rigidbody grenade;
     public Transform grenada;
+    public float FrontDistance;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -70,17 +73,26 @@ public class SquirrelGuns : MonoBehaviour
     }
     void Secondary(Vector3 playerPos, Vector3 offset)
     {
-        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        RaycastHit hit;
-        sndshots += 1;
+        //Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        //RaycastHit hit;
+        //sndshots += 1;
+        Vector3 GunPosition = transform.position;
+        Vector3 Gunforward = transform.forward;
+        Vector3 Spawnpos = GunPosition + Gunforward * FrontDistance;
+        Grenaben = Instantiate(grenadeprefab, Spawnpos, Quaternion.identity);
+        grenade = Grenaben.GetComponent<Rigidbody>();
+        grenada = Grenaben.GetComponent<Transform>();
+        nade = Grenaben.GetComponentInChildren<MeshRenderer>();
         nade.enabled = true;
         grenade.useGravity = true;
-        grenade.AddForce(transform.forward * 35);
+        grenade.constraints = RigidbodyConstraints.None;
+        grenade.AddForce(transform.forward * 35,ForceMode.Impulse);
         grenada.parent = null;
-        GetComponentInParent<PewPew>().nospam = 0;
-        playerCamera.GetComponent<Lookie>().recoilStrength = 2.25f;
-        playerCamera.GetComponent<Lookie>().recoil();
-        if (Physics.Raycast(ray, out hit, range))
+        grenada.GetComponent<CapsuleCollider>().enabled = true;
+        //GetComponentInParent<PewPew>().nospam = 0;
+        //playerCamera.GetComponent<Lookie>().recoilStrength = 2.25f;
+        //playerCamera.GetComponent<Lookie>().recoil();
+        /*if (Physics.Raycast(ray, out hit, range))
         {
             target = hit.transform.position;
             Debug.Log("Hit object tag: " + hit.collider.tag);
@@ -95,6 +107,7 @@ public class SquirrelGuns : MonoBehaviour
                 // You can add additional actions here, like applying damage or triggering an effect
             }
         }
+        */
         //Ray raytwo = new Vector3(target)(new Vector3(offset));
     }
     Vector3 spreaddirection()
