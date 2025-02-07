@@ -7,6 +7,8 @@ public class Squirrelschmove : MonoBehaviour
     public float mvabtime;
     public bool mvcool;
     public GameObject UI;
+    public float wspeed;
+    public float airTime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,21 +28,27 @@ public class Squirrelschmove : MonoBehaviour
         else
         {
             UI.GetComponent<UI>().mvready = false;
-            mvcool = false;
+            
         }
         mvabtime += Time.deltaTime;
         Glidetime += Time.deltaTime;
         if (Input.GetKey(KeyCode.E)&& !mvcool && !GetComponentInChildren<CameraSwitchWithRotation>().isThirdPerson && !GetComponent<Player_Movement>().isGrounded)
         {
+            airTime = +1;
+            //wspeed = (Mathf.Sqrt(airTime) * 25);
             GetComponent<Player_Movement>().ySpeed = -1.5f;
             GetComponent<Player_Movement>().gliding = true;
-            GetComponent<Player_Movement>().wspeed = 12.5f;           
+            GetComponent<Player_Movement>().wspeed = 15;           
         }
         else
         {
             GetComponent<Player_Movement>().gliding = false;
             GetComponent<Player_Movement>().wspeed = 7.5f;
 
+        }
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            mvcool = true;
         }
         if (Input.GetKey(KeyCode.E) && GetComponent<Player_Movement>().isGrounded)
         {

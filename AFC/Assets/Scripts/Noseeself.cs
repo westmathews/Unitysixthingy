@@ -17,9 +17,9 @@ public class Noseeself : MonoBehaviour
         }
         else
         {
-            GetComponent<Camera>().cullingMask = 55;
+            GetComponent<Camera>().cullingMask = 63;
         }
-        
+
 
     }
 }

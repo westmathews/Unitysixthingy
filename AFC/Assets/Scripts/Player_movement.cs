@@ -14,13 +14,30 @@ public class Player_Movement : MonoBehaviour
     public float moveX;
     public float moveZ;
     public bool gliding = false;
+    public bool grenadehit = false;
+    Vector3 move;
+    Vector3 hitdirection;
+    public float grenknockback;
     void Start()
+    {        
+        //jumpVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
+    }
+    void OnTriggerEnter(Collider other)
     {
-        
-        jumpVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        hitdirection = ((transform.position - other.transform.position).normalized);
+        if (hitdirection.y < .5f)
+        {
+            hitdirection = (hitdirection + new Vector3(0, 1, 0)) * 2;
+        }
+        else
+        {
+            hitdirection = hitdirection * 2;
+        }
+        Debug.Log("igodisway:"+hitdirection);
     }
     void Update()
     {
+        
         // Check if the player is grounded
         isGrounded = controller.isGrounded;
 
@@ -56,7 +73,7 @@ public class Player_Movement : MonoBehaviour
         if (gliding)
         {
             moveX = 0;
-            moveZ = 1;
+            moveZ = 1;    
         }
         else
         {
@@ -64,12 +81,36 @@ public class Player_Movement : MonoBehaviour
             moveZ = Input.GetAxis("Vertical");
         }
         // Create movement vector
-        Vector3 move = transform.right * moveX + transform.forward * moveZ;
+        move = transform.right * moveX + transform.forward * moveZ;
+        controller.Move(move * speed * Time.deltaTime + new Vector3(0, ySpeed, 0) * Time.deltaTime);
+        if (gliding)
+        {
+            hitdirection = new Vector3(0, 0, 0);
+        }
+        if (grenadehit)
+        {
 
-        // Move the player
+            move = transform.right * moveX + transform.forward * moveZ;
+            if (gliding)
+            {
+
+            }
+            if (isGrounded && grenknockback > .1f)
+            {
+                grenadehit = false;
+                grenknockback = 0;
+            }
+            if (grenknockback > 3)
+            {
+                grenadehit = false;
+                grenknockback = 0;
+            }
+            controller.Move(hitdirection * speed * Time.deltaTime + new Vector3(0, ySpeed, 0) * Time.deltaTime);
+            grenknockback += Time.deltaTime;
+        }
         controller.Move(move * speed * Time.deltaTime + new Vector3(0, ySpeed, 0) * Time.deltaTime);
 
-        
+
     }
     
 }
