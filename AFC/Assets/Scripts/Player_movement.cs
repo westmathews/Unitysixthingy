@@ -27,11 +27,11 @@ public class Player_Movement : MonoBehaviour
         hitdirection = ((transform.position - other.transform.position).normalized);
         if (hitdirection.y < .5f)
         {
-            hitdirection = (hitdirection + new Vector3(0, 1, 0)) * 2;
+            hitdirection = (hitdirection + new Vector3(0, 1.2f, 0)) * 2;
         }
         else
         {
-            hitdirection = hitdirection * 2;
+            hitdirection = hitdirection * 3;
         }
         Debug.Log("igodisway:"+hitdirection);
     }
