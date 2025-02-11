@@ -19,6 +19,13 @@ public class Lookie : MonoBehaviour
     public float initialcoil;
     public GameObject intcam;
     public float bsmssen;
+    public Camera maincam;
+    public float defFOV;
+    public float zoomFOV;
+    public float zoomspeed;
+    public bool scopestart = false;
+    public bool blockscope = true;
+    public bool scoping = false;
     void Start()
     {
         // Lock the cursor to the center of the screen
@@ -28,14 +35,46 @@ public class Lookie : MonoBehaviour
 
     void Update()
     {
+        if (maincam.GetComponent<CameraSwitchWithRotation>().isThirdPerson == false)
+        {
+            blockscope = false;
+        }
+        else
+        {
+            blockscope = true;
+        }
+
         if (Input.GetKey(KeyCode.LeftShift))
         {
             mouseSensitivity = bsmssen * 2;
         }
-        else
+        if (!scoping && !(Input.GetKey(KeyCode.LeftShift)))
         {
             mouseSensitivity = bsmssen;
         }
+        //toggle scope
+        if (Input.GetKey(KeyCode.Mouse1))
+        {
+            scopestart = true;
+        }
+        else
+        {
+            scopestart = false;
+        }
+        if (scopestart && !blockscope)
+        {
+            scoping = true;
+        }
+        else
+        {
+            scoping = false;
+        }
+        if (scoping)
+        {
+            mouseSensitivity = bsmssen / 2;
+        }
+        float targetFOV = scoping ? zoomFOV : defFOV;
+        maincam.fieldOfView = Mathf.Lerp(maincam.fieldOfView, targetFOV, Time.deltaTime * zoomspeed);
         // Get mouse input
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;

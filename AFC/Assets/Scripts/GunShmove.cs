@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GunShmove : MonoBehaviour
 {
-    public float mouseSensitivity = 100f; // Mouse sensitivity
+    public float mouseSensitivity; // Mouse sensitivity
     public Transform playerBody; // Reference to the player's body for rotation
     private float xRotation = 0f; // Vertical rotation
     public bool thirdpers = false;
+    public float basemousesensitivity;
     public GameObject mncam;
+
     void Start()
     {
         // Lock the cursor to the center of the screen
@@ -30,6 +33,15 @@ public class GunShmove : MonoBehaviour
         {
             xRotation = mncam.GetComponent<Lookie>().xRotation;
         }
+
+        if (mncam.GetComponent<Lookie>().scoping)
+        {
+            mouseSensitivity = basemousesensitivity / 2;
+        }
+        else
+        {
+            mouseSensitivity = basemousesensitivity;
+        }
         // Get mouse input
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
@@ -43,6 +55,7 @@ public class GunShmove : MonoBehaviour
         {            
             playerBody.Rotate(Vector3.up * mouseX);
         }
+
         
     }
 }

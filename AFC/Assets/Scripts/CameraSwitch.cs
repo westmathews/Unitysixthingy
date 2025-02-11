@@ -43,6 +43,8 @@ public class CameraSwitchWithRotation : MonoBehaviour
                 isSwitchingToThirdPerson = true;
             }
 
+
+
             if (isSwitchingToThirdPerson)
             {
                 // Set initial yaw to match the player's current rotation
