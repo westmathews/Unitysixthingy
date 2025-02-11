@@ -17,6 +17,7 @@ public class CameraSwitchWithRotation : MonoBehaviour
     private float pitch = 0f; // Camera pitch (vertical rotation)
     private float yaw = 0f; // Camera yaw (horizontal rotation)
     private bool isSwitchingToThirdPerson = false; // Check if we're transitioning to third-person
+   
     
     void Start()
     {
@@ -41,6 +42,8 @@ public class CameraSwitchWithRotation : MonoBehaviour
             {
                 isThirdPerson = true;
                 isSwitchingToThirdPerson = true;
+                
+
             }
 
             if (isSwitchingToThirdPerson)
