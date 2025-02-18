@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Lookie : MonoBehaviour
 {
-    public float mouseSensitivity = 100f; // Mouse sensitivity
-    public Transform playerBody; // Reference to the player's body for rotation
+    
+    
     public float xRotation = 0f; // Vertical rotation
+    [Header("References")]
+    public Transform playerBody; // Reference to the player's body for rotation
     public GameObject Sticker;
     public Transform player;
     public Vector3 starting;
+    public Camera maincam;
+    [Header("Recoil")]
     public float recoilX;
     public float recoilStrength; // How strong the recoil is
     public float secondaryrecoilstrength;
@@ -18,14 +22,21 @@ public class Lookie : MonoBehaviour
     public bool coilin = false;
     public float initialcoil;
     public GameObject intcam;
+    [Header("sensitivity")]
     public float bsmssen;
-    public Camera maincam;
+    public float mouseSensitivity = 100f; // Mouse sensitivity
+    
+    [Header("Scoping")]
     public float defFOV;
     public float zoomFOV;
     public float zoomspeed;
     public bool scopestart = false;
     public bool blockscope = true;
     public bool scoping = false;
+    [Header("ScopedRecoil")]
+    public float scopedrecoilstrength;
+    public float scopedsecondaryrecoilstrength;
+    public float scopedrecoilspeed;
     void Start()
     {
         // Lock the cursor to the center of the screen
@@ -83,8 +94,14 @@ public class Lookie : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Clamp the vertical rotation
         xRotation -= recoilX;
-        recoilX = Mathf.Lerp(recoilX, 0f, recoilResetSpeed * Time.deltaTime);
-      
+        if (scoping)
+        {
+            recoilX = Mathf.Lerp(recoilX, 0f, scopedrecoilspeed * Time.deltaTime);
+        }
+        else
+        {
+            recoilX = Mathf.Lerp(recoilX, 0f, recoilResetSpeed * Time.deltaTime);
+        }
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
         if (Sticker.GetComponent<PewPew>().maingun)
@@ -93,7 +110,16 @@ public class Lookie : MonoBehaviour
         }
         if (xRotation <= finalcoil && coilin)
         {
-            recoilX -= recoilStrength;
+            if (scoping)
+            {
+                recoilX -= scopedrecoilstrength;
+
+            }
+            else
+            {
+                recoilX -= recoilStrength;
+
+            }
             coilin = false;
         }
         if (xRotation > initialcoil)
@@ -105,8 +131,17 @@ public class Lookie : MonoBehaviour
     public void recoil()
     {
         initialcoil = intcam.GetComponent<intcamlookie>().xRotation;
-        finalcoil = intcam.GetComponent<intcamlookie>().xRotation - recoilStrength;
-        recoilX += recoilStrength;
+        if (scoping)
+        {
+            recoilX += scopedrecoilstrength;
+            finalcoil = intcam.GetComponent<intcamlookie>().xRotation - scopedrecoilstrength;
+        }
+        else
+        {
+            recoilX += recoilStrength;
+            finalcoil = intcam.GetComponent<intcamlookie>().xRotation - recoilStrength;
+        }
+        
         coilin = true;
         Debug.Log("int" + intcam.GetComponent<intcamlookie>().xRotation);
         Debug.Log("main" + xRotation);
@@ -114,8 +149,19 @@ public class Lookie : MonoBehaviour
     public void secondaryrecoil()
     {
         initialcoil = intcam.GetComponent<intcamlookie>().xRotation;
-        finalcoil = intcam.GetComponent<intcamlookie>().xRotation - secondaryrecoilstrength;
-        recoilX += secondaryrecoilstrength;
+
+        if (scoping)
+        {
+            recoilX += scopedsecondaryrecoilstrength;
+            finalcoil = intcam.GetComponent<intcamlookie>().xRotation - scopedsecondaryrecoilstrength;
+
+        }
+        else
+        {
+            recoilX += secondaryrecoilstrength;
+            finalcoil = intcam.GetComponent<intcamlookie>().xRotation - secondaryrecoilstrength;
+        }
+        
         coilin = true;
     }
 }

@@ -89,26 +89,7 @@ public class SquirrelGuns : MonoBehaviour
         grenade.AddForce(transform.forward * 35,ForceMode.Impulse);
         grenada.parent = null;
         grenada.GetComponent<CapsuleCollider>().enabled = true;
-        //GetComponentInParent<PewPew>().nospam = 0;
-        //playerCamera.GetComponent<Lookie>().recoilStrength = 2.25f;
-        //playerCamera.GetComponent<Lookie>().recoil();
-        /*if (Physics.Raycast(ray, out hit, range))
-        {
-            target = hit.transform.position;
-            Debug.Log("Hit object tag: " + hit.collider.tag);
-            thing_hit = (hit.collider.tag);
-            // Check if the hit object has the "Player" tag
-            if (hit.collider.CompareTag("Player"))
-            {
-                //gets health script owner
-                hit.collider.gameObject.GetComponent<Health>().hepo -= GetComponentInParent<PewPew>().snddmg;
-                
-                // Logic for hitting a player
-                // You can add additional actions here, like applying damage or triggering an effect
-            }
-        }
-        */
-        //Ray raytwo = new Vector3(target)(new Vector3(offset));
+        
     }
     Vector3 spreaddirection()
     {
