@@ -9,6 +9,7 @@ public class Squirelgrenade : MonoBehaviour
     public GameObject prefab;
     public bool active = true;
     public CharacterController controller;
+    public float kama = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,6 +24,7 @@ public class Squirelgrenade : MonoBehaviour
         
         //me.AddExplosionForce(200000, transform.position, 150000, 3000.0f,ForceMode.Impulse);
         Explosion.enabled = true;
+
     }
     void OnTriggerEnter(Collider other)
     {
@@ -34,6 +36,11 @@ public class Squirelgrenade : MonoBehaviour
         // Check if the hit object has the "Player" tag
         if (other.gameObject.CompareTag("Player"))
         {
+
+            if (other.gameObject.GetComponent<Player_Movement>())
+            {
+                other.gameObject.GetComponent<Player_Movement>().grenadehit = true;
+            }
             //Vector3 hitdirection = 
             if (other.gameObject.GetComponentInChildren<SquirrelGuns>())
             {
@@ -43,13 +50,35 @@ public class Squirelgrenade : MonoBehaviour
             {
                 //gets health script owner
                 other.gameObject.GetComponentInChildren<Health>().hepo -= 50;
+                Debug.Log("Boom");
+                
             }
-            Debug.Log("Hit");
-            other.gameObject.GetComponent<Player_Movement>().grenadehit = true;
+            Destroy(Thineself);
+            //Debug.Log("Hit");
+
+
             // Logic for hitting a player
             // You can add additional actions here, like applying damage or triggering an effect
         }
         
-        Destroy(Thineself);        
+        Destroy(Thineself);
+        
+
+       
+    }
+    void Update()
+    {
+
+        if (Explosion.enabled && kama == 10)
+        {
+            Destroy(Thineself);
+        }
+
+        if (Explosion.enabled)
+        {
+
+
+            kama += 1;
+        }
     }
 }

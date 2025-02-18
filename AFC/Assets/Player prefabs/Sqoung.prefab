@@ -713,12 +713,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab96cb5f28b84e02866a76b92cd277d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 2500
-  playerBody: {fileID: 8153777607097285048}
   xRotation: 0
+  playerBody: {fileID: 8153777607097285048}
   Sticker: {fileID: 5864093281676871925}
   player: {fileID: 8153777607097285048}
   starting: {x: 0, y: 0, z: 0}
+  maincam: {fileID: 514068736955124887}
   recoilX: 0
   recoilStrength: 5
   secondaryrecoilstrength: 5
@@ -728,13 +728,16 @@ MonoBehaviour:
   initialcoil: 0
   intcam: {fileID: 7861163090289108278}
   bsmssen: 2500
-  maincam: {fileID: 514068736955124887}
+  mouseSensitivity: 2500
   defFOV: 60
   zoomFOV: 30
   zoomspeed: 13
   scopestart: 0
   blockscope: 1
   scoping: 0
+  scopedrecoilstrength: 0
+  scopedsecondaryrecoilstrength: 0
+  scopedrecoilspeed: 0
 --- !u!114 &3028670613696436353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1617,7 +1620,7 @@ RectTransform:
   m_GameObject: {fileID: 8739205824294844798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4825963528707158596}

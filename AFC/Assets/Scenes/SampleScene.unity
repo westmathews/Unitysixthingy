@@ -812,6 +812,7 @@ GameObject:
   - component: {fileID: 1181508400}
   - component: {fileID: 1181508399}
   - component: {fileID: 1181508403}
+  - component: {fileID: 1181508404}
   m_Layer: 0
   m_Name: Capsule (2)
   m_TagString: Player
@@ -836,7 +837,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2
@@ -927,6 +928,31 @@ MonoBehaviour:
   maxhp: 200
   player: {fileID: 1181508400}
   regencool: 0
+--- !u!143 &1181508404
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181508398}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1399295457
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,6 +1397,7 @@ GameObject:
   - component: {fileID: 1991883515}
   - component: {fileID: 1991883514}
   - component: {fileID: 1991883513}
+  - component: {fileID: 1991883517}
   m_Layer: 3
   m_Name: Plane
   m_TagString: Untagged
@@ -1468,6 +1495,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1991883517
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991883512}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9.999999, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2042900189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,6 +1529,7 @@ GameObject:
   - component: {fileID: 2042900191}
   - component: {fileID: 2042900190}
   - component: {fileID: 2042900195}
+  - component: {fileID: 2042900196}
   m_Layer: 0
   m_Name: Capsule (1)
   m_TagString: Player
@@ -1505,7 +1554,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2
@@ -1596,6 +1645,31 @@ MonoBehaviour:
   maxhp: 100
   player: {fileID: 2042900191}
   regencool: 0
+--- !u!143 &2042900196
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042900189}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.02
+  m_MinMoveDistance: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3289337650845455268 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3514597195854547565, guid: 94a5265322de1482e8b6023cd1103328, type: 3}
