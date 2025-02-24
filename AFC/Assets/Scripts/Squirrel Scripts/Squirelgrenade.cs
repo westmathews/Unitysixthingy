@@ -21,13 +21,14 @@ public class Squirelgrenade : MonoBehaviour
     
     void OnCollisionEnter(Collision collision)
     {
-        
+        Debug.Log("Hitsmth");
         //me.AddExplosionForce(200000, transform.position, 150000, 3000.0f,ForceMode.Impulse);
         Explosion.enabled = true;
 
     }
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Explodered");
         //other.GetComponent<Rigidbody>().AddExplosionForce(20, transform.position, 15, 3.0f, ForceMode.Impulse);
         if (other.GetComponent<CharacterController>())
         {
@@ -36,10 +37,11 @@ public class Squirelgrenade : MonoBehaviour
         // Check if the hit object has the "Player" tag
         if (other.gameObject.CompareTag("Player"))
         {
-
+            Debug.Log("HitPlayer");
             if (other.gameObject.GetComponent<Player_Movement>())
             {
                 other.gameObject.GetComponent<Player_Movement>().grenadehit = true;
+                Debug.Log("PlayerBounce");
             }
             //Vector3 hitdirection = 
             if (other.gameObject.GetComponentInChildren<SquirrelGuns>())
@@ -61,7 +63,7 @@ public class Squirelgrenade : MonoBehaviour
             // You can add additional actions here, like applying damage or triggering an effect
         }
         
-        Destroy(Thineself);
+        
         
 
        
@@ -69,8 +71,9 @@ public class Squirelgrenade : MonoBehaviour
     void Update()
     {
 
-        if (Explosion.enabled && kama == 10)
+        if (Explosion.enabled && kama == 20)
         {
+            Debug.Log("Destroying self");
             Destroy(Thineself);
         }
 

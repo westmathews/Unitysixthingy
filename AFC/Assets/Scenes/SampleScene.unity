@@ -2577,6 +2577,11 @@ CharacterController:
   m_SkinWidth: 0.02
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2060161631 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5864093281676871925, guid: 5bbefb969aa04451ea99da1108b5e895, type: 3}
+  m_PrefabInstance: {fileID: 5685217286907369179}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3289337650845455268 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3514597195854547565, guid: 94a5265322de1482e8b6023cd1103328, type: 3}
@@ -2618,6 +2623,10 @@ PrefabInstance:
       propertyPath: Other
       value: 
       objectReference: {fileID: 3289337650845455268}
+    - target: {fileID: 6393681498859542496, guid: 5bbefb969aa04451ea99da1108b5e895, type: 3}
+      propertyPath: stickycam
+      value: 
+      objectReference: {fileID: 2060161631}
     - target: {fileID: 8153777607097285048, guid: 5bbefb969aa04451ea99da1108b5e895, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
