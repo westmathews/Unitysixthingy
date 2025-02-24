@@ -7,7 +7,7 @@ public class GunShmove : MonoBehaviour
 {
     public float mouseSensitivity; // Mouse sensitivity
     public Transform playerBody; // Reference to the player's body for rotation
-    private float xRotation = 0f; // Vertical rotation
+    public float xRotation = 0f; // Vertical rotation
     public bool thirdpers = false;
     public float basemousesensitivity;
     public GameObject mncam;
@@ -33,7 +33,7 @@ public class GunShmove : MonoBehaviour
         {
             xRotation = mncam.GetComponent<Lookie>().xRotation;
         }
-
+        xRotation = mncam.GetComponent<Lookie>().xRotation;
         if (mncam.GetComponent<Lookie>().scoping)
         {
             mouseSensitivity = basemousesensitivity / 2;

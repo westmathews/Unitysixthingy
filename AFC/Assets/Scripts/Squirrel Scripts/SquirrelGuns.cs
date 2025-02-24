@@ -27,6 +27,7 @@ public class SquirrelGuns : MonoBehaviour
     {
         if (sndshots < 5 && shat)
         {
+            intcam.GetComponent<intcamlookie>().xRotation = playerCamera.GetComponent<Lookie>().xRotation;
             This(transform.position, new Vector3(1, -1, 0));
             sndshots += 1;
         }
@@ -34,7 +35,7 @@ public class SquirrelGuns : MonoBehaviour
         {
             shat = false;
             sndshots = 0;
-            playerCamera.GetComponent<Lookie>().recoilStrength = 4;
+            Debug.Log("hi alex :)");
             playerCamera.GetComponent<Lookie>().recoil();
         }
         if (GetComponentInParent<PewPew>().maingun)
@@ -50,7 +51,6 @@ public class SquirrelGuns : MonoBehaviour
     void This(Vector3 playerPos, Vector3 offset)
     {
         Vector3 shootdirection = spreaddirection();
-        intcam.GetComponent<intcamlookie>().xRotation = playerCamera.GetComponent<Lookie>().xRotation;
         RaycastHit hit;
 
         if (Physics.Raycast(playerCamera.transform.position, shootdirection, out hit, range))
