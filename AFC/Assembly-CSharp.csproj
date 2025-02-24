@@ -61,25 +61,27 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/6000.0.18f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Scripts/Squirrel Scripts/Squirelgrenade.cs" />
     <Compile Include="Assets/Scripts/CharacterSwitch.cs" />
-    <Compile Include="Assets/Scripts/PewPew.cs" />
+    <Compile Include="Assets/Scripts/Camera/GIbbityGone.cs" />
+    <Compile Include="Assets/Scripts/UI Scripts/UI.cs" />
+    <Compile Include="Assets/Scripts/Camera/Noseeself.cs" />
     <Compile Include="Assets/Scripts/Health.cs" />
-    <Compile Include="Assets/Scripts/CameraSwitch.cs" />
-    <Compile Include="Assets/Scripts/LizardGuns.cs" />
-    <Compile Include="Assets/Scripts/Lookie.cs" />
-    <Compile Include="Assets/Scripts/Crosshair.cs" />
-    <Compile Include="Assets/Scripts/Recoil.cs" />
-    <Compile Include="Assets/Scripts/GIbbityGone.cs" />
-    <Compile Include="Assets/Scripts/Lizardschmove.cs" />
-    <Compile Include="Assets/GunZoom.cs" />
-    <Compile Include="Assets/Scripts/UI.cs" />
-    <Compile Include="Assets/Scripts/Squirelgrenade.cs" />
-    <Compile Include="Assets/Scripts/intcamlookie.cs" />
-    <Compile Include="Assets/Scripts/SquirrelGuns.cs" />
-    <Compile Include="Assets/Scripts/Squirrelschmove.cs" />
+    <Compile Include="Assets/Scripts/Squirrel Scripts/SquirrelGuns.cs" />
+    <Compile Include="Assets/Scripts/Squirrel Scripts/Squirrelschmove.cs" />
+    <Compile Include="Assets/Scripts/Gun Scripts/Recoil.cs" />
+    <Compile Include="Assets/Scripts/UI Scripts/Crosshair.cs" />
+    <Compile Include="Assets/Scripts/Camera/intcamlookie.cs" />
+    <Compile Include="Assets/Scripts/Gun Scripts/GunZoom.cs" />
+    <Compile Include="Assets/Scripts/UI Scripts/CharacterSelect.cs" />
+    <Compile Include="Assets/Scripts/Camera/CameraSwitch.cs" />
     <Compile Include="Assets/Scripts/Player_movement.cs" />
-    <Compile Include="Assets/Scripts/Noseeself.cs" />
-    <Compile Include="Assets/Scripts/GunShmove.cs" />
+    <Compile Include="Assets/Scripts/Gun Scripts/GunShmove.cs" />
+    <Compile Include="Assets/Scripts/Gun Scripts/PewPew.cs" />
+    <Compile Include="Assets/Scripts/Lizard Scripts/Lizardschmove.cs" />
+    <Compile Include="Assets/Scripts/UI Scripts/Click.cs" />
+    <Compile Include="Assets/Scripts/Camera/Lookie.cs" />
+    <Compile Include="Assets/Scripts/Lizard Scripts/LizardGuns.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/Mirror/Plugins/Mono.Cecil/Mono.CecilX.dll" />
@@ -624,6 +626,18 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library/PackageCache/com.unity.nuget.newtonsoft-json/Runtime/Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>/Applications/Unity/Hub/Editor/6000.0.18f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>/Applications/Unity/Hub/Editor/6000.0.18f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEditor.Apple.Extensions.Common">
+      <HintPath>/Applications/Unity/Hub/Editor/6000.0.18f1/PlaybackEngines/iOSSupport/UnityEditor.Apple.Extensions.Common.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Android.Types">

@@ -18,19 +18,19 @@ COMMAND LINE ARGUMENTS:
 -name
 AssetImportWorker2
 -projectPath
-/Users/wmathews4255/Documents/GitHub/Unitysixthingy/AFC
+/Users/jvankopp4255/Documents/GitHub/Unitysixthingy/AFC
 -logFile
 Logs/AssetImportWorker2.log
 -srvPort
-50876
+50334
 -job-worker-count
 4
 -background-job-worker-count
 8
 -asset-garbage-collectors
 1
-Successfully changed project path to: /Users/wmathews4255/Documents/GitHub/Unitysixthingy/AFC
-Could not lock editor preferences. Preferences updates for this instance of Unity will not be saved./Users/wmathews4255/Documents/GitHub/Unitysixthingy/AFC
+Successfully changed project path to: /Users/jvankopp4255/Documents/GitHub/Unitysixthingy/AFC
+/Users/jvankopp4255/Documents/GitHub/Unitysixthingy/AFC
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -66,14 +66,12 @@ Could not lock editor preferences. Preferences updates for this instance of Unit
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [8115297984]  Target information:
+Player connection [8126865088]  Target information:
 
-Player connection [8115297984]  * "[IP] 10.230.34.68 [Port] 0 [Flags] 2 [Guid] 2833353724 [EditorId] 2833353724 [Version] 1048832 [Id] OSXEditor(0,IT01-125000) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" 
+Player connection [8126865088]  * "[IP] 192.168.2.6 [Port] 0 [Flags] 2 [Guid] 317585920 [EditorId] 317585920 [Version] 1048832 [Id] OSXEditor(0,IT01-125011) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" 
 
-Player connection [8115297984]  * "[IP] 192.168.2.5 [Port] 0 [Flags] 2 [Guid] 2833353724 [EditorId] 2833353724 [Version] 1048832 [Id] OSXEditor(0,IT01-125000) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" 
-
-Player connection [8115297984] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [8115297984] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [8126865088] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [8126865088] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 4
 Library Redirect Path: Library/
 [PhysX] Initialized MultithreadedTaskDispatcher with 5 workers.
@@ -81,7 +79,7 @@ Refreshing native plugins compatible for Editor in 0.17 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.0.18f1 (3699cf869f9b)
 [Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/6000.0.18f1/Unity.app/Contents/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path /Users/wmathews4255/Documents/GitHub/Unitysixthingy/AFC/Assets
+[Subsystems] Discovering subsystems at path /Users/jvankopp4255/Documents/GitHub/Unitysixthingy/AFC/Assets
 GfxDevice: creating device client; kGfxThreadingModeNonThreaded
  preferred device: Apple M1 Max (high power)
 Metal devices available: 1
@@ -92,54 +90,49 @@ Initialize mono
 Mono path[0] = '/Applications/Unity/Hub/Editor/6000.0.18f1/Unity.app/Contents/Managed'
 Mono path[1] = '/Applications/Unity/Hub/Editor/6000.0.18f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos'
 Mono config path = '/Applications/Unity/Hub/Editor/6000.0.18f1/Unity.app/Contents/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56499
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56908
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: /Applications/Unity/Hub/Editor/6000.0.18f1/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: /Applications/Unity/Hub/Editor/6000.0.18f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
 Register platform support module: /Applications/Unity/Hub/Editor/6000.0.18f1/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
-Register platform support module: /Applications/Unity/Hub/Editor/6000.0.18f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
-Registered in 0.001456 seconds.
-- Loaded All Assemblies, in  0.234 seconds
-[usbmuxd] Start listen thread
-[usbmuxd] Listen thread started
-[usbmuxd] Send listen message
-Native extension for iOS target not found
+Registered in 0.001107 seconds.
+- Loaded All Assemblies, in  0.224 seconds
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 187 ms
+Android Extension - Scanning For ADB Devices 192 ms
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.660 seconds
-Domain Reload Profiling: 894ms
-	BeginReloadAssembly (54ms)
+- Finished resetting the current domain, in  0.573 seconds
+Domain Reload Profiling: 798ms
+	BeginReloadAssembly (50ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (0ms)
-	RebuildCommonClasses (27ms)
+	RebuildCommonClasses (26ms)
 	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (29ms)
-	LoadAllAssembliesAndSetupDomain (115ms)
-		LoadAssemblies (54ms)
+	initialDomainReloadingComplete (28ms)
+	LoadAllAssembliesAndSetupDomain (111ms)
+		LoadAssemblies (50ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (113ms)
-			TypeCache.Refresh (111ms)
-				TypeCache.ScanAssembly (102ms)
+		AnalyzeDomain (108ms)
+			TypeCache.Refresh (107ms)
+				TypeCache.ScanAssembly (98ms)
 			BuildScriptInfoCaches (0ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (660ms)
+	FinalizeReload (574ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (626ms)
+		SetupLoadedEditorAssemblies (542ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (297ms)
+			InitializePlatformSupportModulesInManaged (249ms)
 			SetLoadedEditorAssemblies (3ms)
-			BeforeProcessingInitializeOnLoad (5ms)
-			ProcessInitializeOnLoadAttributes (175ms)
-			ProcessInitializeOnLoadMethodAttributes (96ms)
-			AfterProcessingInitializeOnLoad (50ms)
+			BeforeProcessingInitializeOnLoad (4ms)
+			ProcessInitializeOnLoadAttributes (171ms)
+			ProcessInitializeOnLoadMethodAttributes (93ms)
+			AfterProcessingInitializeOnLoad (22ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (0ms)
@@ -163,38 +156,38 @@ Assertion failed on expression: 'IsFileCreated(assemblyPath)'
 Compilation Pipeline: Could not read file Packages/com.unity.ugui/Runtime/TMP/Unity.TextMeshPro.asmdef
 Fatal Error! Compilation Pipeline: Could not read file Packages/com.unity.ugui/Runtime/TMP/Unity.TextMeshPro.asmdef
 Obtained 35 stack frames.
-#0  0x0000018d97111c in __pthread_kill
-#1  0x501900018d8b8a40 in abort
-#2  0xae42800103438758 in __cxx_global_var_init.2
-#3  0x0000010201fb48 in EditorMonoConsole::LogToConsoleImplementation(CppLogEntry&)
-#4  0x0000010201f68c in EditorMonoConsole::LogToConsoleImplementation(DebugStringToFileData const&)
-#5  0x000001020212bc in LogToConsoleImplementation(DebugStringToFileData const&)
-#6  0x00000102d071bc in DebugStringToFilePostprocessedStacktrace(DebugStringToFileData const&)
-#7  0x00000102d079f4 in DebugStringToFile(DebugStringToFileData const&)
-#8  0x0000010266d45c in RegisterAssemblyDefinition(core::basic_string<char, core::StringStorageDefault<char>> const&)
-#9  0x000001029bfbec in UpdateScriptCompilationPipelineCaches(ScriptChanges const&, bool)
-#10 0x000001028500ec in InitializeScriptPipelineCaches()
-#11 0x000001021397e0 in Application::InitializeProject()
-#12 0x0000010343fba8 in -[EditorApplication applicationDidFinishLaunching:]
-#13 0x0000018da7a820 in __CFNOTIFICATIONCENTER_IS_CALLING_OUT_TO_AN_OBSERVER__
-#14 0x801200018db0e8ec in ___CFXRegistrationPost_block_invoke
-#15 0x563000018db0e834 in _CFXRegistrationPost
-#16 0x9f3780018da4948c in _CFXNotificationPost
-#17 0x201100018eb3b030 in -[NSNotificationCenter postNotificationName:object:userInfo:]
-#18 0x207e800191266624 in -[NSApplication _postDidFinishNotification]
-#19 0x99460001912663d4 in -[NSApplication _sendFinishLaunchingNotification]
-#20 0xb01e80019126491c in -[NSApplication(NSAppleEventHandling) _handleAEOpenEvent:]
-#21 0x453e000191264518 in -[NSApplication(NSAppleEventHandling) _handleCoreEvent:withReplyEvent:]
-#22 0x736e00018eb63454 in -[NSAppleEventManager dispatchRawAppleEvent:withRawReply:handlerRefCon:]
-#23 0x8d3b80018eb63248 in _NSAppleEventManagerGenericHandler
-#24 0xc64d0001949b4d8c in _AppleEventsCheckInAppWithBlock
-#25 0x4a668001949b46b4 in _AppleEventsCheckInAppWithBlock
-#26 0xcd490001949adcc4 in aeProcessAppleEvent
-#27 0xd3b0001980102d4 in AEProcessAppleEvent
-#28 0xeb4780019125ef60 in _DPSNextEvent
-#29 0x4a30800191a34ebc in -[NSApplication(NSEventRouting) _nextEventMatchingEventMask:untilDate:inMode:dequeue:]
-#30 0x8908000191252100 in -[NSApplication run]
-#31 0xec060001912293cc in NSApplicationMain
-#32 0xb75800103454da4 in EditorMain(int, char const**)
-#33 0x00000103455100 in main
-#34 0x0000018d62d0e0 in start
+#0  0x0000018e47911c in __pthread_kill
+#1  0x881b80018e3c0a40 in abort
+#2  0x347d000102e3c758 in __cxx_global_var_init.2
+#3  0x00000101a23b48 in EditorMonoConsole::LogToConsoleImplementation(CppLogEntry&)
+#4  0x00000101a2368c in EditorMonoConsole::LogToConsoleImplementation(DebugStringToFileData const&)
+#5  0x00000101a252bc in LogToConsoleImplementation(DebugStringToFileData const&)
+#6  0x0000010270b1bc in DebugStringToFilePostprocessedStacktrace(DebugStringToFileData const&)
+#7  0x0000010270b9f4 in DebugStringToFile(DebugStringToFileData const&)
+#8  0x0000010207145c in RegisterAssemblyDefinition(core::basic_string<char, core::StringStorageDefault<char>> const&)
+#9  0x000001023c3bec in UpdateScriptCompilationPipelineCaches(ScriptChanges const&, bool)
+#10 0x000001022540ec in InitializeScriptPipelineCaches()
+#11 0x00000101b3d7e0 in Application::InitializeProject()
+#12 0x00000102e43ba8 in -[EditorApplication applicationDidFinishLaunching:]
+#13 0x0000018e582820 in __CFNOTIFICATIONCENTER_IS_CALLING_OUT_TO_AN_OBSERVER__
+#14 0xd7580018e6168ec in ___CFXRegistrationPost_block_invoke
+#15 0x510100018e616834 in _CFXRegistrationPost
+#16 0xb37f80018e55148c in _CFXNotificationPost
+#17 0x202a80018f643030 in -[NSNotificationCenter postNotificationName:object:userInfo:]
+#18 0x7269000191d6e624 in -[NSApplication _postDidFinishNotification]
+#19 0xc343000191d6e3d4 in -[NSApplication _sendFinishLaunchingNotification]
+#20 0xf543000191d6c91c in -[NSApplication(NSAppleEventHandling) _handleAEOpenEvent:]
+#21 0xed04800191d6c518 in -[NSApplication(NSAppleEventHandling) _handleCoreEvent:withReplyEvent:]
+#22 0x721b00018f66b454 in -[NSAppleEventManager dispatchRawAppleEvent:withRawReply:handlerRefCon:]
+#23 0x363700018f66b248 in _NSAppleEventManagerGenericHandler
+#24 0xc73d0001954bcd8c in _AppleEventsCheckInAppWithBlock
+#25 0x58520001954bc6b4 in _AppleEventsCheckInAppWithBlock
+#26 0x92318001954b5cc4 in aeProcessAppleEvent
+#27 0x374800198b182d4 in AEProcessAppleEvent
+#28 0x196c000191d66f60 in _DPSNextEvent
+#29 0x5f2100019253cebc in -[NSApplication(NSEventRouting) _nextEventMatchingEventMask:untilDate:inMode:dequeue:]
+#30 0xd40a800191d5a100 in -[NSApplication run]
+#31 0x8906000191d313cc in NSApplicationMain
+#32 0xe35f800102e58da4 in EditorMain(int, char const**)
+#33 0x00000102e59100 in main
+#34 0x0000018e1350e0 in start
