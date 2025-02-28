@@ -1369,6 +1369,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &895990568 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4967615512471236847, guid: 36f718916619a4ad1aa6e81b9f799864, type: 3}
+  m_PrefabInstance: {fileID: 639566203196156187}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1031614745
 GameObject:
   m_ObjectHideFlags: 0
@@ -2575,6 +2580,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2550801024913015786, guid: 36f718916619a4ad1aa6e81b9f799864, type: 3}
+      propertyPath: mncam
+      value: 
+      objectReference: {fileID: 895990568}
+    - target: {fileID: 2550801024913015786, guid: 36f718916619a4ad1aa6e81b9f799864, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3109980399255459269, guid: 36f718916619a4ad1aa6e81b9f799864, type: 3}
       propertyPath: scopedsecondaryrecoilstrength
       value: 0
