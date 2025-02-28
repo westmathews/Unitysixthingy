@@ -37,6 +37,7 @@ public class LizardGuns : MonoBehaviour
         intcam.GetComponent<intcamlookie>().xRotation = playerCamera.GetComponent<Lookie>().xRotation;
         Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
+        playerCamera.GetComponent<Lookie>().recoil();
 
 
         if (Physics.Raycast(ray, out hit, range))
@@ -44,7 +45,7 @@ public class LizardGuns : MonoBehaviour
             target = hit.transform.position;
             Debug.Log("Hit object tag: " + hit.collider.tag);
             thing_hit = (hit.collider.tag);
-            playerCamera.GetComponent<Lookie>().recoilStrength = 5;
+            
 
             // Check if the hit object has the "Player" tag
             if (hit.collider.CompareTag("Player"))
@@ -69,8 +70,7 @@ public class LizardGuns : MonoBehaviour
             sndshots = 0;
         }
         GetComponentInParent<PewPew>().nospam = 0;
-        playerCamera.GetComponent<Lookie>().recoilStrength = 2.25f;
-        playerCamera.GetComponent<Lookie>().recoil();
+        playerCamera.GetComponent<Lookie>().secondaryrecoil();
         if (Physics.Raycast(ray, out hit, range))
         {
             target = hit.transform.position;

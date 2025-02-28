@@ -104,10 +104,6 @@ public class Lookie : MonoBehaviour
         }
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
-        if (Sticker.GetComponent<PewPew>().maingun)
-        {
-            recoil();
-        }
         if (xRotation <= finalcoil && coilin)
         {
             if (scoping)
@@ -130,6 +126,7 @@ public class Lookie : MonoBehaviour
     }
     public void recoil()
     {
+        
         initialcoil = intcam.GetComponent<intcamlookie>().xRotation;
         if (scoping)
         {
