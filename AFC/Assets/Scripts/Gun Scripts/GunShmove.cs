@@ -19,7 +19,7 @@ public class GunShmove : MonoBehaviour
     }
 
     void Update()
-    {
+    {   /*
         if (Input.GetKey(KeyCode.LeftShift))
         {
 
@@ -55,7 +55,8 @@ public class GunShmove : MonoBehaviour
         {            
             playerBody.Rotate(Vector3.up * mouseX);
         }
-
+        */
+        transform.localRotation = mncam.transform.localRotation;
         
     }
 }
