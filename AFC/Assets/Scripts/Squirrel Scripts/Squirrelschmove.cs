@@ -46,15 +46,15 @@ public class Squirrelschmove : MonoBehaviour
             GetComponent<Player_Movement>().wspeed = 7.5f;
 
         }
-        if (Input.GetKeyUp(KeyCode.E))
+        if (Input.GetKeyUp(KeyCode.E) && !GetComponent<Player_Movement>().isGrounded)
         {
             mvcool = true;
         }
-        if (Input.GetKey(KeyCode.E) && GetComponent<Player_Movement>().isGrounded && UI.GetComponent<UI>().mvcool < 0)
+        if (Input.GetKey(KeyCode.E) && !GetComponent<Player_Movement>().isGrounded && UI.GetComponent<UI>().mvcool < 0)
         {
             mvabtime = 0;
         }
-        if (Input.GetKeyUp(KeyCode.E) && !GetComponentInChildren<CameraSwitchWithRotation>().isThirdPerson && UI.GetComponent<UI>().mvcool < 0)
+        if (Input.GetKeyUp(KeyCode.E) && !GetComponentInChildren<CameraSwitchWithRotation>().isThirdPerson && UI.GetComponent<UI>().mvcool < 0 && !GetComponent<Player_Movement>().isGrounded)
         {
             mvabtime = 0;
         }
