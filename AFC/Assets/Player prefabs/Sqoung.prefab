@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74876755fd5af48c1b600f86125853d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gunexist: {fileID: 0}
+  Gunexist: {fileID: 1699847340020989360}
 --- !u!114 &7721025826139878861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1330,7 +1330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   self: {fileID: 7046325087989527260}
-  Other: {fileID: 0}
+  Menu: {fileID: 0}
 --- !u!114 &8832364950514271843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1694,6 +1694,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d2b88c68a2e4491a886c84df68adc41, type: 3}
+--- !u!23 &1699847340020989360 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -4683669308469848369, guid: 7d2b88c68a2e4491a886c84df68adc41, type: 3}
+  m_PrefabInstance: {fileID: 2924896309910875007}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3395125670058904724 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7d2b88c68a2e4491a886c84df68adc41, type: 3}
@@ -1763,6 +1768,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: c6f962d93eb5e434e80c34f34e0f08f3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7eabf914a11d941d086629386ef99158, type: 2}
     - target: {fileID: 919132149155446097, guid: c6f962d93eb5e434e80c34f34e0f08f3, type: 3}
       propertyPath: m_Name
       value: Squirrel

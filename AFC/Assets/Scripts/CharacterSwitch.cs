@@ -3,7 +3,7 @@ using UnityEngine;
 public class CharacterSwitch : MonoBehaviour
 {
     public GameObject self;
-    public GameObject Other;
+    public GameObject Menu;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,11 +13,10 @@ public class CharacterSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
-            Other.SetActive(true);
+            Menu.SetActive(true);
             self.SetActive(false);
-           
         }
     }
 }

@@ -37,6 +37,7 @@ public class Player_Movement : MonoBehaviour
     }
     void Update()
     {
+
         
         // Check if the player is grounded
         isGrounded = controller.isGrounded;
@@ -82,7 +83,15 @@ public class Player_Movement : MonoBehaviour
         }
         // Create movement vector
         move = transform.right * moveX + transform.forward * moveZ;
-        controller.Move(move * speed * Time.deltaTime + new Vector3(0, ySpeed, 0) * Time.deltaTime);
+        if (moveX !=0 && moveZ != 0)
+        {
+            controller.Move(move * (speed*.50f) * Time.deltaTime + new Vector3(0, ySpeed, 0) * Time.deltaTime);
+        }
+        else
+        {
+            controller.Move(move * speed * Time.deltaTime + new Vector3(0, ySpeed, 0) * Time.deltaTime);
+        }
+        
         if (gliding)
         {
             hitdirection = new Vector3(0, 0, 0);
@@ -91,10 +100,6 @@ public class Player_Movement : MonoBehaviour
         {
 
             move = transform.right * moveX + transform.forward * moveZ;
-            if (gliding)
-            {
-
-            }
             if (isGrounded && grenknockback > .1f)
             {
                 grenadehit = false;

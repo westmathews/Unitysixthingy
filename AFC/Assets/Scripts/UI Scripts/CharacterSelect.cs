@@ -12,6 +12,10 @@ public class CharacterSelect : MonoBehaviour
     public GameObject Lard;
     public GameObject Menu;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
     void Update()
     {
         if (SquardButton.GetComponent<Click>().click)
