@@ -16,6 +16,7 @@ public class CharacterSwitch : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             Menu.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
             self.SetActive(false);
         }
     }

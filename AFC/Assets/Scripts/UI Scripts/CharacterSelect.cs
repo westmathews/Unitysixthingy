@@ -18,14 +18,20 @@ public class CharacterSelect : MonoBehaviour
     }
     void Update()
     {
+        
         if (SquardButton.GetComponent<Click>().click)
         {
             Squirl.SetActive(true);
+            SquardButton.GetComponent<Click>().click = false;
+            Cursor.lockState = CursorLockMode.Locked;
             Menu.SetActive(false);
+
         }
         if (LardButton.GetComponent<Click>().click)
         {
             Lard.SetActive(true);
+            LardButton.GetComponent<Click>().click = false;
+            Cursor.lockState = CursorLockMode.Locked;
             Menu.SetActive(false);
         }
     }

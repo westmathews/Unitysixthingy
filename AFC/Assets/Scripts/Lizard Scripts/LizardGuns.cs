@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class LizardGuns : MonoBehaviour
 {
+    public GameObject revolver;
+    public GameObject rifle;
     public GameObject intcam;
     public Camera playerCamera;
     public Vector3 target;
@@ -34,6 +36,7 @@ public class LizardGuns : MonoBehaviour
     }
     void This(Vector3 playerPos, Vector3 offset)
     {
+       
         intcam.GetComponent<intcamlookie>().xRotation = playerCamera.GetComponent<Lookie>().xRotation;
         Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
@@ -61,6 +64,8 @@ public class LizardGuns : MonoBehaviour
     }
     void Secondary(Vector3 playerPos, Vector3 offset)
     {
+        rifle.SetActive(false);
+        revolver.SetActive(true);
         Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
         sndshots += 1;
@@ -68,6 +73,8 @@ public class LizardGuns : MonoBehaviour
         if (sndshots == 6)
         {
             sndshots = 0;
+            revolver.SetActive(false);
+            rifle.SetActive(true);
         }
         GetComponentInParent<PewPew>().nospam = 0;
         playerCamera.GetComponent<Lookie>().secondaryrecoil();

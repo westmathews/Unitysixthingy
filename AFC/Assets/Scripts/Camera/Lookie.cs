@@ -25,7 +25,6 @@ public class Lookie : MonoBehaviour
     [Header("sensitivity")]
     public float bsmssen;
     public float mouseSensitivity = 100f; // Mouse sensitivity
-    
     [Header("Scoping")]
     public float defFOV;
     public float zoomFOV;
