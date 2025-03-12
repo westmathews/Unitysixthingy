@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Health : MonoBehaviour
     public float maxhp;
     public MeshRenderer player;
     public float regencool = 0;
+    public Image healthbar;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -47,5 +50,6 @@ public class Health : MonoBehaviour
             hepo += 1;
             regentimer = 0;
         }
+        healthbar.fillAmount = hepo/maxhp;
     }
 }
