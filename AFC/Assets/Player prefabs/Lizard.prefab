@@ -550,9 +550,10 @@ MonoBehaviour:
   player: {fileID: 2802385740226254886}
   starting: {x: 0, y: 0, z: 0}
   maincam: {fileID: 9046327082102488057}
+  secondaryfired: 0
   recoilX: 0
   recoilStrength: 5
-  secondaryrecoilstrength: 5
+  secondaryrecoilstrength: 3
   recoilResetSpeed: 1.5
   finalcoil: 0
   coilin: 0
@@ -567,7 +568,7 @@ MonoBehaviour:
   blockscope: 1
   scoping: 0
   scopedrecoilstrength: 3
-  scopedsecondaryrecoilstrength: 3
+  scopedsecondaryrecoilstrength: 1.5
   scopedrecoilspeed: 1.5
 --- !u!114 &6282902400735149375
 MonoBehaviour:
@@ -1783,6 +1784,7 @@ GameObject:
   - component: {fileID: 9111073538691344762}
   - component: {fileID: 2339714180946914558}
   - component: {fileID: 8722981442452020170}
+  - component: {fileID: 8737811877784377270}
   m_Layer: 0
   m_Name: Gub
   m_TagString: Untagged
@@ -1871,6 +1873,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5766621088026232040}
   m_Mesh: {fileID: -5495902117074765545, guid: 39d5a9e043d284374b2dea386240b4fa, type: 3}
+--- !u!114 &8737811877784377270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5766621088026232040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74876755fd5af48c1b600f86125853d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Gunexist: {fileID: 6261902804367516640}
 --- !u!1 &5859909370114775760
 GameObject:
   m_ObjectHideFlags: 0

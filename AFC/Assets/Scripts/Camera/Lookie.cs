@@ -14,6 +14,7 @@ public class Lookie : MonoBehaviour
     public Vector3 starting;
     public Camera maincam;
     [Header("Recoil")]
+    public bool secondaryfired = false;
     public float recoilX;
     public float recoilStrength; // How strong the recoil is
     public float secondaryrecoilstrength;
@@ -93,6 +94,7 @@ public class Lookie : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Clamp the vertical rotation
         xRotation -= recoilX;
+
         if (scoping)
         {
             recoilX = Mathf.Lerp(recoilX, 0f, scopedrecoilspeed * Time.deltaTime);
@@ -103,19 +105,39 @@ public class Lookie : MonoBehaviour
         }
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
-        if (xRotation <= finalcoil && coilin)
+        if (secondaryfired)
         {
-            if (scoping)
+            if (xRotation <= finalcoil && coilin)
             {
-                recoilX -= scopedrecoilstrength;
+                if (scoping)
+                {
+                    recoilX -= scopedsecondaryrecoilstrength;
 
+                }
+                else
+                {
+                    recoilX -= secondaryrecoilstrength;
+
+                }
+                coilin = false;
             }
-            else
+        }
+        else
+        {
+            if (xRotation <= finalcoil && coilin)
             {
-                recoilX -= recoilStrength;
+                if (scoping)
+                {
+                    recoilX -= scopedrecoilstrength;
 
+                }
+                else
+                {
+                    recoilX -= recoilStrength;
+
+                }
+                coilin = false;
             }
-            coilin = false;
         }
         if (xRotation > initialcoil)
         {
@@ -125,7 +147,7 @@ public class Lookie : MonoBehaviour
     }
     public void recoil()
     {
-        
+        recoilX = 0;
         initialcoil = intcam.GetComponent<intcamlookie>().xRotation;
         if (scoping)
         {
@@ -137,13 +159,14 @@ public class Lookie : MonoBehaviour
             recoilX += recoilStrength;
             finalcoil = intcam.GetComponent<intcamlookie>().xRotation - recoilStrength;
         }
-        
+        secondaryfired = false;
         coilin = true;
         Debug.Log("int" + intcam.GetComponent<intcamlookie>().xRotation);
         Debug.Log("main" + xRotation);
     }
     public void secondaryrecoil()
     {
+        recoilX = 0;
         initialcoil = intcam.GetComponent<intcamlookie>().xRotation;
 
         if (scoping)
@@ -157,6 +180,7 @@ public class Lookie : MonoBehaviour
             recoilX += secondaryrecoilstrength;
             finalcoil = intcam.GetComponent<intcamlookie>().xRotation - secondaryrecoilstrength;
         }
+        secondaryfired = true;
         
         coilin = true;
     }

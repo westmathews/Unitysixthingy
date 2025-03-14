@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class SquirrelGuns : MonoBehaviour
@@ -16,6 +17,8 @@ public class SquirrelGuns : MonoBehaviour
     public Rigidbody grenade;
     public Transform grenada;
     public float FrontDistance;
+    public GameObject hitind;
+    public GameObject hitfab;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,6 +28,14 @@ public class SquirrelGuns : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.Mouse1))
+        {
+            spreadangle = 5;
+        }
+        else
+        {
+            spreadangle = 7.5f;
+        }
         if (sndshots < 5 && shat)
         {
             intcam.GetComponent<intcamlookie>().xRotation = playerCamera.GetComponent<Lookie>().xRotation;
@@ -64,7 +75,9 @@ public class SquirrelGuns : MonoBehaviour
             {
                 //gets health script owner
                 hit.collider.gameObject.GetComponent<Health>().hepo -= GetComponentInParent<PewPew>().dmg;
-
+                hitind = Instantiate(hitfab, hit.point, Quaternion.identity); //Quaternion.RotateTowards(hitind.transform.rotation, hit.collider.transform.rotation., 360));
+                hitind.transform.rotation = intcam.transform.rotation;
+                hitind.GetComponent<TextMeshPro>().text = "15";
                 // Logic for hitting a player
                 // You can add additional actions here, like applying damage or triggering an effect
             }

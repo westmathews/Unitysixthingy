@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using TMPro;
 public class LizardGuns : MonoBehaviour
 {
     public GameObject revolver;
@@ -11,6 +11,8 @@ public class LizardGuns : MonoBehaviour
     public float range;
     public float sndshots = 0;
     public float sndtime;
+    public GameObject hitind;
+    public GameObject hitfab;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -48,7 +50,7 @@ public class LizardGuns : MonoBehaviour
             target = hit.transform.position;
             Debug.Log("Hit object tag: " + hit.collider.tag);
             thing_hit = (hit.collider.tag);
-            
+
 
             // Check if the hit object has the "Player" tag
             if (hit.collider.CompareTag("Player"))
@@ -56,6 +58,9 @@ public class LizardGuns : MonoBehaviour
                 //gets health script owner
                 hit.collider.gameObject.GetComponent<Health>().hepo -= GetComponentInParent<PewPew>().dmg;
 
+                hitind = Instantiate(hitfab, hit.point, Quaternion.identity); //Quaternion.RotateTowards(hitind.transform.rotation, hit.collider.transform.rotation., 360));
+                hitind.transform.rotation = intcam.transform.rotation;
+                hitind.GetComponent<TextMeshPro>().text = "40";
                 // Logic for hitting a player
                 // You can add additional actions here, like applying damage or triggering an effect
             }
@@ -88,7 +93,9 @@ public class LizardGuns : MonoBehaviour
             {
                 //gets health script owner
                 hit.collider.gameObject.GetComponent<Health>().hepo -= GetComponentInParent<PewPew>().snddmg;
-                
+                hitind = Instantiate(hitfab, hit.point, Quaternion.identity); //Quaternion.RotateTowards(hitind.transform.rotation, hit.collider.transform.rotation., 360));
+                hitind.transform.rotation = intcam.transform.rotation;
+                hitind.GetComponent<TextMeshPro>().text = "10";
                 // Logic for hitting a player
                 // You can add additional actions here, like applying damage or triggering an effect
             }

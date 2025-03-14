@@ -100,11 +100,13 @@ MonoBehaviour:
   range: 60
   sndshots: 0
   shat: 0
-  spreadangle: 10
+  spreadangle: 7.5
   nade: {fileID: 0}
   grenade: {fileID: 0}
   grenada: {fileID: 0}
   FrontDistance: 1
+  hitind: {fileID: 2947498012721558519, guid: 55f069c1bfe9b48d9abb31a4e30b4229, type: 3}
+  hitfab: {fileID: 2947498012721558519, guid: 55f069c1bfe9b48d9abb31a4e30b4229, type: 3}
 --- !u!114 &1184304580015181572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1476,6 +1478,7 @@ MonoBehaviour:
   player: {fileID: 5165044353456968259}
   starting: {x: 0, y: 0, z: 0}
   maincam: {fileID: 8108691871077321113}
+  secondaryfired: 0
   recoilX: 0
   recoilStrength: 5
   secondaryrecoilstrength: 0
