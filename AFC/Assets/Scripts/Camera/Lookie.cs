@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mirror.Examples.Common;
 using UnityEngine;
 
 public class Lookie : MonoBehaviour
 {
-    
-    
+    public bool seeplayer = false;
+    public string thing_hit = "n/a";
+    public Vector3 target;
+    public float range;
     public float xRotation = 0f; // Vertical rotation
     [Header("References")]
+    public GameObject gub;
     public Transform playerBody; // Reference to the player's body for rotation
     public GameObject Sticker;
     public Transform player;
@@ -46,6 +50,32 @@ public class Lookie : MonoBehaviour
 
     void Update()
     {
+        Ray ray = maincam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            target = hit.transform.position;
+            //Debug.Log("Hit object tag: " + hit.collider.tag);
+            thing_hit = (hit.collider.tag);
+            if(hit.collider.CompareTag("Player"))
+            {
+                seeplayer = true;
+               
+
+            }
+            else
+            {
+                seeplayer = false;
+            }
+
+        }
+        else
+        {
+            seeplayer = false;
+        }
+
+
         if (maincam.GetComponent<CameraSwitchWithRotation>().isThirdPerson == false)
         {
             blockscope = false;
