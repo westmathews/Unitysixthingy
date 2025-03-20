@@ -6,10 +6,13 @@ using UnityEngine.UI;
 
 public class CharacterSelect : MonoBehaviour
 {
+
+    public GameObject RacButton;
     public GameObject SquardButton;
     public GameObject LardButton;
     public GameObject Squirl;
     public GameObject Lard;
+    public GameObject Rac;
     public GameObject Menu;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,7 +21,7 @@ public class CharacterSelect : MonoBehaviour
     }
     void Update()
     {
-        
+
         if (SquardButton.GetComponent<Click>().click)
         {
             Squirl.SetActive(true);
@@ -34,9 +37,12 @@ public class CharacterSelect : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Menu.SetActive(false);
         }
-    }
-    public void clicke()
-    {
-
+        if (RacButton.GetComponent<Click>().click)
+        {
+            Rac.SetActive(true);
+            RacButton.GetComponent<Click>().click = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Menu.SetActive(false);
+        }
     }
 }
