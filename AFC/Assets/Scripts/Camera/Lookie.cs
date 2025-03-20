@@ -52,8 +52,9 @@ public class Lookie : MonoBehaviour
     {
         Ray ray = maincam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
+        range = Sticker.GetComponent<PewPew>().shootingRange;
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, range))
         {
             target = hit.transform.position;
             //Debug.Log("Hit object tag: " + hit.collider.tag);
@@ -62,7 +63,6 @@ public class Lookie : MonoBehaviour
             {
                 seeplayer = true;
                
-
             }
             else
             {
