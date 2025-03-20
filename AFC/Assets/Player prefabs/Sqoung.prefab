@@ -692,9 +692,8 @@ GameObject:
   - component: {fileID: 6374850471003187410}
   - component: {fileID: 2908032395682281080}
   - component: {fileID: 7763626766815732276}
-  - component: {fileID: 5164546556654244481}
   m_Layer: 5
-  m_Name: CrossHair
+  m_Name: CrossHair1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -754,19 +753,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &5164546556654244481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3452964129808057102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 460738ff724e647d39c669c4de0502fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CS: {fileID: 7763626766815732276}
 --- !u!1 &4178860533341955899
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,6 +1193,78 @@ MonoBehaviour:
   mncam: {fileID: 6874627829988730143}
   stickycam: {fileID: 2548751255390907161}
   bsmssen: 2500
+--- !u!1 &5134462888580147436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 212399758213343810}
+  - component: {fileID: 2852202169593101140}
+  - component: {fileID: 7788673597827610596}
+  m_Layer: 5
+  m_Name: CrossHair2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &212399758213343810
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5134462888580147436}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3195517867593006193}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2852202169593101140
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5134462888580147436}
+  m_CullTransparentMesh: 1
+--- !u!114 &7788673597827610596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5134462888580147436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 15ebf84a3c1684de6ba1bb2642aed27a, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &6594805888039404086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1472,7 +1530,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab96cb5f28b84e02866a76b92cd277d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seeplayer: 0
+  thing_hit: n/a
+  target: {x: 0, y: 0, z: 0}
+  range: 0
   xRotation: 0
+  gub: {fileID: 0}
   playerBody: {fileID: 5165044353456968259}
   Sticker: {fileID: 2548751255390907161}
   player: {fileID: 5165044353456968259}
@@ -1964,6 +2027,7 @@ GameObject:
   - component: {fileID: 6813971941297766455}
   - component: {fileID: 8510435485851639274}
   - component: {fileID: 3235273242738461580}
+  - component: {fileID: 8893027953966624575}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1987,6 +2051,7 @@ RectTransform:
   - {fileID: 877928009759338009}
   - {fileID: 3886661310055358830}
   - {fileID: 6374850471003187410}
+  - {fileID: 212399758213343810}
   - {fileID: 4652905575633936817}
   - {fileID: 8732496366634219387}
   - {fileID: 4692625716090720975}
@@ -2083,3 +2148,18 @@ MonoBehaviour:
   mvabiby: {fileID: 6813822548236358542}
   mvcool: 0
   mvready: 0
+--- !u!114 &8893027953966624575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8833113156854863455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 460738ff724e647d39c669c4de0502fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CS1: {fileID: 3452964129808057102}
+  CS2: {fileID: 5134462888580147436}
+  maincam: {fileID: 8108691871077321113}
