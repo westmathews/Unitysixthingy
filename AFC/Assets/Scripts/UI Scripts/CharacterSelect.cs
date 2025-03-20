@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class CharacterSelect : MonoBehaviour
 {
+    public GameObject Rac;
+    public GameObject RacButton;
     public GameObject SquardButton;
     public GameObject LardButton;
     public GameObject Squirl;
@@ -33,6 +35,14 @@ public class CharacterSelect : MonoBehaviour
             LardButton.GetComponent<Click>().click = false;
             Cursor.lockState = CursorLockMode.Locked;
             Menu.SetActive(false);
+        }
+        if (RacButton.GetComponent<Click>().click)
+        {
+            Rac.SetActive(true);
+            RacButton.GetComponent<Click>().click = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Menu.SetActive(false);
+
         }
     }
     public void clicke()
