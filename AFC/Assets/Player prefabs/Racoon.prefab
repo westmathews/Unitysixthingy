@@ -1671,10 +1671,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2408202405051486696}
   - component: {fileID: 6526580819566382148}
-  - component: {fileID: 9111073538691344762}
   - component: {fileID: 2339714180946914558}
   - component: {fileID: 8722981442452020170}
   - component: {fileID: 8737811877784377270}
+  - component: {fileID: 4829108455872358350}
   m_Layer: 0
   m_Name: Gub
   m_TagString: Untagged
@@ -1720,29 +1720,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9111073538691344762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5766621088026232040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc312173fc43a4dc5b44f22e76b3d9af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  revolver: {fileID: 8226806544387979701}
-  rifle: {fileID: 0}
-  intcam: {fileID: 4156497041855745480}
-  playerCamera: {fileID: 9046327082102488057}
-  target: {x: 0, y: 0, z: 0}
-  thing_hit: nothingyet
-  range: 0
-  sndshots: 0
-  sndtime: 0
-  hitind: {fileID: 2947498012721558519, guid: 55f069c1bfe9b48d9abb31a4e30b4229, type: 3}
-  hitfab: {fileID: 2947498012721558519, guid: 55f069c1bfe9b48d9abb31a4e30b4229, type: 3}
 --- !u!114 &2339714180946914558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1778,6 +1755,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gunexist: {fileID: 0}
+--- !u!114 &4829108455872358350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5766621088026232040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12049c22df5c944389b6745543ab97a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Gun: {fileID: 5766621088026232040}
+  actvfire: {fileID: 0}
+  fire: {fileID: 1012808892610559070, guid: 6ee977576fe304b51a646da2832f12e0, type: 3}
+  revolver: {fileID: 8226806544387979701}
+  rifle: {fileID: 551863347850543535}
+  intcam: {fileID: 4156497041855745480}
+  playerCamera: {fileID: 9046327082102488057}
+  target: {x: 0, y: 0, z: 0}
+  thing_hit: nothingyet
+  range: 0
+  sndshots: 0
+  sndtime: 0
+  hitind: {fileID: 2947498012721558519, guid: 55f069c1bfe9b48d9abb31a4e30b4229, type: 3}
+  hitfab: {fileID: 2947498012721558519, guid: 55f069c1bfe9b48d9abb31a4e30b4229, type: 3}
 --- !u!1 &5859909370114775760
 GameObject:
   m_ObjectHideFlags: 0
@@ -2557,6 +2560,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3f807886e7eb4e8da9984f3f7e4e8a2, type: 3}
+--- !u!1 &551863347850543535 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d3f807886e7eb4e8da9984f3f7e4e8a2, type: 3}
+  m_PrefabInstance: {fileID: 822457905855708414}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &928669953022810901 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d3f807886e7eb4e8da9984f3f7e4e8a2, type: 3}
