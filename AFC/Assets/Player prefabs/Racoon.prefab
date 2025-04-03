@@ -1097,16 +1097,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   ammo: 0
-  maxammo: 4
+  maxammo: 100
   rspd: 4
   rtime: 0
   reloading: 0
   shotcooldown: 0
   nospam: 0
-  shtspd: 1
+  shtspd: 0.05
   shootingRange: 200
   maingun: 0
-  dmg: 40
+  dmg: 1
   abcool: 0
   abtime: 0
   abcooldown: 5
@@ -1781,6 +1781,7 @@ MonoBehaviour:
   sndtime: 0
   hitind: {fileID: 2947498012721558519, guid: 55f069c1bfe9b48d9abb31a4e30b4229, type: 3}
   hitfab: {fileID: 2947498012721558519, guid: 55f069c1bfe9b48d9abb31a4e30b4229, type: 3}
+  flametimer: 0
 --- !u!1 &5859909370114775760
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,18 +16,18 @@ public class RaccoonGuns : MonoBehaviour
     public float sndtime;
     public GameObject hitind;
     public GameObject hitfab;
+    public float flametimer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         range = GetComponentInParent<PewPew>().shootingRange;
-        actvfire = Instantiate(fire, transform.position + transform.forward * 1.5f, Quaternion.identity);
-        actvfire.transform.parent = Gun.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Instantiate(fire, transform.position + transform.forward * 1.5f, Quaternion.identity);
+        flametimer += Time.deltaTime;
+
         sndtime += Time.deltaTime;
         if (sndtime >= .1 && sndshots > 0)
         {
@@ -44,32 +44,10 @@ public class RaccoonGuns : MonoBehaviour
     }
     void This(Vector3 playerPos, Vector3 offset)
     {
-       
-        intcam.GetComponent<intcamlookie>().xRotation = playerCamera.GetComponent<Lookie>().xRotation;
-        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        RaycastHit hit;
-        playerCamera.GetComponent<Lookie>().recoil();
-
-
-        if (Physics.Raycast(ray, out hit, range))
+        if (flametimer > .05)
         {
-            target = hit.transform.position;
-            Debug.Log("Hit object tag: " + hit.collider.tag);
-            thing_hit = (hit.collider.tag);
-
-
-            // Check if the hit object has the "Player" tag
-            if (hit.collider.CompareTag("Player"))
-            {
-                //gets health script owner
-                hit.collider.gameObject.GetComponent<Health>().hepo -= GetComponentInParent<PewPew>().dmg;
-
-                hitind = Instantiate(hitfab, hit.point, Quaternion.identity); //Quaternion.RotateTowards(hitind.transform.rotation, hit.collider.transform.rotation., 360));
-                hitind.transform.rotation = intcam.transform.rotation;
-                hitind.GetComponent<TextMeshPro>().text = "40";
-                // Logic for hitting a player
-                // You can add additional actions here, like applying damage or triggering an effect
-            }
+            actvfire = Instantiate(fire, transform.position + transform.forward * 1, transform.rotation);
+            flametimer = 0;
         }
         //Ray raytwo = new Vector3(target)(new Vector3(offset));
     }

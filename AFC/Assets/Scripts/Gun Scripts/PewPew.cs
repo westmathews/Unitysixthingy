@@ -66,7 +66,7 @@ public class PewPew : MonoBehaviour
         {
             Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
             Debug.DrawRay(transform.position, forward, Color.red);
-            if (Input.GetMouseButtonDown(0) && ammo > 0 && !shotcooldown) //Are you allowed to shooting
+            if (Input.GetMouseButton(0) && ammo > 0 && !shotcooldown) //Are you allowed to shooting
             {
                 ammo = ammo - 1;
                 nospam = 0;
@@ -74,7 +74,7 @@ public class PewPew : MonoBehaviour
             }
             else
             {
-                maingun = false;
+               maingun = false;
                if (ammo < 1)
                {
                     reload();
