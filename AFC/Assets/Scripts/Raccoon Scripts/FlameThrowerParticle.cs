@@ -4,8 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 public class FlameThrowerParticle : MonoBehaviour
 {
+    
     public ParticleSystem self;
-    public bool bullseye;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,8 +18,17 @@ public class FlameThrowerParticle : MonoBehaviour
         
     }
 
-    void OnParticleTrigger()
+    void OnParticleCollision(GameObject other)
     {
-        Debug.Log("trigeer");
+        
+        if (other.gameObject.CompareTag("Player")&&!other.gameObject.GetComponentInChildren<RaccoonGuns>())
+        {
+            
+            Debug.Log("HitPlayer");
+            other.gameObject.GetComponentInChildren<Health>().hepo -= 1;
+            var collision = self.collision;
+            collision.enabled = false;
+        }
+        
     }
 }

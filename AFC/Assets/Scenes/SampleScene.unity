@@ -2129,7 +2129,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 2
@@ -3133,6 +3133,10 @@ PrefabInstance:
       propertyPath: Menu
       value: 
       objectReference: {fileID: 562764681}
+    - target: {fileID: 2685116836523619176, guid: e8b4c8403404c4dde951b5127192c27e, type: 3}
+      propertyPath: zoomFOV
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 2802385740226254886, guid: e8b4c8403404c4dde951b5127192c27e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
