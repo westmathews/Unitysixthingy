@@ -47,6 +47,8 @@ public class RaccoonGuns : MonoBehaviour
         if (flametimer > .05)
         {
             actvfire = Instantiate(fire, transform.position + transform.forward * 1, transform.rotation);
+            actvfire.GetComponent<FlameThrowerParticle>().intcam = intcam;
+            actvfire.GetComponent<FlameThrowerParticle>().playerCamera = playerCamera;
             flametimer = 0;
         }
         //Ray raytwo = new Vector3(target)(new Vector3(offset));
