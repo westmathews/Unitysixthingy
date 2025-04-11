@@ -50,6 +50,6 @@ public class Health : MonoBehaviour
             hepo += 1;
             regentimer = 0;
         }
-        healthbar.fillAmount = hepo/maxhp;
+        //healthbar.fillAmount = hepo/maxhp;
     }
 }

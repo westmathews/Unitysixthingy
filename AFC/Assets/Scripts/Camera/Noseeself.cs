@@ -1,11 +1,13 @@
 using UnityEngine;
+using Mirror;
 using UnityEngine.Video;
-public class Noseeself : MonoBehaviour
+public class Noseeself : NetworkBehaviour
 {
+    public GameObject PlayerModel;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -13,13 +15,44 @@ public class Noseeself : MonoBehaviour
     {
         if (GetComponent<CameraSwitchWithRotation>().isThirdPerson)
         {
-            GetComponent<Camera>().cullingMask = -1;
+            RpcRevealObject(connectionToClient);
+            //GetComponent<Camera>().cullingMask = -1;
         }
         else
         {
-            GetComponent<Camera>().cullingMask = 63;
+            RpcHideObject(connectionToClient);
+            //GetComponent<Camera>().cullingMask = 63;
         }
 
 
+
+    }
+    void RpcHideObject(NetworkConnectionToClient conn)
+    {
+        if (isLocalPlayer)
+        {
+            HideObject();
+        }
+    }
+    void HideObject()
+    {
+        if (PlayerModel.activeSelf)
+        {
+            PlayerModel.SetActive(false);
+        }
+    }
+    void RpcRevealObject(NetworkConnectionToClient conn)
+    {
+        if (isLocalPlayer)
+        {
+            RevealObject();
+        }
+    }
+    void RevealObject()
+    {
+        if (!PlayerModel.activeSelf)
+        {
+            PlayerModel.SetActive(true);
+        }
     }
 }
