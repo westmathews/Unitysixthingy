@@ -1,22 +1,40 @@
-using UnityEngine;
 using Mirror;
+using UnityEngine;
 
 public class CharacterSelectSender : MonoBehaviour
 {
-    public int selectedPrefabIndex = 0;
+    private int selectedIndex;
 
     public void ConnectAsCharacter(int index)
     {
-        selectedPrefabIndex = index;
+        selectedIndex = index;
+
+        // Start the connection
+        NetworkManager.singleton.networkAddress = "localhost";
         NetworkManager.singleton.StartClient();
 
-        NetworkClient.RegisterHandler<ConnectMessage>(OnClientConnected);
+        // Subscribe to the OnConnected event
+        NetworkClient.OnConnectedEvent += SendCharacterSelection;
     }
 
-    void OnClientConnected(ConnectMessage msg)
+    private void SendCharacterSelection()
     {
-        var message = new SelectCharacterMessage { prefabIndex = selectedPrefabIndex };
-        NetworkClient.Send(message);
+        Debug.Log("✅ Connected! Sending character index: " + selectedIndex);
+        Debug.Log("Connected to server: " + NetworkClient.isConnected); // Should be true
+
+        NetworkClient.Send(new CharacterSelectMessage
+        {
+            selectedCharacterIndex = selectedIndex
+        });
+
+        // Unsubscribe so it only fires once
+        NetworkClient.OnConnectedEvent -= SendCharacterSelection;
     }
 }
+
+public struct CharacterSelectMessage : NetworkMessage
+{
+    public int selectedCharacterIndex;
+}
+
 public struct ConnectMessage : NetworkMessage { }
