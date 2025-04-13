@@ -30,8 +30,6 @@ ScriptsOnlyBuild:
     - intcamlookie
     Mirror.Components.dll:
     - Mirror.NetworkTransformReliable
-    Mirror.Editor.dll:
-    - Mirror.NetworkBehaviourInspector
     Mirror.Transports.dll:
     - kcp2k.KcpTransport
     Mirror.dll:
@@ -144,95 +142,95 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 25532}
+      Script: {instanceID: 25534}
     - Class: 114
-      Script: {instanceID: 25746}
+      Script: {instanceID: 25748}
     - Class: 114
-      Script: {instanceID: 25790}
+      Script: {instanceID: 25792}
     - Class: 114
-      Script: {instanceID: 26006}
+      Script: {instanceID: 26008}
     - Class: 114
-      Script: {instanceID: 26022}
+      Script: {instanceID: 26024}
     - Class: 114
-      Script: {instanceID: 26308}
+      Script: {instanceID: 26310}
     - Class: 114
-      Script: {instanceID: 26580}
+      Script: {instanceID: 26582}
     - Class: 114
-      Script: {instanceID: 26838}
+      Script: {instanceID: 26840}
     - Class: 114
-      Script: {instanceID: 27022}
+      Script: {instanceID: 27024}
     - Class: 114
-      Script: {instanceID: 27054}
+      Script: {instanceID: 27056}
     - Class: 114
-      Script: {instanceID: 27566}
+      Script: {instanceID: 27568}
     - Class: 114
-      Script: {instanceID: 27682}
-    - Class: 114
-      Script: {instanceID: 27720}
+      Script: {instanceID: 27684}
     - Class: 114
       Script: {instanceID: 27722}
     - Class: 114
-      Script: {instanceID: 27804}
+      Script: {instanceID: 27724}
     - Class: 114
-      Script: {instanceID: 28034}
+      Script: {instanceID: 27806}
     - Class: 114
-      Script: {instanceID: 28066}
+      Script: {instanceID: 28036}
     - Class: 114
-      Script: {instanceID: 28088}
+      Script: {instanceID: 28068}
     - Class: 114
-      Script: {instanceID: 28478}
+      Script: {instanceID: 28090}
     - Class: 114
-      Script: {instanceID: 28624}
+      Script: {instanceID: 28480}
     - Class: 114
-      Script: {instanceID: 28826}
+      Script: {instanceID: 28626}
     - Class: 114
-      Script: {instanceID: 29116}
+      Script: {instanceID: 28828}
     - Class: 114
-      Script: {instanceID: 29206}
+      Script: {instanceID: 29118}
     - Class: 114
-      Script: {instanceID: 29480}
+      Script: {instanceID: 29208}
     - Class: 114
-      Script: {instanceID: 29552}
+      Script: {instanceID: 29482}
     - Class: 114
-      Script: {instanceID: 29810}
+      Script: {instanceID: 29554}
     - Class: 114
-      Script: {instanceID: 29848}
+      Script: {instanceID: 29812}
     - Class: 114
-      Script: {instanceID: 30208}
+      Script: {instanceID: 29850}
     - Class: 114
-      Script: {instanceID: 30272}
+      Script: {instanceID: 30210}
     - Class: 114
-      Script: {instanceID: 30286}
+      Script: {instanceID: 30274}
     - Class: 114
-      Script: {instanceID: 30340}
+      Script: {instanceID: 30288}
     - Class: 114
-      Script: {instanceID: 30400}
+      Script: {instanceID: 30342}
     - Class: 114
-      Script: {instanceID: 30602}
+      Script: {instanceID: 30402}
     - Class: 114
-      Script: {instanceID: 30758}
+      Script: {instanceID: 30604}
     - Class: 114
-      Script: {instanceID: 30950}
+      Script: {instanceID: 30760}
     - Class: 114
-      Script: {instanceID: 31214}
+      Script: {instanceID: 30952}
     - Class: 114
-      Script: {instanceID: 31328}
+      Script: {instanceID: 31216}
     - Class: 114
-      Script: {instanceID: 31504}
+      Script: {instanceID: 31330}
     - Class: 114
-      Script: {instanceID: 31514}
+      Script: {instanceID: 31506}
     - Class: 114
-      Script: {instanceID: 31570}
+      Script: {instanceID: 31516}
     - Class: 114
-      Script: {instanceID: 31946}
+      Script: {instanceID: 31572}
     - Class: 114
-      Script: {instanceID: 32264}
+      Script: {instanceID: 31948}
     - Class: 114
-      Script: {instanceID: 32520}
+      Script: {instanceID: 32266}
     - Class: 114
-      Script: {instanceID: 32756}
+      Script: {instanceID: 32522}
     - Class: 114
-      Script: {instanceID: 32796}
+      Script: {instanceID: 32760}
+    - Class: 114
+      Script: {instanceID: 32800}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -2270,6 +2268,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples
     namespaceName: Mirror.Examples.SnapshotInterpolationDemo
     className: ServerCube
+  - hash:
+      serializedVersion: 2
+      Hash: 4d7440ba97c3e62b37180670f30908ca
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CharacterHostButton
   - hash:
       serializedVersion: 2
       Hash: 3404ad3d972eeb6b18ecf04e7afd7993
