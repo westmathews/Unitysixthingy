@@ -82,6 +82,11 @@ public class LizardGuns : NetworkBehaviour
         enemy.GetComponent<Health>().intcam = intcam;
         Debug.Log("server contacted smacksmack");
     }
+    [ClientRpc]
+    private void RpcDamageSync(GameObject enemy)
+    {
+        enemy.GetComponent<Health>().hepo -= 40;
+    }
     void Secondary(Vector3 playerPos, Vector3 offset)
     {
         rifle.SetActive(false);
@@ -96,6 +101,7 @@ public class LizardGuns : NetworkBehaviour
             revolver.SetActive(false);
             rifle.SetActive(true);
         }
+        
         GetComponentInParent<PewPew>().nospam = 0;
         playerCamera.GetComponent<Lookie>().secondaryrecoil();
         if (Physics.Raycast(ray, out hit, range))
