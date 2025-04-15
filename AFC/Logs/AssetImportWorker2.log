@@ -1353,3 +1353,55 @@ Memory consumption went from 302.1 MB to 301.6 MB.
 Total: 4.128416 ms (FindLiveObjects: 0.184458 ms CreateObjectMapping: 0.089333 ms MarkObjects: 3.368125 ms  DeleteObjects: 0.485791 ms)
 
 Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 711.463902 seconds.
+  path: Assets/Player prefabs/Base guy (broken).prefab
+  artifactKey: Guid(37e5e35e8ae294cf0910eb0d6e79251d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player prefabs/Base guy (broken).prefab using Guid(37e5e35e8ae294cf0910eb0d6e79251d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 5 workers.
+Player_Movement on Base guy (broken) requires a NetworkIdentity. Please add a NetworkIdentity component to Base guy (broken) or it's parents.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object,UnityEngine.Object)
+UnityEngine.Debug:LogError (object,UnityEngine.Object)
+Mirror.NetworkBehaviour:OnValidate () (at Assets/Mirror/Core/NetworkBehaviour.cs:169)
+
+(Filename: Assets/Mirror/Core/NetworkBehaviour.cs Line: 169)
+
+GIbbityGone on Gub requires a NetworkIdentity. Please add a NetworkIdentity component to Gub or it's parents.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object,UnityEngine.Object)
+UnityEngine.Debug:LogError (object,UnityEngine.Object)
+Mirror.NetworkBehaviour:OnValidate () (at Assets/Mirror/Core/NetworkBehaviour.cs:169)
+
+(Filename: Assets/Mirror/Core/NetworkBehaviour.cs Line: 169)
+
+[PhysX] Initialized MultithreadedTaskDispatcher with 5 workers.
+ -> (artifact id: '07bb0d4960b27817a59705ccec90ed0c') in 0.06970675 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 64
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Player prefabs/Racoon.prefab
+  artifactKey: Guid(e8b4c8403404c4dde951b5127192c27e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player prefabs/Racoon.prefab using Guid(e8b4c8403404c4dde951b5127192c27e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 5 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 5 workers.
+ -> (artifact id: 'e018bd0cee157cfb04a6c6e70110e364') in 0.03239525 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 193
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.811578 seconds.
+  path: Assets/Player prefabs/Lizard.prefab
+  artifactKey: Guid(fb7be51402e654417bd89c4eaa2abffa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player prefabs/Lizard.prefab using Guid(fb7be51402e654417bd89c4eaa2abffa) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[PhysX] Initialized MultithreadedTaskDispatcher with 5 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 5 workers.
+ -> (artifact id: '8a67d463e98eccc20238b5141abb4d42') in 0.022900792 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 154
+
