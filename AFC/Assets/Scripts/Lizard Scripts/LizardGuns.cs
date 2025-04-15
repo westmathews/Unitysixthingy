@@ -14,6 +14,7 @@ public class LizardGuns : NetworkBehaviour
     public float sndtime;
     public GameObject hitind;
     public GameObject hitfab;
+    public GameObject enemy;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -37,7 +38,7 @@ public class LizardGuns : NetworkBehaviour
             Secondary(transform.position, new Vector3(1, -1, 0));
         }
     }
-    [Command]
+
     void This(Vector3 playerPos, Vector3 offset)
     {
        
@@ -57,9 +58,11 @@ public class LizardGuns : NetworkBehaviour
             // Check if the hit object has the "Player" tag
             if (hit.collider.CompareTag("Player"))
             {
+                enemy = hit.collider.gameObject;
+                cmdchangehealth(enemy);
                 //gets health script owner
-                hit.collider.gameObject.GetComponent<Health>().intcam = intcam;
-                hit.collider.gameObject.GetComponent<Health>().hepo -= GetComponentInParent<PewPew>().dmg;
+                //hit.collider.gameObject.GetComponent<Health>().intcam = intcam;
+                //hit.collider.gameObject.GetComponent<Health>().hepo -= GetComponentInParent<PewPew>().dmg;
                 //cmdchangehealth()
 
                 //hitind = Instantiate(hitfab, hit.point, Quaternion.identity); //Quaternion.RotateTowards(hitind.transform.rotation, hit.collider.transform.rotation., 360));
@@ -72,11 +75,11 @@ public class LizardGuns : NetworkBehaviour
 
         //Ray raytwo = new Vector3(target)(new Vector3(offset));
     }
-    //[Command]
-    //void cmdchangehealth()
-    //{
-
-    //}
+    [Command]
+    void cmdchangehealth(GameObject enemy)
+    {
+        enemy.GetComponent<Health>().hepo -= 40;
+    }
     void Secondary(Vector3 playerPos, Vector3 offset)
     {
         rifle.SetActive(false);
