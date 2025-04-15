@@ -80,6 +80,7 @@ public class LizardGuns : NetworkBehaviour
     {
         enemy.GetComponent<Health>().hepo -= 40;
         enemy.GetComponent<Health>().intcam = intcam;
+        Debug.Log("server contacted smacksmack");
     }
     void Secondary(Vector3 playerPos, Vector3 offset)
     {
