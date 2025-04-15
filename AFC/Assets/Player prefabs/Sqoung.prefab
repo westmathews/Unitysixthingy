@@ -91,6 +91,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb7ae14f777447c9955494c1e96e3f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   grenadeprefab: {fileID: 1009067334264034623, guid: 72795f699ee61472cbc060d631ce0720, type: 3}
   Grenaben: {fileID: 0}
   intcam: {fileID: 4926886205466818057}
@@ -904,7 +907,7 @@ GameObject:
   - component: {fileID: 2935759532337809205}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

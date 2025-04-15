@@ -1420,7 +1420,7 @@ GameObject:
   - component: {fileID: 4226314723136337368}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1877,6 +1877,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc312173fc43a4dc5b44f22e76b3d9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   revolver: {fileID: 8226806544387979701}
   rifle: {fileID: 3900921648239395402}
   intcam: {fileID: 4156497041855745480}
