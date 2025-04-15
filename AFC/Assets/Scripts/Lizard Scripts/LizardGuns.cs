@@ -76,9 +76,10 @@ public class LizardGuns : NetworkBehaviour
         //Ray raytwo = new Vector3(target)(new Vector3(offset));
     }
     [Command]
-    void cmdchangehealth(GameObject enemy)
+    private void cmdchangehealth(GameObject enemy)
     {
         enemy.GetComponent<Health>().hepo -= 40;
+        enemy.GetComponent<Health>().intcam = intcam;
     }
     void Secondary(Vector3 playerPos, Vector3 offset)
     {

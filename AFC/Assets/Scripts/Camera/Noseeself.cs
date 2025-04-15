@@ -28,6 +28,7 @@ public class Noseeself : NetworkBehaviour
 
 
     }
+    
     void RpcHideObject(NetworkConnectionToClient conn)
     {
         if (isLocalPlayer)
