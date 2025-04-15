@@ -78,6 +78,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74876755fd5af48c1b600f86125853d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   Gunexist: {fileID: 1699847340020989360}
 --- !u!114 &7721025826139878861
 MonoBehaviour:
@@ -1057,6 +1060,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be36b80cbd97945c08a225d5b5803723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   hitcheck: 0
   hepo: 100
   maxhp: 80
@@ -1064,7 +1070,7 @@ MonoBehaviour:
   regencool: 0
   healthbar: {fileID: 796061346250943565}
   hitind: {fileID: 0}
-  hitfab: {fileID: 0}
+  hitfab: {fileID: 2947498012721558519, guid: 55f069c1bfe9b48d9abb31a4e30b4229, type: 3}
   burn: 0
   burnTimer: 0
   intcam: {fileID: 0}

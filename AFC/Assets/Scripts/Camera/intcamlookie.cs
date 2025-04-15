@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class intcamlookie : MonoBehaviour
+using Mirror;
+public class intcamlookie : NetworkBehaviour
 {
     public float mouseSensitivity; // Mouse sensitivity
     public float xRotation; // Vertical rotation

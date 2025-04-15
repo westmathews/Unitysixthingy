@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Mirror.Examples.Common;
 using UnityEngine;
-
-public class Lookie : MonoBehaviour
+using Mirror;
+public class Lookie : NetworkBehaviour
 {
     public bool seeplayer = false;
     public string thing_hit = "n/a";

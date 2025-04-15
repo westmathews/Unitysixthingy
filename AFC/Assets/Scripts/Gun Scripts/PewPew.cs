@@ -1,6 +1,6 @@
 using UnityEngine;
-
-public class PewPew : MonoBehaviour
+using Mirror;
+public class PewPew : NetworkBehaviour
 {
     //public Camera playerCamera; // Assign your camera in the inspector
     // How far the ray can go
