@@ -75,9 +75,10 @@ public class SquirrelGuns : MonoBehaviour
             {
                 //gets health script owner
                 hit.collider.gameObject.GetComponent<Health>().hepo -= GetComponentInParent<PewPew>().dmg;
-                hitind = Instantiate(hitfab, hit.point, Quaternion.identity); //Quaternion.RotateTowards(hitind.transform.rotation, hit.collider.transform.rotation., 360));
-                hitind.transform.rotation = intcam.transform.rotation;
-                hitind.GetComponent<TextMeshPro>().text = "15";
+                hit.collider.gameObject.GetComponent<Health>().intcam = intcam;
+                //hitind = Instantiate(hitfab, hit.point, Quaternion.identity); //Quaternion.RotateTowards(hitind.transform.rotation, hit.collider.transform.rotation., 360));
+                //hitind.transform.rotation = intcam.transform.rotation;
+                //hitind.GetComponent<TextMeshPro>().text = "15";
                 // Logic for hitting a player
                 // You can add additional actions here, like applying damage or triggering an effect
             }
