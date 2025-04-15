@@ -73,7 +73,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091691400718924430}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74876755fd5af48c1b600f86125853d2, type: 3}
   m_Name: 
@@ -1060,6 +1060,11 @@ MonoBehaviour:
   player: {fileID: 7026541569084999377}
   regencool: 0
   healthbar: {fileID: 796061346250943565}
+  hitind: {fileID: 0}
+  hitfab: {fileID: 0}
+  burn: 0
+  burnTimer: 0
+  intcam: {fileID: 0}
 --- !u!1 &4926886205466818057
 GameObject:
   m_ObjectHideFlags: 0
@@ -1576,6 +1581,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  Gun: {fileID: 2618342233649944110}
   PlayerModel: {fileID: 7411991995357635280}
 --- !u!1 &7046325087989527260
 GameObject:

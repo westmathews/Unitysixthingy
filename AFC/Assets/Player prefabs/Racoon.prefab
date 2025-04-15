@@ -609,6 +609,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  Gun: {fileID: 5766621088026232040}
   PlayerModel: {fileID: 2915907416952150985}
 --- !u!114 &714349373030817563
 MonoBehaviour:
@@ -626,37 +627,6 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   playerCamera: {fileID: 9046327082102488057}
---- !u!1 &2915907416952150985
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a3181433cecd4423a8db1d22888149f6, type: 3}
-  m_PrefabInstance: {fileID: 2645314515730769560}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2539101051574567283}
-  m_Layer: 0
-  m_Name: 'Raccoon (Missing Prefab with guid: a3181433cecd4423a8db1d22888149f6)'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2539101051574567283
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a3181433cecd4423a8db1d22888149f6, type: 3}
-  m_PrefabInstance: {fileID: 2645314515730769560}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2915907416952150985}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2802385740226254886}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3776122703661722398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,6 +1576,11 @@ MonoBehaviour:
   player: {fileID: 1170288670008572567}
   regencool: 0
   healthbar: {fileID: 8351282016601199537}
+  hitind: {fileID: 0}
+  hitfab: {fileID: 0}
+  burn: 0
+  burnTimer: 0
+  intcam: {fileID: 0}
 --- !u!1 &5331736842108410041
 GameObject:
   m_ObjectHideFlags: 0
@@ -1919,7 +1894,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5766621088026232040}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74876755fd5af48c1b600f86125853d2, type: 3}
   m_Name: 
@@ -2812,3 +2787,13 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3181433cecd4423a8db1d22888149f6, type: 3}
+--- !u!4 &2539101051574567283 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a3181433cecd4423a8db1d22888149f6, type: 3}
+  m_PrefabInstance: {fileID: 2645314515730769560}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2915907416952150985 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a3181433cecd4423a8db1d22888149f6, type: 3}
+  m_PrefabInstance: {fileID: 2645314515730769560}
+  m_PrefabAsset: {fileID: 0}

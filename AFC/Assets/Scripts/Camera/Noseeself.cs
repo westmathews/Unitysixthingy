@@ -3,6 +3,7 @@ using Mirror;
 using UnityEngine.Video;
 public class Noseeself : NetworkBehaviour
 {
+    public GameObject Gun;
     public GameObject PlayerModel;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,6 +40,7 @@ public class Noseeself : NetworkBehaviour
         if (PlayerModel.activeSelf)
         {
             PlayerModel.SetActive(false);
+            Gun.SetActive(true);
         }
     }
     void RpcRevealObject(NetworkConnectionToClient conn)
@@ -53,6 +55,7 @@ public class Noseeself : NetworkBehaviour
         if (!PlayerModel.activeSelf)
         {
             PlayerModel.SetActive(true);
+            Gun.SetActive(false);
         }
     }
 }
