@@ -31,15 +31,14 @@ public class FlameThrowerParticle : MonoBehaviour
         
         if (other.gameObject.CompareTag("Player")&&!other.gameObject.GetComponentInChildren<RaccoonGuns>())
         {
-            
-            Debug.Log("HitPlayer");
+
             other.gameObject.GetComponentInChildren<Health>().hepo -= 1;
+            other.gameObject.GetComponentInChildren<Health>().burn = 5;
+            other.gameObject.GetComponentInChildren<Health>().burnTimer = 1;
+            other.gameObject.GetComponentInChildren<Health>().intcam = intcam;
             var collision = self.collision;
-            collision.enabled = false;
-            hitind = Instantiate(hitfab, other.GetComponent<Collider>().ClosestPointOnBounds(self.transform.position), Quaternion.identity); //Quaternion.RotateTowards(hitind.transform.rotation, hit.collider.transform.rotation., 360));
-            hitind.transform.rotation = intcam.transform.rotation;
-            hitind.GetComponent<TextMeshPro>().text = "1";
+
         }
-        
+
     }
 }

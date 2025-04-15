@@ -201,7 +201,7 @@ MonoBehaviour:
   onlineScene: 
   offlineSceneLoadDelay: 0
   transport: {fileID: 536257377}
-  networkAddress: localhost
+  networkAddress: 10.230.43.13
   maxConnections: 100
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
@@ -1198,6 +1198,11 @@ MonoBehaviour:
   player: {fileID: 1181508400}
   regencool: 0
   healthbar: {fileID: 0}
+  hitind: {fileID: 2947498012721558519, guid: 55f069c1bfe9b48d9abb31a4e30b4229, type: 3}
+  hitfab: {fileID: 2947498012721558519, guid: 55f069c1bfe9b48d9abb31a4e30b4229, type: 3}
+  burn: 0
+  burnTimer: 0
+  intcam: {fileID: 0}
 --- !u!143 &1181508404
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1940,6 +1945,11 @@ MonoBehaviour:
   player: {fileID: 2042900191}
   regencool: 0
   healthbar: {fileID: 0}
+  hitind: {fileID: 2947498012721558519, guid: 55f069c1bfe9b48d9abb31a4e30b4229, type: 3}
+  hitfab: {fileID: 2947498012721558519, guid: 55f069c1bfe9b48d9abb31a4e30b4229, type: 3}
+  burn: 0
+  burnTimer: 0
+  intcam: {fileID: 0}
 --- !u!143 &2042900196
 CharacterController:
   m_ObjectHideFlags: 0

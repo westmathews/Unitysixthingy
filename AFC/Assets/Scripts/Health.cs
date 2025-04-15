@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,11 @@ public class Health : MonoBehaviour
     public MeshRenderer player;
     public float regencool = 0;
     public Image healthbar;
-
+    public GameObject hitind;
+    public GameObject hitfab;
+    public float burn;
+    public float burnTimer;
+    public GameObject intcam;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -40,16 +45,47 @@ public class Health : MonoBehaviour
         {
             hepo -= 10;
         }
-        if(hepo < hitcheck)
+        if (hepo < hitcheck)
         {
+            float pain = hitcheck - hepo;
+            hitind = Instantiate(hitfab, transform.position, Quaternion.identity); //Quaternion.RotateTowards(hitind.transform.rotation, hit.collider.transform.rotation., 360));
+            hitind.transform.rotation = intcam.transform.rotation;
+            hitind.GetComponent<TextMeshPro>().text = pain.ToString();
             hitcheck = hepo;
             regencool = 0;
+
         }
-        if (regencool > 3 && regentimer >= .1 && hepo < maxhp)
-        {
-            hepo += 1;
-            regentimer = 0;
-        }
-        //healthbar.fillAmount = hepo/maxhp;
+            if (hepo < hitcheck)
+            {
+                hitcheck = hepo;
+                regencool = 0;
+            }
+            if (regencool > 3 && regentimer >= .1 && hepo < maxhp)
+            {
+                hepo += 1;
+                regentimer = 0;
+            }
+            if (burn > 0)
+            {
+
+                if (burnTimer > 0)
+                {
+                    burnTimer -= Time.deltaTime;
+
+
+                }
+                if (burnTimer <= 0)
+                {
+                    burn -= 1;
+                    hepo -= 2;
+                    burnTimer = 1;
+                    Debug.Log("RingOfFire");
+                }
+
+            }
+
+
+            //healthbar.fillAmount = hepo/maxhp;
+        
     }
 }
