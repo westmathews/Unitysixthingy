@@ -563,6 +563,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab96cb5f28b84e02866a76b92cd277d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   seeplayer: 0
   thing_hit: n/a
   target: {x: 0, y: 0, z: 0}
@@ -830,6 +833,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e837a99678a4b61be27cce311790c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   mouseSensitivity: 2500
   xRotation: 0
   mncam: {fileID: 2759839991081780297}
@@ -1233,6 +1239,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7a9693c4db2243aa9d3f9467104e0fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -1918,6 +1927,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12049c22df5c944389b6745543ab97a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   Gun: {fileID: 5766621088026232040}
   actvfire: {fileID: 0}
   fire: {fileID: 1012808892610559070, guid: 6ee977576fe304b51a646da2832f12e0, type: 3}
@@ -2479,6 +2491,7 @@ GameObject:
   - component: {fileID: 4681496558961594327}
   - component: {fileID: 4947502780725202426}
   - component: {fileID: 2111290841914717094}
+  - component: {fileID: 8624492943590915288}
   m_Layer: 0
   m_Name: Racoon
   m_TagString: Player
@@ -2658,6 +2671,22 @@ MonoBehaviour:
   rotationSensitivity: 0.01
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &8624492943590915288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9102419443657893789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe423622b26b409a8ca6af5a2270c47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  playerCamera: {fileID: 9046327082102488057}
 --- !u!1001 &2645314515730769560
 PrefabInstance:
   m_ObjectHideFlags: 0

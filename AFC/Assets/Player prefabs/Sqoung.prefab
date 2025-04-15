@@ -561,6 +561,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7a9693c4db2243aa9d3f9467104e0fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -1202,6 +1205,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e837a99678a4b61be27cce311790c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   mouseSensitivity: 2500
   xRotation: 0
   mncam: {fileID: 6874627829988730143}
@@ -1544,6 +1550,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab96cb5f28b84e02866a76b92cd277d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   seeplayer: 0
   thing_hit: n/a
   target: {x: 0, y: 0, z: 0}
@@ -1608,6 +1617,7 @@ GameObject:
   - component: {fileID: 2851788014612117314}
   - component: {fileID: 2180539454020937447}
   - component: {fileID: 5167988460953664342}
+  - component: {fileID: 6124244514991175962}
   m_Layer: 0
   m_Name: Sqoung
   m_TagString: Player
@@ -1787,6 +1797,22 @@ MonoBehaviour:
   rotationSensitivity: 0.01
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &6124244514991175962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7046325087989527260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe423622b26b409a8ca6af5a2270c47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  playerCamera: {fileID: 8108691871077321113}
 --- !u!1 &7411991995357635280
 GameObject:
   m_ObjectHideFlags: 0
