@@ -1,6 +1,7 @@
 using UnityEngine;
+using Mirror;
 using TMPro;
-public class LizardGuns : MonoBehaviour
+public class LizardGuns : NetworkBehaviour
 {
     public GameObject revolver;
     public GameObject rifle;
@@ -36,6 +37,7 @@ public class LizardGuns : MonoBehaviour
             Secondary(transform.position, new Vector3(1, -1, 0));
         }
     }
+    [Command]
     void This(Vector3 playerPos, Vector3 offset)
     {
        
@@ -58,6 +60,7 @@ public class LizardGuns : MonoBehaviour
                 //gets health script owner
                 hit.collider.gameObject.GetComponent<Health>().intcam = intcam;
                 hit.collider.gameObject.GetComponent<Health>().hepo -= GetComponentInParent<PewPew>().dmg;
+                //cmdchangehealth()
 
                 //hitind = Instantiate(hitfab, hit.point, Quaternion.identity); //Quaternion.RotateTowards(hitind.transform.rotation, hit.collider.transform.rotation., 360));
                 //hitind.transform.rotation = intcam.transform.rotation;
@@ -66,8 +69,14 @@ public class LizardGuns : MonoBehaviour
                 // You can add additional actions here, like applying damage or triggering an effect
             }
         }
+
         //Ray raytwo = new Vector3(target)(new Vector3(offset));
     }
+    //[Command]
+    //void cmdchangehealth()
+    //{
+
+    //}
     void Secondary(Vector3 playerPos, Vector3 offset)
     {
         rifle.SetActive(false);

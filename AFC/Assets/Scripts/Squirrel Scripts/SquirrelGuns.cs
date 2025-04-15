@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
-
-public class SquirrelGuns : MonoBehaviour
+using Mirror;
+public class SquirrelGuns : NetworkBehaviour
 {
     public GameObject grenadeprefab;
     public GameObject Grenaben;
