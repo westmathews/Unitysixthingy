@@ -1,8 +1,8 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class Health : MonoBehaviour
+using Mirror;
+public class Health : NetworkBehaviour
 {
     private float regentimer = 0;
     public float hitcheck;
