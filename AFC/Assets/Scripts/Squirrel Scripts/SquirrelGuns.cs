@@ -28,35 +28,40 @@ public class SquirrelGuns : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse1))
+        if (isLocalPlayer)
         {
-            spreadangle = 5;
-        }
-        else
-        {
-            spreadangle = 7.5f;
-        }
-        if (sndshots < 5 && shat)
-        {
-            intcam.GetComponent<intcamlookie>().xRotation = playerCamera.GetComponent<Lookie>().xRotation;
-            This(transform.position, new Vector3(1, -1, 0));
-            sndshots += 1;
-        }
-        if (sndshots >= 5)
-        {
-            shat = false;
-            sndshots = 0;
-            Debug.Log("hi alex :)");
-            playerCamera.GetComponent<Lookie>().recoil();
-        }
-        if (GetComponentInParent<PewPew>().maingun)
-        {
-            This(transform.position, new Vector3(1, -1, 0));
-            shat = true;
-        }
-        if (GetComponentInParent<PewPew>().secondary)
-        {
-            Secondary(transform.position, new Vector3(1, -1, 0));
+
+
+            if (Input.GetKey(KeyCode.Mouse1))
+            {
+                spreadangle = 5;
+            }
+            else
+            {
+                spreadangle = 7.5f;
+            }
+            if (sndshots < 5 && shat)
+            {
+                intcam.GetComponent<intcamlookie>().xRotation = playerCamera.GetComponent<Lookie>().xRotation;
+                This(transform.position, new Vector3(1, -1, 0));
+                sndshots += 1;
+            }
+            if (sndshots >= 5)
+            {
+                shat = false;
+                sndshots = 0;
+                Debug.Log("hi alex :)");
+                playerCamera.GetComponent<Lookie>().recoil();
+            }
+            if (GetComponentInParent<PewPew>().maingun)
+            {
+                This(transform.position, new Vector3(1, -1, 0));
+                shat = true;
+            }
+            if (GetComponentInParent<PewPew>().secondary)
+            {
+                Secondary(transform.position, new Vector3(1, -1, 0));
+            }
         }
     }
     void This(Vector3 playerPos, Vector3 offset)

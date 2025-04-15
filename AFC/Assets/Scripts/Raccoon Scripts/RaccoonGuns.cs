@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
-public class RaccoonGuns : MonoBehaviour
+using Mirror;
+public class RaccoonGuns : NetworkBehaviour
 {
     public GameObject Gun;
     public GameObject actvfire;
@@ -26,20 +27,26 @@ public class RaccoonGuns : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        flametimer += Time.deltaTime;
+        if (isLocalPlayer)
+        {
 
-        sndtime += Time.deltaTime;
-        if (sndtime >= .1 && sndshots > 0)
-        {
-            Secondary(transform.position, new Vector3(1, -1, 0));
-        }
-        if (GetComponentInParent<PewPew>().maingun)
-        {
-            This(transform.position, new Vector3(1, -1, 0));
-        }
-        if (GetComponentInParent<PewPew>().secondary)
-        {
-            Secondary(transform.position, new Vector3(1, -1, 0));
+
+            flametimer += Time.deltaTime;
+
+            sndtime += Time.deltaTime;
+
+            if (sndtime >= .1 && sndshots > 0)
+            {
+                Secondary(transform.position, new Vector3(1, -1, 0));
+            }
+            if (GetComponentInParent<PewPew>().maingun)
+            {
+                This(transform.position, new Vector3(1, -1, 0));
+            }
+            if (GetComponentInParent<PewPew>().secondary)
+            {
+                Secondary(transform.position, new Vector3(1, -1, 0));
+            }
         }
     }
     void This(Vector3 playerPos, Vector3 offset)
