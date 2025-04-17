@@ -112,6 +112,10 @@ public class Health : NetworkBehaviour
     public void TakeDamage(float amount)
     {
         hepo -= amount;
+        float pain = hitcheck - hepo;
+        hitind = Instantiate(hitfab, transform.position, Quaternion.identity);
+        hitind.transform.rotation = intcam.transform.rotation;
+        hitind.GetComponent<TextMeshPro>().text = pain.ToString();
 
         if (hepo <= 0)
         {
