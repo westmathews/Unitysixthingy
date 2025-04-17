@@ -85,7 +85,7 @@ public class LizardGuns : NetworkBehaviour
     {
         if (NetworkServer.spawned.TryGetValue(enemyNetId, out NetworkIdentity enemyIdentity))
         {
-            Health enemyHealth = enemyIdentity.GetComponent<Health>();
+            Health enemyHealth = enemyIdentity.GetComponentInChildren<Health>();
             if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage(40);

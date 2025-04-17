@@ -60,11 +60,13 @@ public class Health : NetworkBehaviour
             {
                 hitcheck = hepo;
                 regencool = 0;
+                
             }
             if (regencool > 3 && regentimer >= .1 && hepo < maxhp)
             {
                 hepo += 1;
                 regentimer = 0;
+                OnHealthChanged(hitcheck, hepo);
             }
             if (burn > 0)
             {
@@ -82,8 +84,13 @@ public class Health : NetworkBehaviour
                     burnTimer = 1;
                     Debug.Log("RingOfFire");
                 }
-
+            if (isLocalPlayer && healthbar != null)
+            {
+                healthbar.fillAmount = hepo / maxhp;
             }
+            
+        }
+
 
 
             //healthbar.fillAmount = hepo/maxhp;
@@ -93,12 +100,13 @@ public class Health : NetworkBehaviour
     {
         Debug.Log($"🩸 Health changed from {oldHealth} to {newHealth}");
         hitcheck = newHealth;
-
-        // Optionally update UI here if this is the local player
         if (isLocalPlayer && healthbar != null)
         {
             healthbar.fillAmount = newHealth / maxhp;
         }
+
+        // Optionally update UI here if this is the local player
+
     }
     [Server] // Only runs on server
     public void TakeDamage(float amount)
