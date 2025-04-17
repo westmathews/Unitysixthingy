@@ -112,6 +112,7 @@ public class Health : NetworkBehaviour
     [Server] // Only runs on server
     public void TakeDamage(float amount)
     {
+        Debug.Log("testing if both get it");
         hepo -= amount;
         float pain = hitcheck - hepo;
         hitind = Instantiate(hitfab, transform.position, Quaternion.identity);

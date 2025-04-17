@@ -531,6 +531,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab96cb5f28b84e02866a76b92cd277d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   seeplayer: 0
   thing_hit: n/a
   target: {x: 0, y: 0, z: 0}
@@ -830,6 +833,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e837a99678a4b61be27cce311790c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   mouseSensitivity: 2500
   xRotation: 0
   mncam: {fileID: 2759839991081780297}
@@ -1233,6 +1239,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7a9693c4db2243aa9d3f9467104e0fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -1583,7 +1592,7 @@ MonoBehaviour:
   hitfab: {fileID: 2947498012721558519, guid: 55f069c1bfe9b48d9abb31a4e30b4229, type: 3}
   burn: 0
   burnTimer: 0
-  intcam: {fileID: 0}
+  intcam: {fileID: 4156497041855745480}
 --- !u!1 &5331736842108410041
 GameObject:
   m_ObjectHideFlags: 0
@@ -1894,6 +1903,7 @@ MonoBehaviour:
   sndtime: 0
   hitind: {fileID: 2947498012721558519, guid: 55f069c1bfe9b48d9abb31a4e30b4229, type: 3}
   hitfab: {fileID: 2947498012721558519, guid: 55f069c1bfe9b48d9abb31a4e30b4229, type: 3}
+  enemy: {fileID: 0}
 --- !u!114 &2339714180946914558
 MonoBehaviour:
   m_ObjectHideFlags: 0
