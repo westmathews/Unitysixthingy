@@ -42,30 +42,32 @@ public class LizardGuns : NetworkBehaviour
 
     void This(Vector3 playerPos, Vector3 offset)
     {
-       
-        intcam.GetComponent<intcamlookie>().xRotation = playerCamera.GetComponent<Lookie>().xRotation;
-        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        RaycastHit hit;
-        playerCamera.GetComponent<Lookie>().recoil();
-
-
-        if (Physics.Raycast(ray, out hit, range))
+        if (isLocalPlayer)
         {
-            target = hit.transform.position;
-            Debug.Log("Hit object tag: " + hit.collider.tag);
-            thing_hit = (hit.collider.tag);
+            intcam.GetComponent<intcamlookie>().xRotation = playerCamera.GetComponent<Lookie>().xRotation;
+            Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            RaycastHit hit;
+            playerCamera.GetComponent<Lookie>().recoil();
 
 
-            // Check if the hit object has the "Player" tag
-            if (hit.collider.CompareTag("Player"))
+            if (Physics.Raycast(ray, out hit, range))
             {
+                target = hit.transform.position;
+                Debug.Log("Hit object tag: " + hit.collider.tag);
+                thing_hit = (hit.collider.tag);
 
-                NetworkIdentity enemyId = hit.collider.GetComponent<NetworkIdentity>();
-                if (enemyId != null)
+
+                // Check if the hit object has the "Player" tag
+                if (hit.collider.CompareTag("Player"))
                 {
-                    cmdchangehealth(enemyId.netId);
+
+                    NetworkIdentity enemyId = hit.collider.GetComponent<NetworkIdentity>();
+                    if (enemyId != null)
+                    {
+                        cmdchangehealth(enemyId.netId);
+                    }
+
                 }
-               
             }
         }
 
