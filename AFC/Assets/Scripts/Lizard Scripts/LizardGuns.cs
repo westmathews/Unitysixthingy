@@ -25,18 +25,21 @@ public class LizardGuns : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        sndtime += Time.deltaTime;
-        if (sndtime >= .1 && sndshots > 0)
+        if (isLocalPlayer)
         {
-            Secondary(transform.position, new Vector3(1, -1, 0));
-        }
-        if (GetComponentInParent<PewPew>().maingun)
-        {
-            This(transform.position, new Vector3(1, -1, 0));
-        }
-        if (GetComponentInParent<PewPew>().secondary)
-        {
-            Secondary(transform.position, new Vector3(1, -1, 0));
+            sndtime += Time.deltaTime;
+            if (sndtime >= .1 && sndshots > 0)
+            {
+                Secondary(transform.position, new Vector3(1, -1, 0));
+            }
+            if (GetComponentInParent<PewPew>().maingun)
+            {
+                This(transform.position, new Vector3(1, -1, 0));
+            }
+            if (GetComponentInParent<PewPew>().secondary)
+            {
+                Secondary(transform.position, new Vector3(1, -1, 0));
+            }
         }
     }
 
