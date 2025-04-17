@@ -58,11 +58,11 @@ public class LizardGuns : NetworkBehaviour
             // Check if the hit object has the "Player" tag
             if (hit.collider.CompareTag("Player"))
             {
-            
-                NetworkIdentity enemyNetId = hit.collider.GetComponent<NetworkIdentity>();
-                if (enemyNetId != null)
+
+                NetworkIdentity enemyId = hit.collider.GetComponent<NetworkIdentity>();
+                if (enemyId != null)
                 {
-                    cmdchangehealth(enemyNetId);
+                    cmdchangehealth(enemyId.netId);
                 }
                 //gets health script owner
                 //hit.collider.gameObject.GetComponent<Health>().intcam = intcam;
@@ -79,14 +79,25 @@ public class LizardGuns : NetworkBehaviour
 
         //Ray raytwo = new Vector3(target)(new Vector3(offset));
     }
+
     [Command]
-    private void cmdchangehealth(NetworkIdentity enemyId)
+    private void cmdchangehealth(uint enemyNetId)
     {
-        if (enemyId != null)
+        if (NetworkServer.spawned.TryGetValue(enemyNetId, out NetworkIdentity enemyIdentity))
         {
-            GameObject enemy = enemyId.gameObject;
-            enemy.GetComponent<Health>().TakeDamage(40);
-            Debug.Log("☠️ Server applied damage to: " + enemy.name);
+            Health enemyHealth = enemyIdentity.GetComponent<Health>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(40);
+            }
+            else
+            {
+                Debug.LogError("Enemy has no Health component.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Could not find enemy by netId.");
         }
     }
     [ClientRpc]
