@@ -16,6 +16,7 @@ public class Health : NetworkBehaviour
     public GameObject hitfab;
     public float burn;
     public float burnTimer;
+    [SyncVar]
     public GameObject intcam;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

@@ -5,6 +5,7 @@ public class LizardGuns : NetworkBehaviour
 {
     public GameObject revolver;
     public GameObject rifle;
+    [SyncVar]
     public GameObject intcam;
     public Camera playerCamera;
     public Vector3 target;
@@ -79,6 +80,7 @@ public class LizardGuns : NetworkBehaviour
             Health enemyHealth = enemyIdentity.GetComponentInChildren<Health>();
             if (enemyHealth != null)
             {
+                enemyHealth.intcam = intcam;
                 enemyHealth.TakeDamage(40);
             }
             else
