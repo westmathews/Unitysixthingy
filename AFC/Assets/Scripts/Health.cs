@@ -6,6 +6,7 @@ public class Health : NetworkBehaviour
 {
     private float regentimer = 0;
     public float hitcheck;
+    [SyncVar(hook = nameof(OnHealthChanged))]
     public float hepo;
     public float maxhp;
     public MeshRenderer player;
@@ -87,5 +88,26 @@ public class Health : NetworkBehaviour
 
             //healthbar.fillAmount = hepo/maxhp;
         
+    }
+    void OnHealthChanged(float oldHealth, float newHealth)
+    {
+        Debug.Log($"🩸 Health changed from {oldHealth} to {newHealth}");
+        hitcheck = newHealth;
+
+        // Optionally update UI here if this is the local player
+        if (isLocalPlayer && healthbar != null)
+        {
+            healthbar.fillAmount = newHealth / maxhp;
+        }
+    }
+    [Server] // Only runs on server
+    public void TakeDamage(float amount)
+    {
+        hepo -= amount;
+
+        if (hepo <= 0)
+        {
+            //Die();
+        }
     }
 }

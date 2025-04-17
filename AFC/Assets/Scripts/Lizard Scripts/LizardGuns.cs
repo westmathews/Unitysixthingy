@@ -58,8 +58,12 @@ public class LizardGuns : NetworkBehaviour
             // Check if the hit object has the "Player" tag
             if (hit.collider.CompareTag("Player"))
             {
-                enemy = hit.collider.gameObject;
-                cmdchangehealth(enemy);
+            
+                NetworkIdentity enemyNetId = hit.collider.GetComponent<NetworkIdentity>();
+                if (enemyNetId != null)
+                {
+                    cmdchangehealth(enemyNetId);
+                }
                 //gets health script owner
                 //hit.collider.gameObject.GetComponent<Health>().intcam = intcam;
                 //hit.collider.gameObject.GetComponent<Health>().hepo -= GetComponentInParent<PewPew>().dmg;
@@ -76,11 +80,14 @@ public class LizardGuns : NetworkBehaviour
         //Ray raytwo = new Vector3(target)(new Vector3(offset));
     }
     [Command]
-    private void cmdchangehealth(GameObject enemy)
+    private void cmdchangehealth(NetworkIdentity enemyId)
     {
-        enemy.GetComponent<Health>().hepo -= 40;
-        enemy.GetComponent<Health>().intcam = intcam;
-        Debug.Log("server contacted smacksmack");
+        if (enemyId != null)
+        {
+            GameObject enemy = enemyId.gameObject;
+            enemy.GetComponent<Health>().TakeDamage(40);
+            Debug.Log("☠️ Server applied damage to: " + enemy.name);
+        }
     }
     [ClientRpc]
     private void RpcDamageSync(GameObject enemy)
