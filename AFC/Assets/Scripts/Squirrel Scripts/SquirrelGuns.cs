@@ -19,6 +19,7 @@ public class SquirrelGuns : NetworkBehaviour
     public float FrontDistance;
     public GameObject hitind;
     public GameObject hitfab;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -65,30 +66,34 @@ public class SquirrelGuns : NetworkBehaviour
         }
     }
     void This(Vector3 playerPos, Vector3 offset)
-    {
-        Vector3 shootdirection = spreaddirection();
-        RaycastHit hit;
-
-        if (Physics.Raycast(playerCamera.transform.position, shootdirection, out hit, range))
+    { if (isLocalPlayer)
         {
-            target = hit.transform.position;
-            Debug.Log("Hit object tag: " + hit.collider.tag);
-            thing_hit = (hit.collider.tag);
 
-            // Check if the hit object has the "Player" tag
-            if (hit.collider.CompareTag("Player"))
+
+            Vector3 shootdirection = spreaddirection();
+            RaycastHit hit;
+
+            if (Physics.Raycast(playerCamera.transform.position, shootdirection, out hit, range))
             {
-                //gets health script owner
-                hit.collider.gameObject.GetComponent<Health>().hepo -= GetComponentInParent<PewPew>().dmg;
-                hit.collider.gameObject.GetComponent<Health>().intcam = intcam;
-                //hitind = Instantiate(hitfab, hit.point, Quaternion.identity); //Quaternion.RotateTowards(hitind.transform.rotation, hit.collider.transform.rotation., 360));
-                //hitind.transform.rotation = intcam.transform.rotation;
-                //hitind.GetComponent<TextMeshPro>().text = "15";
-                // Logic for hitting a player
-                // You can add additional actions here, like applying damage or triggering an effect
+                target = hit.transform.position;
+                Debug.Log("Hit object tag: " + hit.collider.tag);
+                thing_hit = (hit.collider.tag);
+
+                // Check if the hit object has the "Player" tag
+                if (hit.collider.CompareTag("Player"))
+                {
+
+                    NetworkIdentity enemyId = hit.collider.GetComponent<NetworkIdentity>();
+                    if (enemyId != null)
+                    {
+
+                        cmdchangehealth(enemyId.netId, 15);
+                    }
+
+                }
             }
         }
-        Debug.DrawRay(playerCamera.transform.position, shootdirection * range, Color.red, 1f);        //Ray raytwo = new Vector3(target)(new Vector3(offset));
+        //Debug.DrawRay(playerCamera.transform.position, shootdirection * range, Color.red, 1f);        //Ray raytwo = new Vector3(target)(new Vector3(offset));
     }
     void Secondary(Vector3 playerPos, Vector3 offset)
     {
@@ -119,5 +124,28 @@ public class SquirrelGuns : NetworkBehaviour
 
         Quaternion rotation = Quaternion.Euler(randomvert, randomhor, 0);
         return rotation * direction;
+    }
+    [Command]
+    private void cmdchangehealth(uint enemyNetId, float dmgdealt)
+    {
+        Debug.Log("triggered");
+        if (NetworkServer.spawned.TryGetValue(enemyNetId, out NetworkIdentity enemyIdentity))
+        {
+            Health enemyHealth = enemyIdentity.GetComponentInChildren<Health>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.intcam = intcam;
+                enemyHealth.TakeDamage(15, connectionToClient);
+
+            }
+            else
+            {
+                Debug.LogError("Enemy has no Health component.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Could not find enemy by netId.");
+        }
     }
 }
