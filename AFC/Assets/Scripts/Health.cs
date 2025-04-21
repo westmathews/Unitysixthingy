@@ -35,12 +35,12 @@ public class Health : NetworkBehaviour
         }
         regentimer += Time.deltaTime;
         regencool += Time.deltaTime;
-        if(hepo < 1)
+        if (hepo < 1)
         {
             Debug.Log("OH SHIT OH FUCK IVE BEEN SHOT");
             player.enabled = false;
             hepo = maxhp;
-            
+
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
@@ -56,49 +56,49 @@ public class Health : NetworkBehaviour
             regencool = 0;
 
         }
-            if (hepo < hitcheck)
+        if (hepo < hitcheck)
+        {
+            hitcheck = hepo;
+            regencool = 0;
+
+        }
+        if (regencool > 3 && regentimer >= .1 && hepo < maxhp)
+        {
+            hepo += 1;
+            regentimer = 0;
+            OnHealthChanged(hitcheck, hepo);
+        }
+        if (burn > 0)
+        {
+
+            if (burnTimer > 0)
             {
-                hitcheck = hepo;
-                regencool = 0;
-                
+                burnTimer -= Time.deltaTime;
+
+
             }
-            if (regencool > 3 && regentimer >= .1 && hepo < maxhp)
+            if (burnTimer <= 0)
             {
-                hepo += 1;
-                regentimer = 0;
-                OnHealthChanged(hitcheck, hepo);
+                burn -= 1;
+                hepo -= 2;
+                burnTimer = 1;
+                Debug.Log("RingOfFire");
             }
-            if (burn > 0)
-            {
-
-                if (burnTimer > 0)
-                {
-                    burnTimer -= Time.deltaTime;
-
-
-                }
-                if (burnTimer <= 0)
-                {
-                    burn -= 1;
-                    hepo -= 2;
-                    burnTimer = 1;
-                    Debug.Log("RingOfFire");
-                }
             if (isLocalPlayer && healthbar != null)
             {
                 healthbar.fillAmount = hepo / maxhp;
             }
-            
+
         }
 
 
 
-            //healthbar.fillAmount = hepo/maxhp;
-        
+        //healthbar.fillAmount = hepo/maxhp;
+
     }
     void OnHealthChanged(float oldHealth, float newHealth)
     {
-        Debug.Log($"🩸 Health changed from {oldHealth} to {newHealth}");
+        //Debug.Log($"🩸 Health changed from {oldHealth} to {newHealth}");
         hitcheck = newHealth;
         if (isLocalPlayer && healthbar != null)
         {
@@ -116,10 +116,19 @@ public class Health : NetworkBehaviour
         hitind = Instantiate(hitfab, transform.position, Quaternion.identity);
         hitind.transform.rotation = intcam.transform.rotation;
         hitind.GetComponent<TextMeshPro>().text = amount.ToString();
-
+        TakeDamage2(amount);
         if (hepo <= 0)
         {
             //Die();
         }
+    }
+    [Client]
+    public void TakeDamage2(float amount)
+    {
+
+        hitind = Instantiate(hitfab, transform.position, Quaternion.identity);
+        hitind.transform.rotation = intcam.transform.rotation;
+        hitind.GetComponent<TextMeshPro>().text = amount.ToString();
+
     }
 }

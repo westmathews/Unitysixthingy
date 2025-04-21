@@ -12,15 +12,8 @@ public class GIbbityGone : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            shiftpress();
-        }
+       
         
     }
-    [Command]
-    void shiftpress()
-    {
-        Debug.Log("shift Pressed");
-    }
+   
 }
