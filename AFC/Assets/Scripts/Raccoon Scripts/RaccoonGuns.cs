@@ -41,7 +41,7 @@ public class RaccoonGuns : NetworkBehaviour
             }
             if (GetComponentInParent<PewPew>().maingun)
             {
-                This(transform.position, new Vector3(1, -1, 0));
+                This(transform.position, new Vector3(1, -1, 0), connectionToServer);
             }
             if (GetComponentInParent<PewPew>().secondary)
             {
@@ -50,7 +50,7 @@ public class RaccoonGuns : NetworkBehaviour
         }
     }
     [ClientRpc]
-    void This(Vector3 playerPos, Vector3 offset)
+    void This(Vector3 playerPos, Vector3 offset, NetworkConnection connectiontoserver)
     {
         if (flametimer > .05)
         {
