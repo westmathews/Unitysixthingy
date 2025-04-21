@@ -49,6 +49,7 @@ public class RaccoonGuns : NetworkBehaviour
             }
         }
     }
+    [ClientRpc]
     void This(Vector3 playerPos, Vector3 offset)
     {
         if (flametimer > .05)
@@ -60,6 +61,7 @@ public class RaccoonGuns : NetworkBehaviour
         }
         //Ray raytwo = new Vector3(target)(new Vector3(offset));
     }
+
     void Secondary(Vector3 playerPos, Vector3 offset)
     {
         rifle.SetActive(false);
