@@ -15,7 +15,7 @@ public class LizardGuns : NetworkBehaviour
     public GameObject hitind;
     public GameObject hitfab;
     public GameObject enemy;
-    public bool MainGunused;
+    public float dmgdealt;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -67,8 +67,8 @@ public class LizardGuns : NetworkBehaviour
                     NetworkIdentity enemyId = hit.collider.GetComponent<NetworkIdentity>();
                     if (enemyId != null)
                     {
-                        MainGunused = true;
-                        cmdchangehealth(enemyId.netId);
+                        dmgdealt = 40;
+                        cmdchangehealth(enemyId.netId, dmgdealt);
                     }
 
                 }
@@ -79,7 +79,7 @@ public class LizardGuns : NetworkBehaviour
     }
 
     [Command]
-    private void cmdchangehealth(uint enemyNetId)
+    private void cmdchangehealth(uint enemyNetId,float dmgdealt)
     {
         if (NetworkServer.spawned.TryGetValue(enemyNetId, out NetworkIdentity enemyIdentity))
         {
@@ -87,14 +87,7 @@ public class LizardGuns : NetworkBehaviour
             if (enemyHealth != null)
             {
                 enemyHealth.intcam = intcam;
-                if (MainGunused)
-                {
-                    enemyHealth.TakeDamage(40);
-                }
-                else
-                {
-                    enemyHealth.TakeDamage(10);
-                }
+                enemyHealth.TakeDamage(dmgdealt);
                 
             }
             else
@@ -149,8 +142,8 @@ public class LizardGuns : NetworkBehaviour
                     NetworkIdentity enemyId = hit.collider.GetComponent<NetworkIdentity>();
                     if (enemyId != null)
                     {
-                        MainGunused = false;
-                        cmdchangehealth(enemyId.netId);
+                        dmgdealt = 10;
+                        cmdchangehealth(enemyId.netId, dmgdealt);
                     }
 
                 }

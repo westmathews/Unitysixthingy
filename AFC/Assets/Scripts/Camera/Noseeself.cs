@@ -24,7 +24,7 @@ public class Noseeself : NetworkBehaviour
             RpcHideObject(connectionToClient);
             //GetComponent<Camera>().cullingMask = 63;
         }
-
+        
 
 
     }
