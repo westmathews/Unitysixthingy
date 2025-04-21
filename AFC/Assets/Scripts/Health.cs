@@ -108,19 +108,25 @@ public class Health : NetworkBehaviour
         // Optionally update UI here if this is the local player
 
     }
-    [Server] // Only runs on server
-    public void TakeDamage(float amount)
+    [Server]
+    public void TakeDamage(float amount, NetworkConnectionToClient shooterConn)
     {
-        Debug.Log("testing if both get it");
         hepo -= amount;
-        hitind = Instantiate(hitfab, transform.position, Quaternion.identity);
-        hitind.transform.rotation = intcam.transform.rotation;
-        hitind.GetComponent<TextMeshPro>().text = amount.ToString();
+        TargetShowHitIndicator(shooterConn, amount, intcam.transform.rotation);
+
         if (hepo <= 0)
         {
-            //Die();
+            // Die();
         }
     }
+    [TargetRpc]
+    void TargetShowHitIndicator(NetworkConnection target, float amount, Quaternion camRot)
+    {
+        GameObject hitind = Instantiate(hitfab, transform.position, Quaternion.identity);
+        hitind.transform.rotation = camRot;
+        hitind.GetComponent<TextMeshPro>().text = amount.ToString();
+    }
+}
     
 
-}
+

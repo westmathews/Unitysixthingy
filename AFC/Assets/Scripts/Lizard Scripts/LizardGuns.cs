@@ -88,7 +88,7 @@ public class LizardGuns : NetworkBehaviour
             if (enemyHealth != null)
             {
                 enemyHealth.intcam = intcam;
-                enemyHealth.TakeDamage(dmgdealt);
+                enemyHealth.TakeDamage(dmgdealt, connectionToClient);
                 
             }
             else
