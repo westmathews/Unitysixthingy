@@ -18,7 +18,7 @@ public class RaccoonGuns : NetworkBehaviour
     public GameObject hitind;
     public GameObject hitfab;
     public float flametimer;
-    public NetworkConnection conn;
+    public NetworkConnectionToServer conn;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -42,7 +42,7 @@ public class RaccoonGuns : NetworkBehaviour
             }
             if (GetComponentInParent<PewPew>().maingun)
             {
-                This(/*connectionToClient,*/ flametimer);
+                flamie(flametimer);
             }
             if (GetComponentInParent<PewPew>().secondary)
             {
@@ -50,9 +50,14 @@ public class RaccoonGuns : NetworkBehaviour
             }
         }
     }
+    [Command]
+    void flamie(float flametimer)
+    {
+        This(flametimer);
+    }
 
     [ClientRpc]
-    void This(/*NetworkConnectionToClient conn*/ float flametimer)
+    void This(float flametimer)
     {
         if (flametimer > .05)
         {
