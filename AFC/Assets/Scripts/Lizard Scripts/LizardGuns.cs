@@ -81,6 +81,7 @@ public class LizardGuns : NetworkBehaviour
     [Command]
     private void cmdchangehealth(uint enemyNetId,float dmgdealt)
     {
+        Debug.Log("triggered");
         if (NetworkServer.spawned.TryGetValue(enemyNetId, out NetworkIdentity enemyIdentity))
         {
             Health enemyHealth = enemyIdentity.GetComponentInChildren<Health>();

@@ -116,19 +116,11 @@ public class Health : NetworkBehaviour
         hitind = Instantiate(hitfab, transform.position, Quaternion.identity);
         hitind.transform.rotation = intcam.transform.rotation;
         hitind.GetComponent<TextMeshPro>().text = amount.ToString();
-        TakeDamage2(amount);
         if (hepo <= 0)
         {
             //Die();
         }
     }
-    [Client]
-    public void TakeDamage2(float amount)
-    {
+    
 
-        hitind = Instantiate(hitfab, transform.position, Quaternion.identity);
-        hitind.transform.rotation = intcam.transform.rotation;
-        hitind.GetComponent<TextMeshPro>().text = amount.ToString();
-
-    }
 }
