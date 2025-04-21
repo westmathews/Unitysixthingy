@@ -5,7 +5,6 @@ public class LizardGuns : NetworkBehaviour
 {
     public GameObject revolver;
     public GameObject rifle;
-    [SyncVar]
     public GameObject intcam;
     public Camera playerCamera;
     public Vector3 target;
@@ -16,7 +15,7 @@ public class LizardGuns : NetworkBehaviour
     public GameObject hitind;
     public GameObject hitfab;
     public GameObject enemy;
-    public float dmgdealt;
+    public bool MainGunused;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -68,7 +67,7 @@ public class LizardGuns : NetworkBehaviour
                     NetworkIdentity enemyId = hit.collider.GetComponent<NetworkIdentity>();
                     if (enemyId != null)
                     {
-                        dmgdealt = 40;
+                        MainGunused = true;
                         cmdchangehealth(enemyId.netId);
                     }
 
@@ -88,7 +87,15 @@ public class LizardGuns : NetworkBehaviour
             if (enemyHealth != null)
             {
                 enemyHealth.intcam = intcam;
-                enemyHealth.TakeDamage(dmgdealt);
+                if (MainGunused)
+                {
+                    enemyHealth.TakeDamage(40);
+                }
+                else
+                {
+                    enemyHealth.TakeDamage(10);
+                }
+                
             }
             else
             {
@@ -142,7 +149,7 @@ public class LizardGuns : NetworkBehaviour
                     NetworkIdentity enemyId = hit.collider.GetComponent<NetworkIdentity>();
                     if (enemyId != null)
                     {
-                        dmgdealt = 10;
+                        MainGunused = false;
                         cmdchangehealth(enemyId.netId);
                     }
 
