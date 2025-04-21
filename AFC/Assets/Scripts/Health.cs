@@ -16,7 +16,6 @@ public class Health : NetworkBehaviour
     public GameObject hitfab;
     public float burn;
     public float burnTimer;
-    [SyncVar]
     public GameObject intcam;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -114,10 +113,9 @@ public class Health : NetworkBehaviour
     {
         Debug.Log("testing if both get it");
         hepo -= amount;
-        float pain = hitcheck - hepo;
         hitind = Instantiate(hitfab, transform.position, Quaternion.identity);
         hitind.transform.rotation = intcam.transform.rotation;
-        hitind.GetComponent<TextMeshPro>().text = pain.ToString();
+        hitind.GetComponent<TextMeshPro>().text = amount.ToString();
 
         if (hepo <= 0)
         {

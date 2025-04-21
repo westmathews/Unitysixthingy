@@ -16,6 +16,7 @@ public class LizardGuns : NetworkBehaviour
     public GameObject hitind;
     public GameObject hitfab;
     public GameObject enemy;
+    public float dmgdealt;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -67,6 +68,7 @@ public class LizardGuns : NetworkBehaviour
                     NetworkIdentity enemyId = hit.collider.GetComponent<NetworkIdentity>();
                     if (enemyId != null)
                     {
+                        dmgdealt = 40;
                         cmdchangehealth(enemyId.netId);
                     }
 
@@ -86,7 +88,7 @@ public class LizardGuns : NetworkBehaviour
             if (enemyHealth != null)
             {
                 enemyHealth.intcam = intcam;
-                enemyHealth.TakeDamage(40);
+                enemyHealth.TakeDamage(dmgdealt);
             }
             else
             {
@@ -98,46 +100,55 @@ public class LizardGuns : NetworkBehaviour
             Debug.LogError("Could not find enemy by netId.");
         }
     }
-    [ClientRpc]
+    /*[ClientRpc]
     private void RpcDamageSync(GameObject enemy)
     {
         enemy.GetComponent<Health>().hepo -= 40;
-    }
+    }*/
     void Secondary(Vector3 playerPos, Vector3 offset)
     {
-        rifle.SetActive(false);
-        revolver.SetActive(true);
-        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        RaycastHit hit;
-        sndshots += 1;
-        sndtime = 0;
-        if (sndshots == 6)
+        if (isLocalPlayer)
         {
-            sndshots = 0;
-            revolver.SetActive(false);
-            rifle.SetActive(true);
-        }
-        
-        GetComponentInParent<PewPew>().nospam = 0;
-        playerCamera.GetComponent<Lookie>().secondaryrecoil();
-        if (Physics.Raycast(ray, out hit, range))
-        {
-            target = hit.transform.position;
-            Debug.Log("Hit object tag: " + hit.collider.tag);
-            thing_hit = (hit.collider.tag);
-            // Check if the hit object has the "Player" tag
-            if (hit.collider.CompareTag("Player"))
+            rifle.SetActive(false);
+            revolver.SetActive(true);
+            sndshots += 1;
+            sndtime = 0;
+            if (sndshots == 6)
             {
-                //gets health script owner
-                hit.collider.gameObject.GetComponent<Health>().hepo -= GetComponentInParent<PewPew>().snddmg;
-                hit.collider.gameObject.GetComponent<Health>().intcam = intcam;
-                //hitind = Instantiate(hitfab, hit.point, Quaternion.identity); //Quaternion.RotateTowards(hitind.transform.rotation, hit.collider.transform.rotation., 360));
-                //hitind.transform.rotation = intcam.transform.rotation;
-                //hitind.GetComponent<TextMeshPro>().text = "10";
-                // Logic for hitting a player
-                // You can add additional actions here, like applying damage or triggering an effect
+                sndshots = 0;
+                revolver.SetActive(false);
+                rifle.SetActive(true);
+            }
+
+ 
+            intcam.GetComponent<intcamlookie>().xRotation = playerCamera.GetComponent<Lookie>().xRotation;
+            Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            RaycastHit hit;
+            playerCamera.GetComponent<Lookie>().recoil();
+            GetComponentInParent<PewPew>().nospam = 0;
+            playerCamera.GetComponent<Lookie>().secondaryrecoil();
+
+            if (Physics.Raycast(ray, out hit, range))
+            {
+                target = hit.transform.position;
+                Debug.Log("Hit object tag: " + hit.collider.tag);
+                thing_hit = (hit.collider.tag);
+
+
+                // Check if the hit object has the "Player" tag
+                if (hit.collider.CompareTag("Player"))
+                {
+
+                    NetworkIdentity enemyId = hit.collider.GetComponent<NetworkIdentity>();
+                    if (enemyId != null)
+                    {
+                        dmgdealt = 10;
+                        cmdchangehealth(enemyId.netId);
+                    }
+
+                }
             }
         }
-        //Ray raytwo = new Vector3(target)(new Vector3(offset));
+
     }
 }
