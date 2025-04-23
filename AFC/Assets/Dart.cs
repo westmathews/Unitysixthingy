@@ -17,7 +17,7 @@ public class Dart : NetworkBehaviour
     }
 
     [ServerCallback]
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
