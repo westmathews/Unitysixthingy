@@ -97,10 +97,11 @@ public class SquirrelGuns : NetworkBehaviour
     }
     void Secondary(Vector3 playerPos, Vector3 offset)
     {
+        Grenadetrigger();
         //Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         //RaycastHit hit;
         //sndshots += 1;
-        Vector3 GunPosition = transform.position;
+        /*Vector3 GunPosition = transform.position;
         Vector3 Gunforward = transform.forward;
         Vector3 Spawnpos = GunPosition + Gunforward * FrontDistance;
         Grenaben = Instantiate(grenadeprefab, Spawnpos, Quaternion.identity);
@@ -112,8 +113,30 @@ public class SquirrelGuns : NetworkBehaviour
         grenade.constraints = RigidbodyConstraints.None;
         grenade.AddForce(transform.forward * 35,ForceMode.Impulse);
         grenada.parent = null;
-        grenada.GetComponent<CapsuleCollider>().enabled = true;
+        grenada.GetComponent<CapsuleCollider>().enabled = true;*/
         
+    }
+    [Command]
+    void Grenadetrigger()
+    {
+        FireGrenade();
+    }
+    [ClientRpc]
+    void FireGrenade()
+    {
+        Vector3 GunPosition = transform.position;
+        Vector3 Gunforward = transform.forward;
+        Vector3 Spawnpos = GunPosition + Gunforward * FrontDistance;
+        Grenaben = Instantiate(grenadeprefab, Spawnpos, Quaternion.identity);
+        grenade = Grenaben.GetComponent<Rigidbody>();
+        grenada = Grenaben.GetComponent<Transform>();
+        nade = Grenaben.GetComponentInChildren<MeshRenderer>();
+        nade.enabled = true;
+        grenade.useGravity = true;
+        grenade.constraints = RigidbodyConstraints.None;
+        grenade.AddForce(transform.forward * 35, ForceMode.Impulse);
+        grenada.parent = null;
+        grenada.GetComponent<CapsuleCollider>().enabled = true;
     }
     Vector3 spreaddirection()
     {
