@@ -20,6 +20,7 @@ public class RaccoonGuns : NetworkBehaviour
     public float flametimer;
     public NetworkConnectionToServer conn;
     public GameObject dartPrefab;
+    public Rigidbody darbbody;
     public Transform shootPoint;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,10 +31,7 @@ public class RaccoonGuns : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F)) // or whatever you bind it to
-        {
-            CmdShootDart();
-        }
+        
         if (isLocalPlayer)
         {
 
@@ -77,6 +75,7 @@ public class RaccoonGuns : NetworkBehaviour
 
     void Secondary(Vector3 playerPos, Vector3 offset)
     {
+        CmdShootDart();
         /*rifle.SetActive(false);
         revolver.SetActive(true);
         Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
@@ -115,5 +114,7 @@ public class RaccoonGuns : NetworkBehaviour
     {
         GameObject dart = Instantiate(dartPrefab, shootPoint.position, shootPoint.rotation);
         NetworkServer.Spawn(dart);
+        darbbody = dart.GetComponent<Rigidbody>();
+        darbbody.AddForce(transform.forward * 50, ForceMode.Impulse);
     }
 }
