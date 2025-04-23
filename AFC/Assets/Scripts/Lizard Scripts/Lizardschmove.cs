@@ -1,6 +1,6 @@
 using UnityEngine;
-
-public class Lizardschmove : MonoBehaviour
+using Mirror;
+public class Lizardschmove : NetworkBehaviour
 {
     public bool tail = true;
     public float Speebtime;
@@ -18,66 +18,89 @@ public class Lizardschmove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UI.GetComponent<UI>().mvcool = (mvabtime - 3) * -1;
-        if (!mvcool)
+        if (isLocalPlayer)
         {
-            UI.GetComponent<UI>().mvready = true;
-        }
-        else
-        {
-            UI.GetComponent<UI>().mvready = false;
 
-        }
-        mvabtime += Time.deltaTime;
-        Speebtime += Time.deltaTime;
-        if (GetComponentInChildren<Health>().hepo <= 50)
-        {
-            if (Speebtime >= 3)
+
+            UI.GetComponent<UI>().mvcool = (mvabtime - 3) * -1;
+            if (!mvcool)
             {
-                Speebtime = 0;
-                if (!tail)
+                UI.GetComponent<UI>().mvready = true;
+            }
+            else
+            {
+                UI.GetComponent<UI>().mvready = false;
+
+            }
+            mvabtime += Time.deltaTime;
+            Speebtime += Time.deltaTime;
+
+            if (GetComponentInChildren<Health>().hepo <= 50)
+            {
+                if (Speebtime >= 3)
                 {
-                    GetComponentInParent<Player_Movement>().sprintspd = 11;
+                    Speebtime = 0;
+                    if (!tail)
+                    {
+                        GetComponentInParent<Player_Movement>().sprintspd = 11;
 
+                    }
                 }
+                if (tail)
+                {
+                    GetComponentInParent<Player_Movement>().sprintspd = 22;
+                    tail = false;
+                }
+
+
+
             }
-            if (tail)
+            if (GetComponentInChildren<Health>().hepo == 100)
             {
-                GetComponentInParent<Player_Movement>().sprintspd = 22;
-                tail = false;
+                tail = true;
             }
-
-          
-
+            if (mvabtime > 3)
+            {
+                mvcool = false;
+            }
+            if (Input.GetKeyDown(KeyCode.E) && !mvcool)
+            {
+                Dissapear(mvabtime);
+                mvabtime = 0;
+                mvcool = true;
+            }
+            if (mvabtime < .1)
+            {
+                GetComponentInParent<Player_Movement>().wspeed = 100;
+                GetComponentInParent<Player_Movement>().sprintspd = 100;
+                self.enabled = false;
+            }
+            else
+            {
+                GetComponentInParent<Player_Movement>().wspeed = 5;
+                GetComponentInParent<Player_Movement>().sprintspd = 11;
+            }
+            if (mvabtime > .4)
+            {
+                self.enabled = true;
+            }
         }
-        if (GetComponentInChildren<Health>().hepo == 100)
+        [Command]
+        void Dissapear( float mvabtime)
         {
-            tail = true;
+            Goaway(mvabtime);
         }
-        if (mvabtime > 3)
+        [ClientRpc]
+        void Goaway( float mvabtime)
         {
-            mvcool = false;
+            if (mvabtime < .1)
+            {
+                self.enabled = false;
+            }
+            if (mvabtime > .4)
+            {
+                self.enabled = true;
+            }
         }
-        if (Input.GetKeyDown(KeyCode.E) && !mvcool)
-        {
-            mvabtime = 0;
-            mvcool = true;
-        }
-        if (mvabtime < .1)
-        {
-            GetComponentInParent<Player_Movement>().wspeed = 100;
-            GetComponentInParent<Player_Movement>().sprintspd = 100;
-            self.enabled = false;
-        }
-        else
-        {
-            GetComponentInParent<Player_Movement>().wspeed = 5;
-            GetComponentInParent<Player_Movement>().sprintspd = 11;
-        }
-        if (mvabtime > .4)
-        {
-            self.enabled = true;
-        }
-
     }
 }
