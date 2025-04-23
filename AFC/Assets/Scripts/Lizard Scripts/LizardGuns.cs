@@ -110,15 +110,20 @@ public class LizardGuns : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
-            rifle.SetActive(false);
-            revolver.SetActive(true);
+            if (sndshots == 0)
+            {
+                Switchgun();
+            }
+            //rifle.SetActive(false);
+            //revolver.SetActive(true);
             sndshots += 1;
             sndtime = 0;
             if (sndshots == 6)
             {
                 sndshots = 0;
-                revolver.SetActive(false);
-                rifle.SetActive(true);
+                //revolver.SetActive(false);
+                //rifle.SetActive(true);
+                Switchgun();
             }
 
  
@@ -151,5 +156,24 @@ public class LizardGuns : NetworkBehaviour
             }
         }
 
+    }
+    [Command]
+    void Switchgun()
+    {
+        SeeSwitch();
+    }
+    [ClientRpc]
+    void SeeSwitch()
+    {
+        if (!rifle.active)
+        {
+            rifle.SetActive(true);
+            revolver.SetActive(false);
+        }
+        else
+        {
+            rifle.SetActive(false);
+            revolver.SetActive(true);
+        }
     }
 }
