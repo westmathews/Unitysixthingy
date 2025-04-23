@@ -1668,6 +1668,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &5581990982560975998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7338601534879833052}
+  m_Layer: 0
+  m_Name: Shootpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7338601534879833052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5581990982560975998}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.03, y: 0.139, z: 0.786}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2408202405051486696}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5638632704699023807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1854,6 +1885,7 @@ Transform:
   m_Children:
   - {fileID: 928669953022810901}
   - {fileID: 8746179980656567055}
+  - {fileID: 7338601534879833052}
   m_Father: {fileID: 7750542766365800584}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6526580819566382148
@@ -1945,6 +1977,8 @@ MonoBehaviour:
   hitind: {fileID: 2947498012721558519, guid: 55f069c1bfe9b48d9abb31a4e30b4229, type: 3}
   hitfab: {fileID: 2947498012721558519, guid: 55f069c1bfe9b48d9abb31a4e30b4229, type: 3}
   flametimer: 0
+  dartPrefab: {fileID: 3396348211601159217, guid: 6456eb91a116042208f88dcc14baca1e, type: 3}
+  shootPoint: {fileID: 7338601534879833052}
 --- !u!1 &5859909370114775760
 GameObject:
   m_ObjectHideFlags: 0
@@ -2585,6 +2619,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaf6203e50b5b4ef69adcc380232081d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   tail: 1
   Speebtime: 0
   mvabtime: 0

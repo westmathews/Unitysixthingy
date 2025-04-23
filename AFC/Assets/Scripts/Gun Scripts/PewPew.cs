@@ -2,8 +2,7 @@ using UnityEngine;
 using Mirror;
 public class PewPew : NetworkBehaviour
 {
-    //public Camera playerCamera; // Assign your camera in the inspector
-    // How far the ray can go
+   
     public LayerMask targetLayer;
     [Header("Ammo")]
     public float ammo;
@@ -25,12 +24,12 @@ public class PewPew : NetworkBehaviour
     public float abcooldown;
     public bool secondary;
     public float snddmg;
+
     private void Start()
     {
-
         ammo = maxammo;
-
     }
+
     void Update()
     {
         if (abtime < abcooldown)
