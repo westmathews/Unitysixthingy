@@ -65,12 +65,13 @@ public class Lizardschmove : NetworkBehaviour
             }
             if (Input.GetKeyDown(KeyCode.E) && !mvcool)
             {
-                Dissapear(mvabtime);
+                
                 mvabtime = 0;
                 mvcool = true;
             }
             if (mvabtime < .1)
             {
+                Dissapear(mvabtime);
                 GetComponentInParent<Player_Movement>().wspeed = 100;
                 GetComponentInParent<Player_Movement>().sprintspd = 100;
                 self.enabled = false;
@@ -82,6 +83,7 @@ public class Lizardschmove : NetworkBehaviour
             }
             if (mvabtime > .4)
             {
+                Dissapear(mvabtime);
                 self.enabled = true;
             }
         }
