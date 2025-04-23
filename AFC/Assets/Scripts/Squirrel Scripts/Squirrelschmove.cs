@@ -30,7 +30,7 @@ public class Squirrelschmove : MonoBehaviour
             UI.GetComponent<UI>().mvready = false;
             
         }
-        mvabtime += Time.deltaTime;
+        //mvabtime += Time.deltaTime;
         Glidetime += Time.deltaTime;
         if (Input.GetKey(KeyCode.E)&& !mvcool && !GetComponentInChildren<CameraSwitchWithRotation>().isThirdPerson && !GetComponent<Player_Movement>().isGrounded)
         {
@@ -44,7 +44,7 @@ public class Squirrelschmove : MonoBehaviour
         {
             GetComponent<Player_Movement>().gliding = false;
             GetComponent<Player_Movement>().wspeed = 7.5f;
-
+            mvabtime += Time.deltaTime;
         }
         if (Input.GetKeyUp(KeyCode.E) && !GetComponent<Player_Movement>().isGrounded)
         {

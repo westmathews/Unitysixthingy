@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2278957134684270230}
   - component: {fileID: 8032652368012015457}
   - component: {fileID: 2187055392107664121}
+  - component: {fileID: 1162060465086695901}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -4848,8 +4849,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f60a91be6e74c482da5c1408704a63b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   intcam: {fileID: 0}
   hitind: {fileID: 2947498012721558519, guid: 55f069c1bfe9b48d9abb31a4e30b4229, type: 3}
   hitfab: {fileID: 2947498012721558519, guid: 55f069c1bfe9b48d9abb31a4e30b4229, type: 3}
   self: {fileID: 2278957134684270230}
   playerCamera: {fileID: 0}
+--- !u!114 &1162060465086695901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012808892610559070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  _assetId: 673403693
+  serverOnly: 0
+  visibility: 0
+  hasSpawned: 0

@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using TMPro;
 using Mirror.Examples.Common;
 using UnityEngine.UIElements;
-
-public class FlameThrowerParticle : MonoBehaviour
+using Mirror;
+public class FlameThrowerParticle : NetworkBehaviour
 {
     public GameObject intcam;
     public GameObject hitind;
@@ -15,15 +15,6 @@ public class FlameThrowerParticle : MonoBehaviour
     public Camera playerCamera;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
     void OnParticleCollision(GameObject other)
     {
@@ -31,14 +22,39 @@ public class FlameThrowerParticle : MonoBehaviour
         
         if (other.gameObject.CompareTag("Player")&&!other.gameObject.GetComponentInChildren<RaccoonGuns>())
         {
-
-            other.gameObject.GetComponentInChildren<Health>().hepo -= 1;
+            NetworkIdentity enemyId = other.GetComponent<NetworkIdentity>();
+            cmdchangehealth(enemyId.netId);
+            /*other.gameObject.GetComponentInChildren<Health>().hepo -= 1;
             other.gameObject.GetComponentInChildren<Health>().burn = 5;
             other.gameObject.GetComponentInChildren<Health>().burnTimer = 1;
-            other.gameObject.GetComponentInChildren<Health>().intcam = intcam;
+            other.gameObject.GetComponentInChildren<Health>().intcam = intcam;*/
             var collision = self.collision;
 
         }
 
+    }
+    [Command]
+    private void cmdchangehealth(uint enemyNetId)
+    {
+        Debug.Log("triggered");
+        if (NetworkServer.spawned.TryGetValue(enemyNetId, out NetworkIdentity enemyIdentity))
+        {
+            Health enemyHealth = enemyIdentity.GetComponentInChildren<Health>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.intcam = intcam;
+                enemyHealth.TakeDamage(1, connectionToClient);
+                enemyHealth.burn = 5;
+                enemyHealth.burnTimer = 1;
+            }
+            else
+            {
+                Debug.LogError("Enemy has no Health component.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Could not find enemy by netId.");
+        }
     }
 }
