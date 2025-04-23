@@ -114,6 +114,7 @@ public class RaccoonGuns : NetworkBehaviour
     {
         GameObject dart = Instantiate(dartPrefab, shootPoint.position, shootPoint.rotation);
         NetworkServer.Spawn(dart);
+        dart.GetComponent<Dart>().intcam = intcam;
         darbbody = dart.GetComponent<Rigidbody>();
         darbbody.AddForce(transform.forward * 50, ForceMode.Impulse);
     }
