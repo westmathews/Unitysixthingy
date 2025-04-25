@@ -60,7 +60,7 @@ public class RaccoonGuns : NetworkBehaviour
         if (flametimer > .05)
         {
             actvfire = Instantiate(fire, shootPoint.position, shootPoint.rotation);
-            NetworkServer.Spawn(actvfire);
+            NetworkServer.Spawn(actvfire, connectionToClient);
             actvfire.GetComponent<FlameThrowerParticle>().intcam = intcam;
             actvfire.GetComponent<FlameThrowerParticle>().playerCamera = playerCamera;
             flametimer = 0;
@@ -109,7 +109,7 @@ public class RaccoonGuns : NetworkBehaviour
     void CmdShootDart()
     {
         GameObject dart = Instantiate(dartPrefab, shootPoint.position, shootPoint.rotation);
-        NetworkServer.Spawn(dart);
+        NetworkServer.Spawn(dart, connectionToClient);
         dart.GetComponent<Dart>().intcam = intcam;
         darbbody = dart.GetComponent<Rigidbody>();
         darbbody.AddForce(transform.forward * 50, ForceMode.Impulse);
