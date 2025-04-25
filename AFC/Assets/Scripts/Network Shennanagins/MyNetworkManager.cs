@@ -6,7 +6,6 @@ public class MyNetworkManager : NetworkManager
     public GameObject squirrelPrefab;
     public GameObject lizardPrefab;
     public GameObject racoonPrefab;
-    public GameObject FirePrefab;
     public override void OnStartServer()
     {
         base.OnStartServer();

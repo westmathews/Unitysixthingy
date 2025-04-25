@@ -57,21 +57,17 @@ public class RaccoonGuns : NetworkBehaviour
     [Command]
     void flamie(float flametimer)
     {
-        This(flametimer);
-    }
-
-    [ClientRpc]
-    void This(float flametimer)
-    {
         if (flametimer > .05)
         {
             actvfire = Instantiate(fire, transform.position + transform.forward * 1, transform.rotation);
+            NetworkServer.Spawn(actvfire);
             actvfire.GetComponent<FlameThrowerParticle>().intcam = intcam;
             actvfire.GetComponent<FlameThrowerParticle>().playerCamera = playerCamera;
             flametimer = 0;
         }
-        //Ray raytwo = new Vector3(target)(new Vector3(offset));
     }
+
+    
 
     void Secondary(Vector3 playerPos, Vector3 offset)
     {
