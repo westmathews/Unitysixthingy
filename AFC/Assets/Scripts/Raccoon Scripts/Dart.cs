@@ -12,7 +12,8 @@ public class Dart : NetworkBehaviour
     public override void OnStartServer()
     {
         rb = GetComponent<Rigidbody>();
-        rb.linearVelocity = transform.forward * speed;
+        //rb.linearVelocity = transform.forward * speed;
+        rb.AddForce(transform.forward * 50, ForceMode.Impulse);
         Invoke(nameof(DestroySelf), lifeTime);
     }
 

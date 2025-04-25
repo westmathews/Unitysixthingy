@@ -128,11 +128,12 @@ public class SquirrelGuns : NetworkBehaviour
             grenade = Grenaben.GetComponent<Rigidbody>();
             grenada = Grenaben.GetComponent<Transform>();
             nade = Grenaben.GetComponentInChildren<MeshRenderer>();
+            Grenaben.GetComponent<Squirelgrenade>().ownplayer = gameObject;
             nade.enabled = true;
             grenade.useGravity = true;
             grenade.constraints = RigidbodyConstraints.None;
-            grenade.AddForce(transform.forward * 35, ForceMode.Impulse);
             grenada.parent = null;
+            //grenade.AddForce(transform.forward * 35, ForceMode.Impulse);
             grenada.GetComponent<CapsuleCollider>().enabled = true;
         }
     }

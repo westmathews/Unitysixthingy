@@ -112,6 +112,6 @@ public class RaccoonGuns : NetworkBehaviour
         NetworkServer.Spawn(dart, connectionToClient);
         dart.GetComponent<Dart>().intcam = intcam;
         darbbody = dart.GetComponent<Rigidbody>();
-        darbbody.AddForce(transform.forward * 50, ForceMode.Impulse);
+        //darbbody.AddForce(transform.forward * 50, ForceMode.Impulse);
     }
 }
