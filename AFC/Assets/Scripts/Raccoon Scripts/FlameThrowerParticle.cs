@@ -22,8 +22,8 @@ public class FlameThrowerParticle : NetworkBehaviour
         
         if (other.gameObject.CompareTag("Player")&&!other.gameObject.GetComponentInChildren<RaccoonGuns>())
         {
-            NetworkIdentity enemyId = other.GetComponent<NetworkIdentity>();
-            cmdchangehealth(enemyId.netId);
+            NetworkIdentity enemyId = other.GetComponentInParent<NetworkIdentity>();
+            cmdchangehealth(enemyId.netId, 1);
             /*other.gameObject.GetComponentInChildren<Health>().hepo -= 1;
             other.gameObject.GetComponentInChildren<Health>().burn = 5;
             other.gameObject.GetComponentInChildren<Health>().burnTimer = 1;
@@ -34,7 +34,7 @@ public class FlameThrowerParticle : NetworkBehaviour
 
     }
     [Command]
-    private void cmdchangehealth(uint enemyNetId)
+    private void cmdchangehealth(uint enemyNetId, float dmgdealt)
     {
         Debug.Log("triggered");
         if (NetworkServer.spawned.TryGetValue(enemyNetId, out NetworkIdentity enemyIdentity))
@@ -43,7 +43,7 @@ public class FlameThrowerParticle : NetworkBehaviour
             if (enemyHealth != null)
             {
                 enemyHealth.intcam = intcam;
-                enemyHealth.TakeDamage(1, connectionToClient);
+                enemyHealth.TakeDamage(dmgdealt, connectionToClient);
                 enemyHealth.burn = 5;
                 enemyHealth.burnTimer = 1;
             }
