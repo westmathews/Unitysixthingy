@@ -9,7 +9,7 @@ public class Dart : NetworkBehaviour
     public GameObject intcam;
     private Rigidbody rb;
 
-    public override void OnStartServer()
+    public void Start()
     {
         rb = GetComponent<Rigidbody>();
         //rb.linearVelocity = transform.forward * speed;
@@ -32,7 +32,7 @@ public class Dart : NetworkBehaviour
             }
         }
 
-        DestroySelf();
+        
     }
     [Command]
     private void cmdchangehealth(uint enemyNetId, float dmgdealt)
@@ -56,6 +56,7 @@ public class Dart : NetworkBehaviour
         {
             Debug.LogError("Could not find enemy by netId.");
         }
+        DestroySelf();
     }
     [Server]
     private void DestroySelf()
