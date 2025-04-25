@@ -1863,6 +1863,7 @@ GameObject:
   - component: {fileID: 8722981442452020170}
   - component: {fileID: 8737811877784377270}
   - component: {fileID: 4829108455872358350}
+  - component: {fileID: 5362359218125688686}
   m_Layer: 0
   m_Name: Gub
   m_TagString: Untagged
@@ -1980,6 +1981,39 @@ MonoBehaviour:
   dartPrefab: {fileID: 3396348211601159217, guid: 6456eb91a116042208f88dcc14baca1e, type: 3}
   darbbody: {fileID: 3985948308294332601, guid: 6456eb91a116042208f88dcc14baca1e, type: 3}
   shootPoint: {fileID: 7338601534879833052}
+--- !u!114 &5362359218125688686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5766621088026232040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff3ba0becae47b8b9381191598957c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 2408202405051486696}
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  onlySyncOnChange: 1
+  compressRotation: 1
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  coordinateSpace: 0
+  timelineOffset: 1
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  onlySyncOnChangeCorrectionMultiplier: 2
+  rotationSensitivity: 0.01
+  positionPrecision: 0.01
+  scalePrecision: 0.01
 --- !u!1 &5859909370114775760
 GameObject:
   m_ObjectHideFlags: 0
