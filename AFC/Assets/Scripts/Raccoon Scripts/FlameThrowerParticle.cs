@@ -20,7 +20,7 @@ public class FlameThrowerParticle : NetworkBehaviour
     {
         
         
-        if (other.gameObject.CompareTag("Player")&&!other.gameObject.GetComponentInChildren<RaccoonGuns>())
+        if (other.gameObject.CompareTag("Player")&&!other.gameObject.GetComponent<Health>().isLocalPlayer)
         {
             NetworkIdentity enemyId = other.GetComponentInParent<NetworkIdentity>();
             cmdchangehealth(enemyId.netId, 1);

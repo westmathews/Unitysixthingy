@@ -18,6 +18,7 @@ public class Player_Movement : NetworkBehaviour
     Vector3 move;
     Vector3 hitdirection;
     public float grenknockback;
+    public bool darted = false;
     void Start()
     {        
         //jumpVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -70,7 +71,10 @@ public class Player_Movement : NetworkBehaviour
             }
 
             // Apply gravity
-
+            if (darted)
+            {
+                speed = speed * .66f;
+            }
 
 
             // Get input for movement
