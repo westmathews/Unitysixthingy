@@ -119,25 +119,24 @@ public class SquirrelGuns : NetworkBehaviour
     [Command]
     void Grenadetrigger()
     {
-        FireGrenade();
+        {
+            Vector3 GunPosition = transform.position;
+            Vector3 Gunforward = transform.forward;
+            Vector3 Spawnpos = GunPosition + Gunforward * FrontDistance;
+            Grenaben = Instantiate(grenadeprefab, Spawnpos, Quaternion.identity);
+            NetworkServer.Spawn(Grenaben, connectionToClient);
+            grenade = Grenaben.GetComponent<Rigidbody>();
+            grenada = Grenaben.GetComponent<Transform>();
+            nade = Grenaben.GetComponentInChildren<MeshRenderer>();
+            nade.enabled = true;
+            grenade.useGravity = true;
+            grenade.constraints = RigidbodyConstraints.None;
+            grenade.AddForce(transform.forward * 35, ForceMode.Impulse);
+            grenada.parent = null;
+            grenada.GetComponent<CapsuleCollider>().enabled = true;
+        }
     }
-    [ClientRpc]
-    void FireGrenade()
-    {
-        Vector3 GunPosition = transform.position;
-        Vector3 Gunforward = transform.forward;
-        Vector3 Spawnpos = GunPosition + Gunforward * FrontDistance;
-        Grenaben = Instantiate(grenadeprefab, Spawnpos, Quaternion.identity);
-        grenade = Grenaben.GetComponent<Rigidbody>();
-        grenada = Grenaben.GetComponent<Transform>();
-        nade = Grenaben.GetComponentInChildren<MeshRenderer>();
-        nade.enabled = true;
-        grenade.useGravity = true;
-        grenade.constraints = RigidbodyConstraints.None;
-        grenade.AddForce(transform.forward * 35, ForceMode.Impulse);
-        grenada.parent = null;
-        grenada.GetComponent<CapsuleCollider>().enabled = true;
-    }
+    
     Vector3 spreaddirection()
     {
         Vector3 direction = playerCamera.transform.forward;
