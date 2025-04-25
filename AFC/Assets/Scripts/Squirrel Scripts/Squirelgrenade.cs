@@ -13,7 +13,7 @@ public class Squirelgrenade : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        me.AddForce(ownplayer.transform.forward * 35, ForceMode.Impulse);
+        me.AddForce(transform.forward * 35, ForceMode.Impulse);
     }
 
     // Update is called once per frame

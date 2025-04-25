@@ -123,8 +123,8 @@ public class SquirrelGuns : NetworkBehaviour
             Vector3 GunPosition = transform.position;
             Vector3 Gunforward = transform.forward;
             Vector3 Spawnpos = GunPosition + Gunforward * FrontDistance;
-            Grenaben = Instantiate(grenadeprefab, Spawnpos, Quaternion.identity);
-            Grenaben.GetComponent<Squirelgrenade>().ownplayer = gameObject;
+            Grenaben = Instantiate(grenadeprefab, Spawnpos, transform.rotation);
+            //Grenaben.GetComponent<Squirelgrenade>().ownplayer = gameObject;
             NetworkServer.Spawn(Grenaben, connectionToClient);
             grenade = Grenaben.GetComponent<Rigidbody>();
             grenada = Grenaben.GetComponent<Transform>();
