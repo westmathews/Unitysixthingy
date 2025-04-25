@@ -2523,6 +2523,7 @@ GameObject:
   - component: {fileID: 7318888637581525365}
   - component: {fileID: 6379125988384280978}
   - component: {fileID: 338715243388177307}
+  - component: {fileID: 2217251937642729403}
   m_Layer: 0
   m_Name: Lizard
   m_TagString: Player
@@ -2704,3 +2705,19 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   playerCamera: {fileID: 9046327082102488057}
+--- !u!114 &2217251937642729403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9102419443657893789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d102caab91009443ea4e9665f5b9e6af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  gunTransform: {fileID: 2408202405051486696}
