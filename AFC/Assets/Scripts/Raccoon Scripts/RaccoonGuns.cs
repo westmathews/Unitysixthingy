@@ -108,7 +108,7 @@ public class RaccoonGuns : NetworkBehaviour
     [Command]
     void CmdShootDart()
     {
-        GameObject dart = Instantiate(dartPrefab, shootPoint.position, shootPoint.rotation);
+        GameObject dart = Instantiate(dartPrefab, shootPoint.position + shootPoint.forward, shootPoint.rotation);
         NetworkServer.Spawn(dart, connectionToClient);
         dart.GetComponent<Dart>().intcam = intcam;
         darbbody = dart.GetComponent<Rigidbody>();

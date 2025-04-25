@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4192243372856827233}
   - component: {fileID: 7721025826139878861}
   - component: {fileID: 1184304580015181572}
+  - component: {fileID: 7564112179589874802}
   m_Layer: 0
   m_Name: Gub
   m_TagString: Untagged
@@ -127,6 +128,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCam: {fileID: 6874627829988730143}
   GunSpeed: 15
+--- !u!114 &7564112179589874802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091691400718924430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d102caab91009443ea4e9665f5b9e6af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  gunTransform: {fileID: 8042210562394414713}
 --- !u!1 &1968465095746378249
 GameObject:
   m_ObjectHideFlags: 0
