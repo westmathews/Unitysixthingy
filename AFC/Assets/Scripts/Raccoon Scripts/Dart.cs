@@ -47,7 +47,8 @@ public class Dart : NetworkBehaviour
             {
                 enemyHealth.intcam = intcam;
                 enemyHealth.TakeDamage(dmgdealt, connectionToClient);
-                enemyIdentity.GetComponentInParent<Player_Movement>().darted = true;
+                slow(enemyIdentity);
+
             }
             else
             {
@@ -59,6 +60,11 @@ public class Dart : NetworkBehaviour
             Debug.LogError("Could not find enemy by netId.");
         }
         DestroySelf();
+    }
+    [ClientRpc]
+    void slow(NetworkIdentity enemyIdentity)
+    {
+        enemyIdentity.GetComponentInParent<Player_Movement>().darted = true;
     }
     [Server]
     private void DestroySelf()
