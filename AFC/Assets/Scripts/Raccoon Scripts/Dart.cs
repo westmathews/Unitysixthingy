@@ -47,7 +47,7 @@ public class Dart : NetworkBehaviour
             {
                 enemyHealth.intcam = intcam;
                 enemyHealth.TakeDamage(dmgdealt, connectionToClient);
-                
+                enemyIdentity.GetComponentInParent<Player_Movement>().darted = true;
             }
             else
             {
