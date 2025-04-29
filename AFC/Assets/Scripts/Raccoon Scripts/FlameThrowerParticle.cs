@@ -22,7 +22,7 @@ public class FlameThrowerParticle : NetworkBehaviour
         
         if (other.gameObject.CompareTag("Player"))
         {
-            if (!other.GetComponent<Health>().isLocalPlayer)
+            if (!other.GetComponentInChildren<Health>().isLocalPlayer)
             {
                 NetworkIdentity enemyId = other.GetComponentInParent<NetworkIdentity>();
                 cmdchangehealth(enemyId.netId, 1);
@@ -32,6 +32,7 @@ public class FlameThrowerParticle : NetworkBehaviour
                 other.gameObject.GetComponentInChildren<Health>().intcam = intcam;*/
                 var collision = self.collision;
             }
+            
         }
 
     }

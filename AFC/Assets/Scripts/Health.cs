@@ -126,7 +126,14 @@ public class Health : NetworkBehaviour
         hitind.transform.rotation = camRot;
         hitind.GetComponent<TextMeshPro>().text = amount.ToString();
     }
-    
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Projectile"))
+        {
+            GetComponentInParent<Player_Movement>().darted = true;
+            GetComponentInParent<Player_Movement>().dartTimer = 3;
+        }
+    }
 }
     
 

@@ -32,8 +32,7 @@ public class Dart : NetworkBehaviour
                 cmdchangehealth(enemyId.netId, 25);
             }
             gameObject.transform.parent = other.gameObject.transform;
-            rb.isKinematic = true;
-            rb.detectCollisions = false;
+            rb.isKinematic = true;        
         }
 
         
