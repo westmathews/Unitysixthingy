@@ -61,7 +61,7 @@ public class Dart : NetworkBehaviour
         }
         DestroySelf();
     }
-    [ClientRpc]
+    [Client]
     void slow(NetworkIdentity enemyIdentity)
     {
         enemyIdentity.GetComponentInParent<Player_Movement>().darted = true;

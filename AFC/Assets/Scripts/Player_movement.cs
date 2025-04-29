@@ -122,7 +122,14 @@ public class Player_Movement : NetworkBehaviour
             }
             controller.Move(move * speed * Time.deltaTime + new Vector3(0, ySpeed, 0) * Time.deltaTime);
 
-        }
+
+            void OnCollisionEnter(Collision other)
+            {
+                if (other.gameObject.CompareTag("Projectile"))
+                {
+                    darted = true;
+                }
+            }
     }
-    
+       }   
 }

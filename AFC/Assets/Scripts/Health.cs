@@ -126,6 +126,7 @@ public class Health : NetworkBehaviour
         hitind.transform.rotation = camRot;
         hitind.GetComponent<TextMeshPro>().text = amount.ToString();
     }
+    
 }
     
 
