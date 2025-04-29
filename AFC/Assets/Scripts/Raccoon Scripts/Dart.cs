@@ -71,15 +71,17 @@ public class Dart : NetworkBehaviour
         enemyIdentity.GetComponentInParent<Player_Movement>().dartTimer = 3;
     }
     [Server]
-    private void DestroySelf(NetworkIdentity enemyIdentity)
+    private void DestroySelf()
     {
+        enemy.GetComponentInParent<Player_Movement>().darted = false;
         fast(enemy);
-        NetworkServer.Destroy(gameObject);
+        //NetworkServer.Destroy(gameObject);
     }
     [Client]
     void fast(NetworkIdentity enemy)
     {
         enemy.GetComponentInParent<Player_Movement>().darted = false;
+        NetworkServer.Destroy(gameObject);
     }
 }
     
