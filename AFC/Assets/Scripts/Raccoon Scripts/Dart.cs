@@ -65,7 +65,9 @@ public class Dart : NetworkBehaviour
     [Client]
     void slow(NetworkIdentity enemyIdentity)
     {
+        Debug.Log("I so smar");
         enemyIdentity.GetComponentInParent<Player_Movement>().darted = true;
+        enemyIdentity.GetComponentInParent<Player_Movement>().dartTimer = 3;
     }
     [Server]
     private void DestroySelf()
