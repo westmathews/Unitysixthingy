@@ -23,6 +23,7 @@ public class Dart : NetworkBehaviour
         Debug.Log("collided");
         if (other.gameObject.CompareTag("Player"))
         {
+            other.gameObject.GetComponentInParent<Player_Movement>().darted = true;
             Debug.Log("collided player");
             NetworkIdentity enemyId = other.gameObject.GetComponent<NetworkIdentity>();
             if (enemyId != null)
@@ -30,7 +31,7 @@ public class Dart : NetworkBehaviour
 
                 cmdchangehealth(enemyId.netId, 25);
             }
-            other.gameObject.GetComponentInParent<Player_Movement>().darted = true;
+            
         }
 
         
