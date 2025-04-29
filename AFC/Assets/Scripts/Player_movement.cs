@@ -19,6 +19,7 @@ public class Player_Movement : NetworkBehaviour
     Vector3 hitdirection;
     public float grenknockback;
     public bool darted = false;
+    public float dartTimer = 0;
     void Start()
     {        
         //jumpVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -74,8 +75,14 @@ public class Player_Movement : NetworkBehaviour
             if (darted)
             {
                 speed = speed * .66f;
+
+                dartTimer = -Time.deltaTime;
             }
 
+            if (dartTimer <= 0)
+            {
+                darted = false;
+            }
 
             // Get input for movement
             if (gliding)
@@ -128,8 +135,11 @@ public class Player_Movement : NetworkBehaviour
                 if (other.gameObject.CompareTag("Projectile"))
                 {
                     darted = true;
+                    dartTimer = 3;
                 }
             }
+
+            
     }
        }   
 }
