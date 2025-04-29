@@ -8,7 +8,7 @@ public class Dart : NetworkBehaviour
     public float damage = 25f;
     public GameObject intcam;
     private Rigidbody rb;
-
+    public NetworkIdentity enemy;
     public void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -32,7 +32,8 @@ public class Dart : NetworkBehaviour
                 cmdchangehealth(enemyId.netId, 25);
             }
             gameObject.transform.parent = other.gameObject.transform;
-            rb.isKinematic = true;        
+            rb.isKinematic = true;
+            Invoke(nameof(DestroySelf), lifeTime);
         }
 
         
@@ -49,7 +50,7 @@ public class Dart : NetworkBehaviour
                 enemyHealth.intcam = intcam;
                 enemyHealth.TakeDamage(dmgdealt, connectionToClient);
                 slow(enemyIdentity);
-
+                enemy = enemyIdentity;
             }
             else
             {
@@ -70,9 +71,15 @@ public class Dart : NetworkBehaviour
         enemyIdentity.GetComponentInParent<Player_Movement>().dartTimer = 3;
     }
     [Server]
-    private void DestroySelf()
+    private void DestroySelf(NetworkIdentity enemyIdentity)
     {
+        fast(enemy);
         NetworkServer.Destroy(gameObject);
+    }
+    [Client]
+    void fast(NetworkIdentity enemy)
+    {
+        enemy.GetComponentInParent<Player_Movement>().darted = false;
     }
 }
     

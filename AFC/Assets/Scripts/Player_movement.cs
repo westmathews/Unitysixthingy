@@ -79,10 +79,10 @@ public class Player_Movement : NetworkBehaviour
                 dartTimer = -Time.deltaTime;
             }
 
-            if (dartTimer <= 0)
-            {
-                darted = false;
-            }
+            //if (dartTimer <= 0)
+            //{
+              //  darted = false;
+            //}
 
             // Get input for movement
             if (gliding)
