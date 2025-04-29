@@ -59,7 +59,7 @@ public class Dart : NetworkBehaviour
         {
             Debug.LogError("Could not find enemy by netId.");
         }
-        DestroySelf();
+        //DestroySelf();
     }
     [Client]
     void slow(NetworkIdentity enemyIdentity)
