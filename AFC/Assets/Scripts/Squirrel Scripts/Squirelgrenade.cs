@@ -15,6 +15,7 @@ public class Squirelgrenade : NetworkBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gameObject.transform.parent = null;
         me.AddForce(transform.forward * 35, ForceMode.Impulse);
     }
 
@@ -75,7 +76,7 @@ public class Squirelgrenade : NetworkBehaviour
             Player_Movement movement = enemyIdentity.GetComponentInChildren<Player_Movement>(); 
             if (enemyHealth != null)
             {
-                if (enemyIdentity = ownplayer.GetComponent<NetworkIdentity>())
+                if (enemyIdentity != ownplayer.GetComponent<NetworkIdentity>())
                 {
                     enemyHealth.intcam = intcam;
                     enemyHealth.TakeDamage(30, connectionToClient);

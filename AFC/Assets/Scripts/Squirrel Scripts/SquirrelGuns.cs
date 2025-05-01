@@ -24,6 +24,7 @@ public class SquirrelGuns : NetworkBehaviour
     void Start()
     {
         range = GetComponentInParent<PewPew>().shootingRange;
+
     }
 
     // Update is called once per frame
@@ -125,8 +126,9 @@ public class SquirrelGuns : NetworkBehaviour
             Vector3 Spawnpos = GunPosition + Gunforward * FrontDistance;
             Grenaben = Instantiate(grenadeprefab, Spawnpos, transform.rotation);
             Grenaben.GetComponent<Squirelgrenade>().ownplayer = gameObject;
+            Grenaben.GetComponent<Squirelgrenade>().intcam = intcam;
             NetworkServer.Spawn(Grenaben, connectionToClient);
-            grenade = Grenaben.GetComponent<Rigidbody>();
+            /*grenade = Grenaben.GetComponent<Rigidbody>();
             grenada = Grenaben.GetComponent<Transform>();
             nade = Grenaben.GetComponentInChildren<MeshRenderer>();
             //Grenaben.GetComponent<Squirelgrenade>().ownplayer = gameObject;
@@ -136,7 +138,7 @@ public class SquirrelGuns : NetworkBehaviour
             grenada.parent = null;
             //grenade.AddForce(transform.forward * 35, ForceMode.Impulse);
             grenada.GetComponent<CapsuleCollider>().enabled = true;
-            Grenaben.GetComponent<Squirelgrenade>().intcam = intcam;
+            Grenaben.GetComponent<Squirelgrenade>().intcam = intcam;*/
         }
     }
     
