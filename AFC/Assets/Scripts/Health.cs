@@ -56,12 +56,6 @@ public class Health : NetworkBehaviour
             regencool = 0;
 
         }
-        if (hepo < hitcheck)
-        {
-            hitcheck = hepo;
-            regencool = 0;
-
-        }
         if (regencool > 3 && regentimer >= .1 && hepo < maxhp)
         {
             hepo += 1;
@@ -98,13 +92,18 @@ public class Health : NetworkBehaviour
     }
     void OnHealthChanged(float oldHealth, float newHealth)
     {
+        if (oldHealth > newHealth)
+        {
+            regencool = 0;
+            regentimer = 0;
+        }
         //Debug.Log($"🩸 Health changed from {oldHealth} to {newHealth}");
         hitcheck = newHealth;
         if (isLocalPlayer && healthbar != null)
         {
             healthbar.fillAmount = newHealth / maxhp;
         }
-
+        
         // Optionally update UI here if this is the local player
 
     }

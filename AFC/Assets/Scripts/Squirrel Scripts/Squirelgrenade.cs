@@ -1,6 +1,7 @@
+using Mirror;
 using UnityEngine;
 
-public class Squirelgrenade : MonoBehaviour
+public class Squirelgrenade : NetworkBehaviour
 {
     public GameObject ownplayer;
     public GameObject Thineself;
@@ -10,6 +11,7 @@ public class Squirelgrenade : MonoBehaviour
     public bool active = true;
     public CharacterController controller;
     public float kama = 0;
+    public GameObject intcam;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -43,19 +45,14 @@ public class Squirelgrenade : MonoBehaviour
                 other.gameObject.GetComponent<Player_Movement>().grenadehit = true;
                 Debug.Log("PlayerBounce");
             }
-            //Vector3 hitdirection = 
-            if (other.gameObject.GetComponentInChildren<SquirrelGuns>())
+            //Vector3 hitdirection =
+            NetworkIdentity enemyId = other.gameObject.GetComponent<NetworkIdentity>();
+            if (enemyId != null)
             {
 
+                cmdchangehealth(enemyId.netId, 40);
             }
-            else
-            {
-                //gets health script owner
-                other.gameObject.GetComponentInChildren<Health>().hepo -= 50;
-                Debug.Log("Boom");
-                
-            }
-            Destroy(Thineself);
+            
             //Debug.Log("Hit");
 
 
@@ -68,13 +65,46 @@ public class Squirelgrenade : MonoBehaviour
 
        
     }
+    [Command]
+    private void cmdchangehealth(uint enemyNetId, float dmgdealt)
+    {
+        Debug.Log("triggered");
+        if (NetworkServer.spawned.TryGetValue(enemyNetId, out NetworkIdentity enemyIdentity))
+        {
+            Health enemyHealth = enemyIdentity.GetComponentInChildren<Health>();
+            Player_Movement movement = enemyIdentity.GetComponentInChildren<Player_Movement>(); 
+            if (enemyHealth != null)
+            {
+                if (enemyIdentity = ownplayer.GetComponent<NetworkIdentity>())
+                {
+                    enemyHealth.intcam = intcam;
+                    enemyHealth.TakeDamage(30, connectionToClient);
+                }
+                if (movement != null)
+                {
+
+                    Debug.Log("Hit you Hit you now we FUCK HARD");
+                    movement.grenadehityou(Explosion);
+                }
+            }
+            else
+            {
+                Debug.LogError("Enemy has no Health component.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Could not find enemy by netId.");
+        }
+    }
     void Update()
     {
 
-        if (Explosion.enabled && kama == 20)
+        if (Explosion.enabled && kama == 10000)
         {
             Debug.Log("Destroying self");
-            Destroy(Thineself);
+            kama = 0;
+            Destroy(gameObject);
         }
 
         if (Explosion.enabled)

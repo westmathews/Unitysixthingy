@@ -1,24 +1,29 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - CameraFollowSetup
     - CameraSwitchWithRotation
-    - CharacterSelect
+    - CharacterSelectSender
+    - CharacterSelectUI
     - CharacterSwitch
-    - Click
     - Crosshair
     - DamageIndicater
+    - Dart
     - FlameThrowerParticle
     - GIbbityGone
     - GunShmove
+    - GunSync
     - GunZoom
     - Health
     - LizardGuns
     - Lizardschmove
     - Lookie
+    - MyNetworkManager
+    - MyPlayer
     - Noseeself
     - PewPew
+    - PlaceholderPlayer
     - Player_Movement
-    - QuickStart.PlayerScript
     - RaccoonGuns
     - Squirelgrenade
     - SquirrelGuns
@@ -31,7 +36,6 @@ ScriptsOnlyBuild:
     - kcp2k.KcpTransport
     Mirror.dll:
     - Mirror.NetworkIdentity
-    - Mirror.NetworkManager
     - Mirror.NetworkManagerHUD
     - Mirror.NetworkStartPosition
     Unity.Rider.Editor.dll:
@@ -43,6 +47,9 @@ ScriptsOnlyBuild:
     - TMPro.TMP_StyleSheet
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
+    - TMPro.TMP_Settings
+    - TMPro.TMP_SpriteAsset
+    - TMPro.TMP_StyleSheet
     - TMPro.TextMeshPro
     - TMPro.TextMeshProUGUI
     UnityEditor.TestRunner.dll:
@@ -74,7 +81,9 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Style
     - TMPro.VertexGradient
     UnityEngine.CoreModule:
+    - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
+    - UnityEngine.Events.PersistentListenerMode
     UnityEngine.TextCoreFontEngineModule:
     - UnityEngine.TextCore.FaceInfo
     - UnityEngine.TextCore.Glyph
@@ -90,7 +99,16 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
     - UnityEngine.UI.Navigation
     - UnityEngine.UI.SpriteState
-  methodsToPreserve: []
+  methodsToPreserve:
+  - assembly: Assembly-CSharp
+    fullTypeName: CharacterSelectUI
+    methodName: SelectRacoon
+  - assembly: Assembly-CSharp
+    fullTypeName: CharacterSelectUI
+    methodName: SelectLizard
+  - assembly: Assembly-CSharp
+    fullTypeName: CharacterSelectUI
+    methodName: SelectSquirrel
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
     - Class: 1
@@ -126,91 +144,99 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 25516}
+      Script: {instanceID: 17676}
     - Class: 114
-      Script: {instanceID: 25730}
+      Script: {instanceID: 17678}
     - Class: 114
-      Script: {instanceID: 25774}
+      Script: {instanceID: 17680}
     - Class: 114
-      Script: {instanceID: 25990}
+      Script: {instanceID: 25544}
     - Class: 114
-      Script: {instanceID: 26006}
+      Script: {instanceID: 25758}
     - Class: 114
-      Script: {instanceID: 26260}
+      Script: {instanceID: 25802}
     - Class: 114
-      Script: {instanceID: 26292}
+      Script: {instanceID: 25886}
     - Class: 114
-      Script: {instanceID: 26820}
+      Script: {instanceID: 26034}
+    - Class: 114
+      Script: {instanceID: 26320}
+    - Class: 114
+      Script: {instanceID: 26592}
+    - Class: 114
+      Script: {instanceID: 26850}
     - Class: 114
       Script: {instanceID: 27034}
     - Class: 114
-      Script: {instanceID: 27546}
+      Script: {instanceID: 27066}
     - Class: 114
-      Script: {instanceID: 27662}
+      Script: {instanceID: 27578}
     - Class: 114
-      Script: {instanceID: 27700}
+      Script: {instanceID: 27694}
     - Class: 114
-      Script: {instanceID: 27702}
+      Script: {instanceID: 27732}
     - Class: 114
-      Script: {instanceID: 27784}
+      Script: {instanceID: 27734}
     - Class: 114
-      Script: {instanceID: 28014}
+      Script: {instanceID: 27816}
     - Class: 114
       Script: {instanceID: 28046}
     - Class: 114
-      Script: {instanceID: 28068}
+      Script: {instanceID: 28078}
     - Class: 114
-      Script: {instanceID: 28458}
+      Script: {instanceID: 28100}
     - Class: 114
-      Script: {instanceID: 28804}
+      Script: {instanceID: 28490}
     - Class: 114
-      Script: {instanceID: 28814}
+      Script: {instanceID: 28636}
     - Class: 114
-      Script: {instanceID: 29094}
+      Script: {instanceID: 28838}
     - Class: 114
-      Script: {instanceID: 29182}
+      Script: {instanceID: 29128}
     - Class: 114
-      Script: {instanceID: 29526}
+      Script: {instanceID: 29218}
     - Class: 114
-      Script: {instanceID: 29784}
+      Script: {instanceID: 29562}
     - Class: 114
-      Script: {instanceID: 29822}
+      Script: {instanceID: 29820}
     - Class: 114
-      Script: {instanceID: 30182}
+      Script: {instanceID: 29858}
     - Class: 114
-      Script: {instanceID: 30246}
+      Script: {instanceID: 30218}
     - Class: 114
-      Script: {instanceID: 30260}
+      Script: {instanceID: 30282}
     - Class: 114
-      Script: {instanceID: 30314}
+      Script: {instanceID: 30296}
     - Class: 114
-      Script: {instanceID: 30374}
+      Script: {instanceID: 30350}
     - Class: 114
-      Script: {instanceID: 30576}
+      Script: {instanceID: 30410}
     - Class: 114
-      Script: {instanceID: 30732}
+      Script: {instanceID: 30612}
     - Class: 114
-      Script: {instanceID: 30924}
+      Script: {instanceID: 30768}
     - Class: 114
-      Script: {instanceID: 31300}
+      Script: {instanceID: 30960}
     - Class: 114
-      Script: {instanceID: 31376}
+      Script: {instanceID: 31224}
     - Class: 114
-      Script: {instanceID: 31476}
+      Script: {instanceID: 31338}
     - Class: 114
-      Script: {instanceID: 31486}
+      Script: {instanceID: 31514}
     - Class: 114
-      Script: {instanceID: 31544}
+      Script: {instanceID: 31524}
     - Class: 114
-      Script: {instanceID: 31918}
+      Script: {instanceID: 31580}
     - Class: 114
-      Script: {instanceID: 32236}
+      Script: {instanceID: 31956}
     - Class: 114
-      Script: {instanceID: 32726}
+      Script: {instanceID: 32274}
     - Class: 114
-      Script: {instanceID: 37662}
+      Script: {instanceID: 32530}
     - Class: 114
-      Script: {instanceID: 38994}
+      Script: {instanceID: 32584}
+    - Class: 114
+      Script: {instanceID: 32808}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -238,6 +264,24 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: 087b25d683900c0619e997811fcc708b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: PlaceholderPlayer
+  - hash:
+      serializedVersion: 2
+      Hash: 5ae7babd21f94049729b99b0b34c2abd
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: LizardGuns
+  - hash:
+      serializedVersion: 2
+      Hash: bf0235a6bc70157887b2e03b0ecd8858
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Player_Movement
   - hash:
       serializedVersion: 2
       Hash: 312f1a1cca70a349ac4ab5518b32cf60
@@ -336,7 +380,7 @@ ScriptsOnlyBuild:
     className: TelepathyTransport
   - hash:
       serializedVersion: 2
-      Hash: 208b1b824a514dfc6882f5878d6b58db
+      Hash: c4942ae176b05a86cf0c9a9e698d39e1
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Squirelgrenade
@@ -376,6 +420,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
     className: TMP_SubMeshUI
+  - hash:
+      serializedVersion: 2
+      Hash: a718cbaad07918944513c78828fe09e2
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: GunSync
   - hash:
       serializedVersion: 2
       Hash: 3831fb6d023173932ac77e578cdfb364
@@ -426,13 +476,7 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
-      Hash: 1c8a76e60346e526154e30815870e340
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: Player_Movement
-  - hash:
-      serializedVersion: 2
-      Hash: 5ac27f2d017308b4d9583031a2caf02e
+      Hash: c056b480c8b513b206112a1391170570
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Noseeself
@@ -600,6 +644,12 @@ ScriptsOnlyBuild:
     className: FlyerControllerUnreliable
   - hash:
       serializedVersion: 2
+      Hash: 330be2eb1fd62821ecb41203b6113600
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CameraFollowSetup
+  - hash:
+      serializedVersion: 2
       Hash: 8bf800a764665b085fe469e8aea7f167
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -730,6 +780,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples
     namespaceName: Mirror.Examples.AutoLANClientController
     className: NetworkSceneScript
+  - hash:
+      serializedVersion: 2
+      Hash: 4e4d8f6b5d72f01c5182316a68db89c8
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CharacterSelectUI
   - hash:
       serializedVersion: 2
       Hash: 308b8a4882c4cad9ac17dbb769d4c326
@@ -1032,7 +1088,7 @@ ScriptsOnlyBuild:
     className: PlayerControllerUI
   - hash:
       serializedVersion: 2
-      Hash: 1db8b8f8bdbd317f7535b865d9795883
+      Hash: 442961a001680134e215e5ed04ac3add
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: GIbbityGone
@@ -1050,7 +1106,7 @@ ScriptsOnlyBuild:
     className: ContollerUIBase
   - hash:
       serializedVersion: 2
-      Hash: 3932dab789400b6aeb3bfbf3bd7c7579
+      Hash: 6b929bf3eece868bc1015c4eeba10fbd
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Health
@@ -1174,6 +1230,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
     className: AnimationPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 25c672a7e2900630aa734db204b23e4c
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CharacterSelectSender
   - hash:
       serializedVersion: 2
       Hash: e1fc91914743f6724e020ba02bd14638
@@ -1434,7 +1496,7 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
-      Hash: db9c821d586565d94f8db2275f3f321b
+      Hash: 5e6b8609a15fcfb193deb890f7edb75a
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: RaccoonGuns
@@ -1512,7 +1574,7 @@ ScriptsOnlyBuild:
     className: CharacterSwitch
   - hash:
       serializedVersion: 2
-      Hash: 00ab1fa1724be9a2b05b49490791e619
+      Hash: 97080243bb987d593015d4f708d11705
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Lizardschmove
@@ -1656,7 +1718,7 @@ ScriptsOnlyBuild:
     className: GunZoom
   - hash:
       serializedVersion: 2
-      Hash: 745bd38224639a7be69b50022380f7f9
+      Hash: af378edf82bfad0b48be18e32a50bc98
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: SquirrelGuns
@@ -1704,7 +1766,7 @@ ScriptsOnlyBuild:
     className: UnityOnCollisionEnterMessageListener
   - hash:
       serializedVersion: 2
-      Hash: db3791ee6c15199344ea5215e9861d08
+      Hash: 91ece6e7af33ed2ed65a9dc5e906478a
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Lookie
@@ -1824,7 +1886,7 @@ ScriptsOnlyBuild:
     className: Player
   - hash:
       serializedVersion: 2
-      Hash: cb972c04341bca921f93dfb5fc02e5e8
+      Hash: 39153a7db05fe0c891ea0feda53ba8ea
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: PewPew
@@ -1882,6 +1944,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples
     namespaceName: Mirror.Examples.TopDownShooter
     className: PlayerTopDown
+  - hash:
+      serializedVersion: 2
+      Hash: e28c5961e27a0fcb8a3879495ec9a8bc
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: MyNetworkManager
   - hash:
       serializedVersion: 2
       Hash: 4cc6d5e0df780310fa28691c740f7a60
@@ -2142,7 +2210,7 @@ ScriptsOnlyBuild:
     className: PlayerScore
   - hash:
       serializedVersion: 2
-      Hash: c946500058b5d3f5aa74a56b20f25d46
+      Hash: 9454eefd5cd3b72a8ab7cc60e4f26211
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: intcamlookie
@@ -2202,6 +2270,12 @@ ScriptsOnlyBuild:
     className: PlayerForce
   - hash:
       serializedVersion: 2
+      Hash: e3a4afb7e67234f8bea957baf86aacee
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: FlameThrowerParticle
+  - hash:
+      serializedVersion: 2
       Hash: 4718916586b3818eb69bf65df61f0f3a
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -2214,6 +2288,12 @@ ScriptsOnlyBuild:
     className: ServerCube
   - hash:
       serializedVersion: 2
+      Hash: 4d7440ba97c3e62b37180670f30908ca
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CharacterHostButton
+  - hash:
+      serializedVersion: 2
       Hash: 3404ad3d972eeb6b18ecf04e7afd7993
     assemblyName: Mirror.Examples
     namespaceName: Mirror.Examples.Billiards
@@ -2224,6 +2304,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples
     namespaceName: Mirror.Examples.TopDownShooter
     className: CanvasHUD
+  - hash:
+      serializedVersion: 2
+      Hash: 083f6610e4a520bfde5e997a6b1904c6
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Dart
   - hash:
       serializedVersion: 2
       Hash: d82086405f46de14829f6b4bcbdd8fc9
@@ -2274,23 +2360,11 @@ ScriptsOnlyBuild:
     className: NetworkManagerPredictionBenchmark
   - hash:
       serializedVersion: 2
-      Hash: f7b2426a20195fda1f3d125ed6dc705f
+      Hash: d5494951dccb016a8cc9da28f41cb2c3
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: LizardGuns
-  - hash:
-      serializedVersion: 2
-      Hash: d1057722e022f9a2a1bd2df58e1f4ec3
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: FlameThrowerParticle
-  - hash:
-      serializedVersion: 2
-      Hash: b364a22959974006b8683a2c75512e64
-    assemblyName: Assembly-CSharp
-    namespaceName: QuickStart
-    className: PlayerScript
+    className: MyPlayer
   platform: 2
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: /Users/wmathews4255/Documents/GitHub/Unitysixthingy/AFC/Testing thingy.app
+  playerPath: "/Users/amackay4682/Documents/Unitysixthingy/AFC/aaaaaa\u0300.app"

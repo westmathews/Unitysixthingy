@@ -1,5 +1,6 @@
 using UnityEngine;
 using Mirror;
+
 public class Player_Movement : NetworkBehaviour
 {
     public CharacterController controller; // Reference to the CharacterController component
@@ -24,7 +25,8 @@ public class Player_Movement : NetworkBehaviour
     {        
         //jumpVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
     }
-    void OnTriggerEnter(Collider other)
+    
+    internal void grenadehityou(Collider other)
     {
         hitdirection = ((transform.position - other.transform.position).normalized);
         if (hitdirection.y < .5f)
