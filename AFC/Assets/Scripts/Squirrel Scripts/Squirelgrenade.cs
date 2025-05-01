@@ -31,7 +31,7 @@ public class Squirelgrenade : NetworkBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Explodered");
+        //Debug.Log("Explodered");
         //other.GetComponent<Rigidbody>().AddExplosionForce(20, transform.position, 15, 3.0f, ForceMode.Impulse);
         if (other.GetComponent<CharacterController>())
         {
@@ -85,7 +85,11 @@ public class Squirelgrenade : NetworkBehaviour
                 {
 
                     Debug.Log("Hit you Hit you now we FUCK HARD");
-                    movement.grenadehityou(Explosion);
+                    movement.grenadehityou(Explosion, connectionToClient);
+                }
+                else
+                {
+                    Debug.Log("Fucks You");
                 }
             }
             else

@@ -26,7 +26,7 @@ public class Player_Movement : NetworkBehaviour
         //jumpVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
     }
     
-    internal void grenadehityou(Collider other)
+    internal void grenadehityou(Collider other, NetworkConnection connection)
     {
         hitdirection = ((transform.position - other.transform.position).normalized);
         if (hitdirection.y < .5f)
