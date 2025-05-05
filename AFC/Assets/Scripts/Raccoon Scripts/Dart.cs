@@ -21,6 +21,9 @@ public class Dart : NetworkBehaviour
     private void OnCollisionEnter(Collision other)
     {
         Debug.Log("collided");
+        gameObject.transform.parent = other.gameObject.transform;
+        rb.isKinematic = true;
+        Invoke(nameof(DestroySelf), lifeTime);
         if (other.gameObject.CompareTag("Player"))
         {
             other.gameObject.GetComponentInParent<Player_Movement>().darted = true;
@@ -73,9 +76,12 @@ public class Dart : NetworkBehaviour
     [Server]
     private void DestroySelf()
     {
-        enemy.GetComponentInParent<Player_Movement>().darted = false;
-        fast(enemy);
-        //NetworkServer.Destroy(gameObject);
+        if (enemy != null)
+        {
+            enemy.GetComponentInParent<Player_Movement>().darted = false;
+            fast(enemy);
+        }
+        NetworkServer.Destroy(gameObject);
     }
     [Client]
     void fast(NetworkIdentity enemy)

@@ -50,15 +50,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: 056e70f834d3348c8a56ede2596bc05c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: 056e70f834d3348c8a56ede2596bc05c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: 056e70f834d3348c8a56ede2596bc05c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: 056e70f834d3348c8a56ede2596bc05c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -147,6 +147,7 @@ MonoBehaviour:
   lifeTime: 5
   damage: 25
   intcam: {fileID: 0}
+  enemy: {fileID: 0}
 --- !u!114 &3022609314139126424
 MonoBehaviour:
   m_ObjectHideFlags: 0
