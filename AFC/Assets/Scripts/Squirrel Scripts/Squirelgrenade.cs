@@ -32,6 +32,7 @@ public class Squirelgrenade : NetworkBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
+        hitself = false;
         //Debug.Log("Explodered");
         //other.GetComponent<Rigidbody>().AddExplosionForce(20, transform.position, 15, 3.0f, ForceMode.Impulse);
         if (other.GetComponent<CharacterController>())
@@ -76,7 +77,7 @@ public class Squirelgrenade : NetworkBehaviour
        
     }
     [Command]
-    private void cmdchangehealth(uint enemyNetId, float dmgdealt, bool hitself)
+    private void cmdchangehealth(uint enemyNetId, float dmgdealt, bool hitmeself)
     {
         Debug.Log("triggered");
         if (NetworkServer.spawned.TryGetValue(enemyNetId, out NetworkIdentity enemyIdentity))
@@ -85,7 +86,7 @@ public class Squirelgrenade : NetworkBehaviour
             Player_Movement movement = enemyIdentity.GetComponentInChildren<Player_Movement>(); 
             if (enemyHealth != null)
             {
-                if (!hitself)
+                if (!hitmeself)
                 {
                     enemyHealth.intcam = intcam;
                     enemyHealth.TakeDamage(30, connectionToClient);
