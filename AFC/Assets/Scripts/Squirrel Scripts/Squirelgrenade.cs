@@ -47,7 +47,7 @@ public class Squirelgrenade : NetworkBehaviour
                 Debug.Log("PlayerBounce");
             }
             //Vector3 hitdirection =
-            NetworkIdentity enemyId = other.gameObject.GetComponent<NetworkIdentity>();
+            NetworkIdentity enemyId = other.GetComponent<NetworkIdentity>();
             if (enemyId != null)
             {
 
@@ -66,7 +66,7 @@ public class Squirelgrenade : NetworkBehaviour
 
        
     }
-    //[Server]
+    [Command]
     private void cmdchangehealth(uint enemyNetId, float dmgdealt)
     {
         Debug.Log("triggered");
@@ -85,7 +85,7 @@ public class Squirelgrenade : NetworkBehaviour
                 {
 
                     Debug.Log("Hit you Hit you now we FUCK HARD");
-                    movement.grenadehityou(Explosion, connectionToClient);
+                    movement.grenadehityou(gameObject, connectionToClient);
                 }
                 else
                 {

@@ -25,8 +25,8 @@ public class Player_Movement : NetworkBehaviour
     {        
         //jumpVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
     }
-    
-    public void grenadehityou(Collider other, NetworkConnection connection)
+    [Server]
+    public void grenadehityou(GameObject other, NetworkConnection connection)
     {
         Debug.Log("grenade knockback");
         hitdirection = ((transform.position - other.transform.position).normalized);
@@ -39,6 +39,22 @@ public class Player_Movement : NetworkBehaviour
             hitdirection = hitdirection * 3;
         }
         Debug.Log("igodisway:"+hitdirection);
+        actuallymovingyou(connectionToClient, other);
+    }
+    [TargetRpc]
+    void actuallymovingyou(NetworkConnection networkConnectionToClient, GameObject other)
+    {
+        Debug.Log("grenade knockback");
+        hitdirection = ((transform.position - other.transform.position).normalized);
+        if (hitdirection.y < .5f)
+        {
+            hitdirection = (hitdirection + new Vector3(0, 1.2f, 0)) * 2;
+        }
+        else
+        {
+            hitdirection = hitdirection * 3;
+        }
+        Debug.Log("igodisway:" + hitdirection);
     }
     void Update()
     {
