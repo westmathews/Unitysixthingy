@@ -114,11 +114,12 @@ public class Squirelgrenade : NetworkBehaviour
         {
             Debug.LogError("Could not find enemy by netId.");
         }
+        Destroy(gameObject);
     }
     void Update()
     {
 
-        if (Explosion.enabled && kama == 10000)
+        if (Explosion.enabled && kama == 100)
         {
             Debug.Log("Destroying self");
             kama = 0;
