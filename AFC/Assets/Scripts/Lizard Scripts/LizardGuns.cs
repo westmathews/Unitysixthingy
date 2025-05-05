@@ -63,14 +63,15 @@ public class LizardGuns : NetworkBehaviour
                 // Check if the hit object has the "Player" tag
                 if (hit.collider.CompareTag("Player"))
                 {
-
-                    NetworkIdentity enemyId = hit.collider.GetComponent<NetworkIdentity>();
-                    if (enemyId != null)
+                    if (!hit.collider.gameObject.GetComponentInChildren<Health>().isLocalPlayer)
                     {
-                        dmgdealt = 40;
-                        cmdchangehealth(enemyId.netId, dmgdealt);
+                        NetworkIdentity enemyId = hit.collider.GetComponent<NetworkIdentity>();
+                        if (enemyId != null)
+                        {
+                            dmgdealt = 40;
+                            cmdchangehealth(enemyId.netId, dmgdealt);
+                        }
                     }
-
                 }
             }
         }
@@ -144,14 +145,15 @@ public class LizardGuns : NetworkBehaviour
                 // Check if the hit object has the "Player" tag
                 if (hit.collider.CompareTag("Player"))
                 {
-
-                    NetworkIdentity enemyId = hit.collider.GetComponent<NetworkIdentity>();
-                    if (enemyId != null)
+                    if (!hit.collider.gameObject.GetComponentInChildren<Health>().isLocalPlayer)
                     {
-                        dmgdealt = 10;
-                        cmdchangehealth(enemyId.netId, dmgdealt);
+                        NetworkIdentity enemyId = hit.collider.GetComponent<NetworkIdentity>();
+                        if (enemyId != null)
+                        {
+                            dmgdealt = 10;
+                            cmdchangehealth(enemyId.netId, dmgdealt);
+                        }
                     }
-
                 }
             }
         }

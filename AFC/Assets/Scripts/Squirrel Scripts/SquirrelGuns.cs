@@ -83,14 +83,17 @@ public class SquirrelGuns : NetworkBehaviour
                 // Check if the hit object has the "Player" tag
                 if (hit.collider.CompareTag("Player"))
                 {
-
-                    NetworkIdentity enemyId = hit.collider.GetComponent<NetworkIdentity>();
-                    if (enemyId != null)
+                    if (!hit.collider.gameObject.GetComponentInChildren<Health>().isLocalPlayer)
                     {
 
-                        cmdchangehealth(enemyId.netId, 15);
-                    }
 
+                        NetworkIdentity enemyId = hit.collider.GetComponent<NetworkIdentity>();
+                        if (enemyId != null)
+                        {
+
+                            cmdchangehealth(enemyId.netId, 15);
+                        }
+                    }
                 }
             }
         }
