@@ -24,6 +24,7 @@ public class FlameThrowerParticle : NetworkBehaviour
         {
             if (!other.GetComponentInChildren<Health>().isLocalPlayer)
             {
+
                 NetworkIdentity enemyId = other.GetComponentInParent<NetworkIdentity>();
                 cmdchangehealth(enemyId.netId, 1);
                 /*other.gameObject.GetComponentInChildren<Health>().hepo -= 1;
@@ -31,6 +32,10 @@ public class FlameThrowerParticle : NetworkBehaviour
                 other.gameObject.GetComponentInChildren<Health>().burnTimer = 1;
                 other.gameObject.GetComponentInChildren<Health>().intcam = intcam;*/
                 var collision = self.collision;
+            }
+            else
+            {
+                Debug.Log("That Me:)");
             }
             
         }

@@ -12,6 +12,7 @@ public class Squirelgrenade : NetworkBehaviour
     public CharacterController controller;
     public float kama = 0;
     public GameObject intcam;
+    public bool hitself = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -40,6 +41,14 @@ public class Squirelgrenade : NetworkBehaviour
         // Check if the hit object has the "Player" tag
         if (other.gameObject.CompareTag("Player"))
         {
+            if (other.gameObject.GetComponentInChildren<Health>().isLocalPlayer)
+            {
+                hitself = true;
+            }
+            else
+            {
+                Debug.Log("That aint me");
+            }
             Debug.Log("HitPlayer");
             if (other.gameObject.GetComponent<Player_Movement>())
             {
@@ -51,7 +60,7 @@ public class Squirelgrenade : NetworkBehaviour
             if (enemyId != null)
             {
 
-                cmdchangehealth(enemyId.netId, 40);
+                cmdchangehealth(enemyId.netId, 40, hitself);
             }
             
             //Debug.Log("Hit");
@@ -67,7 +76,7 @@ public class Squirelgrenade : NetworkBehaviour
        
     }
     [Command]
-    private void cmdchangehealth(uint enemyNetId, float dmgdealt)
+    private void cmdchangehealth(uint enemyNetId, float dmgdealt, bool hitself)
     {
         Debug.Log("triggered");
         if (NetworkServer.spawned.TryGetValue(enemyNetId, out NetworkIdentity enemyIdentity))
@@ -76,10 +85,14 @@ public class Squirelgrenade : NetworkBehaviour
             Player_Movement movement = enemyIdentity.GetComponentInChildren<Player_Movement>(); 
             if (enemyHealth != null)
             {
-                if (enemyIdentity != ownplayer.GetComponent<NetworkIdentity>())
+                if (!hitself)
                 {
                     enemyHealth.intcam = intcam;
                     enemyHealth.TakeDamage(30, connectionToClient);
+                }
+                else
+                {
+                    Debug.Log("hitself");
                 }
                 if (movement != null)
                 {
