@@ -26,8 +26,9 @@ public class Player_Movement : NetworkBehaviour
         //jumpVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
     }
     
-    internal void grenadehityou(Collider other, NetworkConnection connection)
+    public void grenadehityou(Collider other, NetworkConnection connection)
     {
+        Debug.Log("grenade knockback");
         hitdirection = ((transform.position - other.transform.position).normalized);
         if (hitdirection.y < .5f)
         {
@@ -131,15 +132,6 @@ public class Player_Movement : NetworkBehaviour
             }
             controller.Move(move * speed * Time.deltaTime + new Vector3(0, ySpeed, 0) * Time.deltaTime);
 
-
-            void OnCollisionEnter(Collision other)
-            {
-                if (other.gameObject.CompareTag("Projectile"))
-                {
-                    darted = true;
-                    dartTimer = 3;
-                }
-            }
 
             
     }

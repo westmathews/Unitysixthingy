@@ -66,7 +66,7 @@ public class Squirelgrenade : NetworkBehaviour
 
        
     }
-    [Command]
+    //[Server]
     private void cmdchangehealth(uint enemyNetId, float dmgdealt)
     {
         Debug.Log("triggered");
