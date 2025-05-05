@@ -19,27 +19,22 @@ public class Squirelgrenade : NetworkBehaviour
         gameObject.transform.parent = null;
         me.AddForce(transform.forward * 35, ForceMode.Impulse);
     }
-
-    // Update is called once per frame
     
     
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Hitsmth");
-        //me.AddExplosionForce(200000, transform.position, 150000, 3000.0f,ForceMode.Impulse);
         Explosion.enabled = true;
-
-    }
+    } 
     void OnTriggerEnter(Collider other)
     {
         hitself = false;
-        //Debug.Log("Explodered");
-        //other.GetComponent<Rigidbody>().AddExplosionForce(20, transform.position, 15, 3.0f, ForceMode.Impulse);
+        
         if (other.GetComponent<CharacterController>())
         {
             Debug.Log("got it");
         }
-        // Check if the hit object has the "Player" tag
+        
         if (other.gameObject.CompareTag("Player"))
         {
             if (other.gameObject.GetComponentInChildren<Health>().isLocalPlayer)
@@ -56,19 +51,13 @@ public class Squirelgrenade : NetworkBehaviour
                 other.gameObject.GetComponent<Player_Movement>().grenadehit = true;
                 Debug.Log("PlayerBounce");
             }
-            //Vector3 hitdirection =
+            
             NetworkIdentity enemyId = other.GetComponent<NetworkIdentity>();
             if (enemyId != null)
             {
-
                 cmdchangehealth(enemyId.netId, 40, hitself);
             }
             
-            //Debug.Log("Hit");
-
-
-            // Logic for hitting a player
-            // You can add additional actions here, like applying damage or triggering an effect
         }
         
         
@@ -97,7 +86,6 @@ public class Squirelgrenade : NetworkBehaviour
                 }
                 if (movement != null)
                 {
-
                     Debug.Log("Hit you Hit you now we FUCK HARD");
                     movement.grenadehityou(gameObject, connectionToClient);
                 }
@@ -129,8 +117,6 @@ public class Squirelgrenade : NetworkBehaviour
 
         if (Explosion.enabled)
         {
-
-
             kama += 1;
         }
     }

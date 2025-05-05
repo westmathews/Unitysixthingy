@@ -25,7 +25,7 @@ public class UI : MonoBehaviour
     void Update()
     {
         equalizer = (GetComponentInParent<PewPew>().abtime -5) * -1;
-        hbar.text = "Health: " + GetComponentInParent<Health>().hepo.ToString();
+        hbar.text = "Health: " + GetComponentInParent<Health>().hepo.ToString("F0");
         if (!GetComponentInParent<PewPew>().reloading)
         {
             ammer.text = "Ammo: " + GetComponentInParent<PewPew>().ammo.ToString();
