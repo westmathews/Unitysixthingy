@@ -114,7 +114,7 @@ public class Squirelgrenade : NetworkBehaviour
         {
             Debug.LogError("Could not find enemy by netId.");
         }
-        Destroy(gameObject);
+        hitself = false;
     }
     void Update()
     {
