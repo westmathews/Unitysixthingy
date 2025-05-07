@@ -1893,6 +1893,10 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  layermask:
+    serializedVersion: 2
+    m_Bits: 64
+  self: {fileID: 9102419443657893789}
   revolver: {fileID: 8226806544387979701}
   rifle: {fileID: 3900921648239395402}
   intcam: {fileID: 4156497041855745480}
@@ -2562,6 +2566,8 @@ MonoBehaviour:
   gliding: 0
   grenadehit: 0
   grenknockback: 0
+  darted: 0
+  dartTimer: 0
 --- !u!143 &3445780037209799707
 CharacterController:
   m_ObjectHideFlags: 0

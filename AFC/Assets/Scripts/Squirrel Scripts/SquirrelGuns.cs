@@ -3,6 +3,8 @@ using UnityEngine;
 using Mirror;
 public class SquirrelGuns : NetworkBehaviour
 {
+    public LayerMask layermask;
+    public GameObject self;
     public GameObject grenadeprefab;
     public GameObject Grenaben;
     public GameObject intcam;
@@ -24,7 +26,10 @@ public class SquirrelGuns : NetworkBehaviour
     void Start()
     {
         range = GetComponentInParent<PewPew>().shootingRange;
-
+        if (isLocalPlayer)
+        {
+            self.layer = 6;
+        }
     }
 
     // Update is called once per frame
@@ -74,7 +79,7 @@ public class SquirrelGuns : NetworkBehaviour
             Vector3 shootdirection = spreaddirection();
             RaycastHit hit;
 
-            if (Physics.Raycast(playerCamera.transform.position, shootdirection, out hit, range))
+            if (Physics.Raycast(playerCamera.transform.position, shootdirection, out hit, range, ~layermask))
             {
                 target = hit.transform.position;
                 Debug.Log("Hit object tag: " + hit.collider.tag);

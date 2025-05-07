@@ -3,6 +3,8 @@ using Mirror;
 using TMPro;
 public class LizardGuns : NetworkBehaviour
 {
+    public LayerMask layermask;
+    public GameObject self;
     public GameObject revolver;
     public GameObject rifle;
     public GameObject intcam;
@@ -20,6 +22,10 @@ public class LizardGuns : NetworkBehaviour
     void Start()
     {
         range = GetComponentInParent<PewPew>().shootingRange;
+        if (isLocalPlayer)
+        {
+            self.layer = 6;
+        }
     }
 
     // Update is called once per frame
@@ -53,7 +59,7 @@ public class LizardGuns : NetworkBehaviour
             playerCamera.GetComponent<Lookie>().recoil();
 
 
-            if (Physics.Raycast(ray, out hit, range))
+            if (Physics.Raycast(ray, out hit, range,~layermask))
             {
                 target = hit.transform.position;
                 Debug.Log("Hit object tag: " + hit.collider.tag);
@@ -135,7 +141,7 @@ public class LizardGuns : NetworkBehaviour
             GetComponentInParent<PewPew>().nospam = 0;
             playerCamera.GetComponent<Lookie>().secondaryrecoil();
 
-            if (Physics.Raycast(ray, out hit, range))
+            if (Physics.Raycast(ray, out hit, range,~layermask))
             {
                 target = hit.transform.position;
                 Debug.Log("Hit object tag: " + hit.collider.tag);

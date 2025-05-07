@@ -98,6 +98,10 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  layermask:
+    serializedVersion: 2
+    m_Bits: 64
+  self: {fileID: 7046325087989527260}
   grenadeprefab: {fileID: 1009067334264034623, guid: 72795f699ee61472cbc060d631ce0720, type: 3}
   Grenaben: {fileID: 0}
   intcam: {fileID: 4926886205466818057}
@@ -1691,6 +1695,8 @@ MonoBehaviour:
   gliding: 0
   grenadehit: 0
   grenknockback: 0
+  darted: 0
+  dartTimer: 0
 --- !u!143 &4294475257822049732
 CharacterController:
   m_ObjectHideFlags: 0
