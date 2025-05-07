@@ -14,4 +14,6 @@ public class MyNetworkManager : NetworkManager
             squirrelPrefab, lizardPrefab, racoonPrefab
         });
     }
+
+    
 }
