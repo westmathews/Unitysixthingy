@@ -16,6 +16,11 @@ public class FlameThrowerParticle : NetworkBehaviour
     public bool fake = false;
     public float existtimer = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private void Start()
+    {
+        Debug.Log("World scale" + gameObject.transform.lossyScale);
+        Debug.Log("local scale" + gameObject.transform.lossyScale);
+    }
     private void Update()
     {
         existtimer += Time.deltaTime;
