@@ -50,6 +50,7 @@ public class Noseeself : NetworkBehaviour
         {
             RevealObject();
         }
+        
     }
     void RevealObject()
     {
