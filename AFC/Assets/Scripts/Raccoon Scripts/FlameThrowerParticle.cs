@@ -13,33 +13,36 @@ public class FlameThrowerParticle : NetworkBehaviour
     public GameObject hitfab;
     public ParticleSystem self;
     public Camera playerCamera;
-
+    public bool fake = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void OnParticleCollision(GameObject other)
     {
-        
-        
-        if (other.gameObject.CompareTag("Player"))
+
+        if (!fake)
         {
-            if (!other.GetComponentInChildren<Health>().isLocalPlayer)
-            {
 
-                NetworkIdentity enemyId = other.GetComponentInParent<NetworkIdentity>();
-                cmdchangehealth(enemyId.netId, 1);
-                /*other.gameObject.GetComponentInChildren<Health>().hepo -= 1;
-                other.gameObject.GetComponentInChildren<Health>().burn = 5;
-                other.gameObject.GetComponentInChildren<Health>().burnTimer = 1;
-                other.gameObject.GetComponentInChildren<Health>().intcam = intcam;*/
-                var collision = self.collision;
-            }
-            else
+
+            if (other.gameObject.CompareTag("Player"))
             {
-                Debug.Log("That Me:)");
+                if (!other.GetComponentInChildren<Health>().isLocalPlayer)
+                {
+
+                    NetworkIdentity enemyId = other.GetComponentInParent<NetworkIdentity>();
+                    cmdchangehealth(enemyId.netId, 1);
+                    /*other.gameObject.GetComponentInChildren<Health>().hepo -= 1;
+                    other.gameObject.GetComponentInChildren<Health>().burn = 5;
+                    other.gameObject.GetComponentInChildren<Health>().burnTimer = 1;
+                    other.gameObject.GetComponentInChildren<Health>().intcam = intcam;*/
+                    var collision = self.collision;
+                }
+                else
+                {
+                    Debug.Log("That Me:)");
+                }
+
             }
-            
         }
-
     }
     [Command]
     private void cmdchangehealth(uint enemyNetId, float dmgdealt)

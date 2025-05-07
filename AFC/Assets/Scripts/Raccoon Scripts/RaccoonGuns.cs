@@ -4,6 +4,7 @@ using Mirror;
 public class RaccoonGuns : NetworkBehaviour
 {
     public GameObject Gun;
+    public GameObject fakefire;
     public GameObject actvfire;
     public GameObject fire;
     public GameObject revolver;
@@ -64,7 +65,14 @@ public class RaccoonGuns : NetworkBehaviour
             actvfire.GetComponent<FlameThrowerParticle>().intcam = intcam;
             actvfire.GetComponent<FlameThrowerParticle>().playerCamera = playerCamera;
             flametimer = 0;
+            makelookgood();
         }
+    }
+    void makelookgood()
+    {
+        actvfire.layer = 7;
+        fakefire = Instantiate(fire, shootPoint.position, shootPoint.rotation);
+        fakefire.GetComponent<FlameThrowerParticle>().fake = true;
     }
 
     
