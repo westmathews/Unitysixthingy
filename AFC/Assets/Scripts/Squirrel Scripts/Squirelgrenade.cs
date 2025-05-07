@@ -120,4 +120,7 @@ public class Squirelgrenade : NetworkBehaviour
             kama += 1;
         }
     }
+    //Jaydon's brackets DO NOT DELETE
+    //[[[[[[[[[[[[[]]]]]]]]]]]]]
 }
+
