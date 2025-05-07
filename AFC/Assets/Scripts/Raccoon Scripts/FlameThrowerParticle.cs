@@ -14,8 +14,17 @@ public class FlameThrowerParticle : NetworkBehaviour
     public ParticleSystem self;
     public Camera playerCamera;
     public bool fake = false;
+    public float existtimer = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+    private void Update()
+    {
+        existtimer += Time.deltaTime;
+        if (existtimer > .05)
+        {
+            gameObject.transform.parent = null;
+            Debug.Log("orphan");
+        }
+    }
     void OnParticleCollision(GameObject other)
     {
 

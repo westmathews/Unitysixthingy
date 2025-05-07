@@ -61,18 +61,20 @@ public class RaccoonGuns : NetworkBehaviour
         if (flametimer > .05)
         {
             actvfire = Instantiate(fire, shootPoint.position, shootPoint.rotation);
+            actvfire.transform.parent = shootPoint;
             NetworkServer.Spawn(actvfire, connectionToClient);
             actvfire.GetComponent<FlameThrowerParticle>().intcam = intcam;
             actvfire.GetComponent<FlameThrowerParticle>().playerCamera = playerCamera;
             flametimer = 0;
             makelookgood();
+            
         }
     }
     void makelookgood()
     {
-        actvfire.layer = 7;
-        fakefire = Instantiate(fire, shootPoint.position, shootPoint.rotation);
-        fakefire.GetComponent<FlameThrowerParticle>().fake = true;
+        //actvfire.layer = 7;
+        //fakefire = Instantiate(fire, shootPoint.position, shootPoint.rotation);
+        //fakefire.GetComponent<FlameThrowerParticle>().fake = true;
     }
 
     
