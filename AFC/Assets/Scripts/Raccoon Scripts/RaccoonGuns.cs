@@ -49,6 +49,7 @@ public class RaccoonGuns : NetworkBehaviour
             if (GetComponentInParent<PewPew>().maingun)
             {
                 flamie(flametimer);
+                makelookgood();
             }
             if (GetComponentInParent<PewPew>().secondary)
             {
@@ -69,7 +70,7 @@ public class RaccoonGuns : NetworkBehaviour
             actvfire.GetComponent<FlameThrowerParticle>().intcam = intcam;
             actvfire.GetComponent<FlameThrowerParticle>().playerCamera = playerCamera;
             flametimer = 0;
-            makelookgood();
+            //makelookgood();
             
         }
     }
