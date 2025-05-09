@@ -3796,7 +3796,7 @@ ParticleSystem:
     radiusScale: 0.5
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 183
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -4858,6 +4858,8 @@ MonoBehaviour:
   hitfab: {fileID: 2947498012721558519, guid: 55f069c1bfe9b48d9abb31a4e30b4229, type: 3}
   self: {fileID: 2278957134684270230}
   playerCamera: {fileID: 0}
+  fake: 0
+  existtimer: 0
 --- !u!114 &1162060465086695901
 MonoBehaviour:
   m_ObjectHideFlags: 0
