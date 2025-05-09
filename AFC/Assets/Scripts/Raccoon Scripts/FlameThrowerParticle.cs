@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 using Mirror;
 public class FlameThrowerParticle : NetworkBehaviour
 {
+    public Transform Ownplayer;
     public GameObject intcam;
     public GameObject hitind;
     public GameObject hitfab;
@@ -18,6 +19,7 @@ public class FlameThrowerParticle : NetworkBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
+        transform.position = Ownplayer.position;
         Debug.Log("World scale" + gameObject.transform.lossyScale);
         Debug.Log("local scale" + gameObject.transform.lossyScale);
     }
