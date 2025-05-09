@@ -3,6 +3,7 @@ using TMPro;
 using Mirror;
 public class RaccoonGuns : NetworkBehaviour
 {
+    public GameObject player;
     public GameObject Gun;
     public GameObject fakefire;
     public GameObject actvfire;
@@ -61,8 +62,8 @@ public class RaccoonGuns : NetworkBehaviour
         if (flametimer > .05)
         {
             actvfire = Instantiate(fire, shootPoint.position, shootPoint.rotation);
+            actvfire.transform.parent = player.transform;
             NetworkServer.Spawn(actvfire, connectionToClient);
-            actvfire.transform.parent = shootPoint;
             actvfire.GetComponent<FlameThrowerParticle>().intcam = intcam;
             actvfire.GetComponent<FlameThrowerParticle>().playerCamera = playerCamera;
             flametimer = 0;

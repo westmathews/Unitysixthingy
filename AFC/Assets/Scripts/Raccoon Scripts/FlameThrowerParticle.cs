@@ -27,7 +27,7 @@ public class FlameThrowerParticle : NetworkBehaviour
         if (existtimer > .05)
         {
             gameObject.transform.parent = null;
-            Debug.Log("orphan");
+            //Debug.Log("orphan");
         }
     }
     void OnParticleCollision(GameObject other)
