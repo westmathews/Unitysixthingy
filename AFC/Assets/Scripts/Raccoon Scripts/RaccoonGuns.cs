@@ -66,7 +66,7 @@ public class RaccoonGuns : NetworkBehaviour
             //actvfire.transform.parent = player.transform;
             NetworkServer.Spawn(actvfire, connectionToClient);
             actvfire.transform.parent = player.transform;
-            actvfire.GetComponent<FlameThrowerParticle>().Ownplayer = shootPoint;
+            actvfire.transform.position = shootPoint.position;
             actvfire.GetComponent<FlameThrowerParticle>().intcam = intcam;
             actvfire.GetComponent<FlameThrowerParticle>().playerCamera = playerCamera;
             flametimer = 0;
