@@ -76,7 +76,7 @@ public class RaccoonGuns : NetworkBehaviour
     void makelookgood()
     {
         actvfire.transform.position = shootPoint.position;
-        Debug.Log("we moved it");
+        Debug.Log("we moved it. Fire: " + actvfire.transform.position + "ShootPoint: " + shootPoint.position);
         //actvfire.layer = 7;
         //fakefire = Instantiate(fire, shootPoint.position, shootPoint.rotation);
         //fakefire.GetComponent<FlameThrowerParticle>().fake = true;
