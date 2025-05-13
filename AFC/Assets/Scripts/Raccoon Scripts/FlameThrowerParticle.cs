@@ -75,7 +75,15 @@ public class FlameThrowerParticle : NetworkBehaviour
             {
                 enemyHealth.intcam = intcam;
                 enemyHealth.TakeDamage(dmgdealt, connectionToClient);
-                enemyHealth.burn = 5;
+                if (enemyHealth.burn >= 5)
+                {
+                    enemyHealth.burn = 5;
+                }
+                else
+                {
+                    enemyHealth.burn += 1;
+                }
+                
                 enemyHealth.burnTimer = 1;
             }
             else
