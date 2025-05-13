@@ -25,6 +25,8 @@ public class RaccoonGuns : NetworkBehaviour
     public Rigidbody darbbody;
     public Transform shootPoint;
     public GameObject shootpointobj;
+    public GameObject hookprefab;
+    public float hooktimer = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -40,7 +42,7 @@ public class RaccoonGuns : NetworkBehaviour
 
 
             flametimer += Time.deltaTime;
-
+            hooktimer += Time.deltaTime;
             sndtime += Time.deltaTime;
 
             if (sndtime >= .1 && sndshots > 0)
@@ -54,6 +56,12 @@ public class RaccoonGuns : NetworkBehaviour
             if (GetComponentInParent<PewPew>().secondary)
             {
                 Secondary(transform.position, new Vector3(1, -1, 0));
+            }
+            if (hooktimer > 5 && Input.GetKeyDown(KeyCode.E))
+            {
+                ShootHook();
+                hooktimer = 0;
+                Debug.Log("triggered shot");
             }
             
         }
@@ -96,4 +104,18 @@ public class RaccoonGuns : NetworkBehaviour
         darbbody = dart.GetComponent<Rigidbody>();
         //darbbody.AddForce(transform.forward * 50, ForceMode.Impulse);
     }
+    [Command]
+    void ShootHook()
+    {
+        GameObject hook = Instantiate(hookprefab, shootPoint.position + shootPoint.forward, shootPoint.rotation);
+        NetworkServer.Spawn(hook, connectionToClient);
+        Debug.Log("Shot properly");
+        changehookstuff(hook);
+    }
+    [ClientRpc]
+    void changehookstuff(GameObject hook)
+    {
+        hook.GetComponent<HookScript>().shooter = netIdentity.connectionToClient.identity.gameObject;
+    }
+
 }
