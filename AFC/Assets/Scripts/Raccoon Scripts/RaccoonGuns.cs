@@ -24,6 +24,7 @@ public class RaccoonGuns : NetworkBehaviour
     public GameObject dartPrefab;
     public Rigidbody darbbody;
     public Transform shootPoint;
+    public GameObject shootpointobj;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -48,25 +49,28 @@ public class RaccoonGuns : NetworkBehaviour
             }
             if (GetComponentInParent<PewPew>().maingun)
             {
-                flamie(flametimer);
+                flamie(flametimer,shootPoint.position);
                 makelookgood();
             }
             if (GetComponentInParent<PewPew>().secondary)
             {
                 Secondary(transform.position, new Vector3(1, -1, 0));
             }
+            
         }
     }
-    [Command]
-    void flamie(float flametimer)
+    //[Command]
+    [ClientRpc]
+    void flamie(float flametimer, Vector3 shtpont)
     {
         if (flametimer > .05)
         {
-            actvfire = Instantiate(fire, shootPoint.position, shootPoint.rotation);
             
-            //actvfire.transform.parent = player.transform;
-            NetworkServer.Spawn(actvfire, connectionToClient);
+            actvfire = Instantiate(fire, shootPoint.position, shootPoint.rotation);
+            //NetworkServer.Spawn(actvfire, connectionToClient);
+            actvfire.GetComponent<FlameThrowerParticle>().ownplayer = shootpointobj;
             actvfire.transform.parent = player.transform;
+            actvfire.transform.position = shtpont;
             actvfire.GetComponent<FlameThrowerParticle>().intcam = intcam;
             actvfire.GetComponent<FlameThrowerParticle>().playerCamera = playerCamera;
             flametimer = 0;
@@ -76,8 +80,9 @@ public class RaccoonGuns : NetworkBehaviour
     }
     void makelookgood()
     {
-        actvfire.transform.position = shootPoint.position;
-        Debug.Log("we moved it. Fire: " + actvfire.transform.position + "ShootPoint: " + shootPoint.position);
+        //GetComponentInChildren<FlameThrowerParticle>().ownplayer = player;
+        
+        //Debug.Log("we moved it. Fire: " + actvfire.transform.position + "ShootPoint: " + shootPoint.position);
         //actvfire.layer = 7;
         //fakefire = Instantiate(fire, shootPoint.position, shootPoint.rotation);
         //fakefire.GetComponent<FlameThrowerParticle>().fake = true;

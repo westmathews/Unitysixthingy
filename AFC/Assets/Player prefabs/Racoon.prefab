@@ -1677,6 +1677,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7338601534879833052}
+  - component: {fileID: 6959163484262629459}
   m_Layer: 0
   m_Name: Shootpoint
   m_TagString: Untagged
@@ -1699,6 +1700,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2408202405051486696}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6959163484262629459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5581990982560975998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff3ba0becae47b8b9381191598957c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 7338601534879833052}
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  onlySyncOnChange: 1
+  compressRotation: 1
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  coordinateSpace: 0
+  timelineOffset: 1
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  onlySyncOnChangeCorrectionMultiplier: 2
+  rotationSensitivity: 0.01
+  positionPrecision: 0.01
+  scalePrecision: 0.01
 --- !u!1 &5638632704699023807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1983,6 +2017,7 @@ MonoBehaviour:
   dartPrefab: {fileID: 3044262960981012348, guid: 4ebe5910ed6e9405a8ed0f076da79059, type: 3}
   darbbody: {fileID: 3062086111774476425, guid: 4ebe5910ed6e9405a8ed0f076da79059, type: 3}
   shootPoint: {fileID: 7338601534879833052}
+  shootpointobj: {fileID: 5581990982560975998}
 --- !u!114 &3961061995751767599
 MonoBehaviour:
   m_ObjectHideFlags: 0

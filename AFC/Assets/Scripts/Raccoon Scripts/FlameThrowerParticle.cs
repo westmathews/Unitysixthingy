@@ -8,6 +8,8 @@ using UnityEngine.UIElements;
 using Mirror;
 public class FlameThrowerParticle : NetworkBehaviour
 {
+    
+    public GameObject ownplayer;
     public GameObject intcam;
     public GameObject hitind;
     public GameObject hitfab;
@@ -18,6 +20,10 @@ public class FlameThrowerParticle : NetworkBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
+        if (ownplayer != null)
+        {
+            //transform.parent = ownplayer.transform;
+        }
         Debug.Log(transform.parent);
     }
     private void Update()
@@ -27,6 +33,10 @@ public class FlameThrowerParticle : NetworkBehaviour
         {
             gameObject.transform.parent = null;
             //Debug.Log("orphan");
+        }
+        else
+        {
+            transform.position = ownplayer.transform.position;
         }
     }
     void OnParticleCollision(GameObject other)
