@@ -67,21 +67,21 @@ public class RaccoonGuns : NetworkBehaviour
             
             actvfire = Instantiate(fire, shootPoint.position, shootPoint.rotation);
             NetworkServer.Spawn(actvfire, connectionToClient);
-            actvfire.GetComponent<FlameThrowerParticle>().ownplayer = shootpointobj;
+            //actvfire.GetComponent<FlameThrowerParticle>().ownplayer = shootpointobj;
             //actvfire.transform.parent = player.transform;
             //actvfire.transform.position = shtpont;
             actvfire.GetComponent<FlameThrowerParticle>().intcam = intcam;
             actvfire.GetComponent<FlameThrowerParticle>().playerCamera = playerCamera;
             flametimer = 0;
-           
-            
+            RpcSetupFlame(actvfire, netIdentity.connectionToClient.identity.gameObject);
+
         }
     }
     [ClientRpc]
-    void RpcSetupFlame(GameObject flame, GameObject playerOwner, GameObject shtpont)
+    void RpcSetupFlame(GameObject flame, GameObject playerOwner)
     {
         flame.transform.parent = playerOwner.transform;
-        actvfire.transform.position = shtpont.transform.position;
+        //actvfire.transform.position = shtpont.transform.position;
     }
     void makelookgood()
     {
