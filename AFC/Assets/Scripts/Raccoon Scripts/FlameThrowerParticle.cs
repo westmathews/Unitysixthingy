@@ -87,5 +87,6 @@ public class FlameThrowerParticle : NetworkBehaviour
         {
             Debug.LogError("Could not find enemy by netId.");
         }
+        Destroy(gameObject);
     }
 }

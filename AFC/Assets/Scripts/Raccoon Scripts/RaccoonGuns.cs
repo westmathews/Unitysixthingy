@@ -50,7 +50,6 @@ public class RaccoonGuns : NetworkBehaviour
             if (GetComponentInParent<PewPew>().maingun)
             {
                 flamie(flametimer,shootPoint.position);
-                makelookgood();
             }
             if (GetComponentInParent<PewPew>().secondary)
             {
@@ -84,53 +83,9 @@ public class RaccoonGuns : NetworkBehaviour
         flame.transform.parent = playerOwner.transform;
         flame.transform.position = shtpont;
     }
-    void makelookgood()
-    {
-        //GetComponentInChildren<FlameThrowerParticle>().ownplayer = player;
-        
-        //Debug.Log("we moved it. Fire: " + actvfire.transform.position + "ShootPoint: " + shootPoint.position);
-        //actvfire.layer = 7;
-        //fakefire = Instantiate(fire, shootPoint.position, shootPoint.rotation);
-        //fakefire.GetComponent<FlameThrowerParticle>().fake = true;
-    }
-
-    
-
     void Secondary(Vector3 playerPos, Vector3 offset)
     {
         CmdShootDart();
-        /*rifle.SetActive(false);
-        revolver.SetActive(true);
-        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        RaycastHit hit;
-        sndshots += 1;
-        sndtime = 0;
-        if (sndshots == 6)
-        {
-            sndshots = 0;
-            revolver.SetActive(false);
-            rifle.SetActive(true);
-        }
-        GetComponentInParent<PewPew>().nospam = 0;
-        playerCamera.GetComponent<Lookie>().secondaryrecoil();
-        if (Physics.Raycast(ray, out hit, range))
-        {
-            target = hit.transform.position;
-            Debug.Log("Hit object tag: " + hit.collider.tag);
-            thing_hit = (hit.collider.tag);
-            // Check if the hit object has the "Player" tag
-            if (hit.collider.CompareTag("Player"))
-            {
-                //gets health script owner
-                hit.collider.gameObject.GetComponent<Health>().hepo -= GetComponentInParent<PewPew>().snddmg;
-                hitind = Instantiate(hitfab, hit.point, Quaternion.identity); //Quaternion.RotateTowards(hitind.transform.rotation, hit.collider.transform.rotation., 360));
-                hitind.transform.rotation = intcam.transform.rotation;
-                hitind.GetComponent<TextMeshPro>().text = "10";
-                // Logic for hitting a player
-                // You can add additional actions here, like applying damage or triggering an effect
-            }
-        }
-        //Ray raytwo = new Vector3(target)(new Vector3(offset));*/
     }
     [Command]
     void CmdShootDart()
