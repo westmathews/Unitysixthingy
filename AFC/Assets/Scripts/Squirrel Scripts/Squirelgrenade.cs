@@ -13,13 +13,11 @@ public class Squirelgrenade : NetworkBehaviour
     public float kama = 0;
     public GameObject intcam;
     public bool hitself = false;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         gameObject.transform.parent = null;
         me.AddForce(transform.forward * 35, ForceMode.Impulse);
     }
-    
     
     void OnCollisionEnter(Collision collision)
     {
@@ -59,11 +57,6 @@ public class Squirelgrenade : NetworkBehaviour
             }
             
         }
-        
-        
-        
-
-       
     }
     [Command]
     private void cmdchangehealth(uint enemyNetId, float dmgdealt, bool hitmeself)

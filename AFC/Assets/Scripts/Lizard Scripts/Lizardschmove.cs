@@ -8,14 +8,11 @@ public class Lizardschmove : NetworkBehaviour
     public bool mvcool;
     public MeshRenderer self;
     public GameObject UI;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         mvabtime = .2f;
         mvcool = true;
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (isLocalPlayer)
@@ -30,7 +27,6 @@ public class Lizardschmove : NetworkBehaviour
             else
             {
                 UI.GetComponent<UI>().mvready = false;
-
             }
             mvabtime += Time.deltaTime;
             Speebtime += Time.deltaTime;
@@ -43,7 +39,6 @@ public class Lizardschmove : NetworkBehaviour
                     if (!tail)
                     {
                         GetComponentInParent<Player_Movement>().sprintspd = 11;
-
                     }
                 }
                 if (tail)
@@ -51,9 +46,6 @@ public class Lizardschmove : NetworkBehaviour
                     GetComponentInParent<Player_Movement>().sprintspd = 22;
                     tail = false;
                 }
-
-
-
             }
             if (GetComponentInChildren<Health>().hepo == 100)
             {
@@ -65,7 +57,6 @@ public class Lizardschmove : NetworkBehaviour
             }
             if (Input.GetKeyDown(KeyCode.E) && !mvcool)
             {
-                
                 mvabtime = 0;
                 mvcool = true;
             }

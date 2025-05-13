@@ -7,9 +7,7 @@ public class PlaceholderPlayer : NetworkBehaviour
     public void CmdChooseCharacter(int index)
     {
         Debug.Log("Server received character selection: " + index);
-
         GameObject prefab = CharacterSelectionData.GetCharacterPrefab(index);
-
         if (prefab != null)
         {
             GameObject newCharacter = Instantiate(prefab, transform.position, transform.rotation);

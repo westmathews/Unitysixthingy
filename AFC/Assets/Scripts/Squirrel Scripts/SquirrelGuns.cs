@@ -37,8 +37,6 @@ public class SquirrelGuns : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
-
-
             if (Input.GetKey(KeyCode.Mouse1))
             {
                 spreadangle = 5;
@@ -85,7 +83,6 @@ public class SquirrelGuns : NetworkBehaviour
                 Debug.Log("Hit object tag: " + hit.collider.tag);
                 thing_hit = (hit.collider.tag);
 
-                // Check if the hit object has the "Player" tag
                 if (hit.collider.CompareTag("Player"))
                 {
                     if (!hit.collider.gameObject.GetComponentInChildren<Health>().isLocalPlayer)
@@ -102,28 +99,10 @@ public class SquirrelGuns : NetworkBehaviour
                 }
             }
         }
-        //Debug.DrawRay(playerCamera.transform.position, shootdirection * range, Color.red, 1f);        //Ray raytwo = new Vector3(target)(new Vector3(offset));
     }
     void Secondary(Vector3 playerPos, Vector3 offset)
     {
         Grenadetrigger();
-        //Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        //RaycastHit hit;
-        //sndshots += 1;
-        /*Vector3 GunPosition = transform.position;
-        Vector3 Gunforward = transform.forward;
-        Vector3 Spawnpos = GunPosition + Gunforward * FrontDistance;
-        Grenaben = Instantiate(grenadeprefab, Spawnpos, Quaternion.identity);
-        grenade = Grenaben.GetComponent<Rigidbody>();
-        grenada = Grenaben.GetComponent<Transform>();
-        nade = Grenaben.GetComponentInChildren<MeshRenderer>();
-        nade.enabled = true;
-        grenade.useGravity = true;
-        grenade.constraints = RigidbodyConstraints.None;
-        grenade.AddForce(transform.forward * 35,ForceMode.Impulse);
-        grenada.parent = null;
-        grenada.GetComponent<CapsuleCollider>().enabled = true;*/
-        
     }
     [Command]
     void Grenadetrigger()
@@ -136,17 +115,6 @@ public class SquirrelGuns : NetworkBehaviour
             Grenaben.GetComponent<Squirelgrenade>().ownplayer = gameObject;
             Grenaben.GetComponent<Squirelgrenade>().intcam = intcam;
             NetworkServer.Spawn(Grenaben, connectionToClient);
-            /*grenade = Grenaben.GetComponent<Rigidbody>();
-            grenada = Grenaben.GetComponent<Transform>();
-            nade = Grenaben.GetComponentInChildren<MeshRenderer>();
-            //Grenaben.GetComponent<Squirelgrenade>().ownplayer = gameObject;
-            nade.enabled = true;
-            grenade.useGravity = true;
-            grenade.constraints = RigidbodyConstraints.None;
-            grenada.parent = null;
-            //grenade.AddForce(transform.forward * 35, ForceMode.Impulse);
-            grenada.GetComponent<CapsuleCollider>().enabled = true;
-            Grenaben.GetComponent<Squirelgrenade>().intcam = intcam;*/
         }
     }
     
@@ -156,7 +124,6 @@ public class SquirrelGuns : NetworkBehaviour
 
         float randomhor = Random.Range(-spreadangle, spreadangle);
         float randomvert = Random.Range(-spreadangle, spreadangle);
-
         Quaternion rotation = Quaternion.Euler(randomvert, randomhor, 0);
         return rotation * direction;
     }
@@ -171,7 +138,6 @@ public class SquirrelGuns : NetworkBehaviour
             {
                 enemyHealth.intcam = intcam;
                 enemyHealth.TakeDamage(15, connectionToClient);
-
             }
             else
             {

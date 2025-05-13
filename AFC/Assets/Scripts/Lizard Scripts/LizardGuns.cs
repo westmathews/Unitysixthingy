@@ -18,7 +18,6 @@ public class LizardGuns : NetworkBehaviour
     public GameObject hitfab;
     public GameObject enemy;
     public float dmgdealt;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         range = GetComponentInParent<PewPew>().shootingRange;
@@ -28,7 +27,6 @@ public class LizardGuns : NetworkBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isLocalPlayer)
@@ -57,16 +55,11 @@ public class LizardGuns : NetworkBehaviour
             Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
             RaycastHit hit;
             playerCamera.GetComponent<Lookie>().recoil();
-
-
             if (Physics.Raycast(ray, out hit, range,~layermask))
             {
                 target = hit.transform.position;
                 Debug.Log("Hit object tag: " + hit.collider.tag);
                 thing_hit = (hit.collider.tag);
-
-
-                // Check if the hit object has the "Player" tag
                 if (hit.collider.CompareTag("Player"))
                 {
                     if (!hit.collider.gameObject.GetComponentInChildren<Health>().isLocalPlayer)
@@ -96,7 +89,6 @@ public class LizardGuns : NetworkBehaviour
             {
                 enemyHealth.intcam = intcam;
                 enemyHealth.TakeDamage(dmgdealt, connectionToClient);
-                
             }
             else
             {
@@ -108,11 +100,7 @@ public class LizardGuns : NetworkBehaviour
             Debug.LogError("Could not find enemy by netId.");
         }
     }
-    /*[ClientRpc]
-    private void RpcDamageSync(GameObject enemy)
-    {
-        enemy.GetComponent<Health>().hepo -= 40;
-    }*/
+   
     void Secondary(Vector3 playerPos, Vector3 offset)
     {
         if (isLocalPlayer)
@@ -121,15 +109,11 @@ public class LizardGuns : NetworkBehaviour
             {
                 Switchgun();
             }
-            //rifle.SetActive(false);
-            //revolver.SetActive(true);
             sndshots += 1;
             sndtime = 0;
             if (sndshots == 6)
             {
                 sndshots = 0;
-                //revolver.SetActive(false);
-                //rifle.SetActive(true);
                 Switchgun();
             }
 
@@ -146,9 +130,6 @@ public class LizardGuns : NetworkBehaviour
                 target = hit.transform.position;
                 Debug.Log("Hit object tag: " + hit.collider.tag);
                 thing_hit = (hit.collider.tag);
-
-
-                // Check if the hit object has the "Player" tag
                 if (hit.collider.CompareTag("Player"))
                 {
                     if (!hit.collider.gameObject.GetComponentInChildren<Health>().isLocalPlayer)

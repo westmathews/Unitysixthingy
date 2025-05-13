@@ -54,7 +54,6 @@ public class Health : NetworkBehaviour
             hitind.GetComponent<TextMeshPro>().text = pain.ToString();
             hitcheck = hepo;
             regencool = 0;
-
         }
         if (regencool > 3 && regentimer >= .1 && hepo < maxhp)
         {
@@ -64,12 +63,9 @@ public class Health : NetworkBehaviour
         }
         if (burn > 0)
         {
-
             if (burnTimer > 0)
             {
                 burnTimer -= Time.deltaTime;
-
-
             }
             if (burnTimer <= 0)
             {
@@ -84,11 +80,6 @@ public class Health : NetworkBehaviour
             }
 
         }
-
-
-
-        //healthbar.fillAmount = hepo/maxhp;
-
     }
     void OnHealthChanged(float oldHealth, float newHealth)
     {
@@ -97,15 +88,11 @@ public class Health : NetworkBehaviour
             regencool = 0;
             regentimer = 0;
         }
-        //Debug.Log($"🩸 Health changed from {oldHealth} to {newHealth}");
         hitcheck = newHealth;
         if (isLocalPlayer && healthbar != null)
         {
             healthbar.fillAmount = newHealth / maxhp;
         }
-        
-        // Optionally update UI here if this is the local player
-
     }
     [Server]
     public void TakeDamage(float amount, NetworkConnectionToClient shooterConn)

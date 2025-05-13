@@ -5,7 +5,6 @@ public class GunSync : NetworkBehaviour
 {
     [SyncVar(hook = nameof(OnRotChanged))]
     private Quaternion syncedRotation;
-
     public Transform gunTransform;
 
     void Update()
