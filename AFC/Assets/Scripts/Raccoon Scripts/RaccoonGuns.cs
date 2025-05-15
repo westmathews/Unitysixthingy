@@ -109,13 +109,14 @@ public class RaccoonGuns : NetworkBehaviour
     {
         GameObject hook = Instantiate(hookprefab, shootPoint.position + shootPoint.forward, shootPoint.rotation);
         NetworkServer.Spawn(hook, connectionToClient);
+        hook.GetComponent<HookScript>().shooter = netIdentity.connectionToClient;
         Debug.Log("Shot properly");
         changehookstuff(hook);
     }
     [ClientRpc]
     void changehookstuff(GameObject hook)
     {
-        hook.GetComponent<HookScript>().shooter = netIdentity.connectionToClient.identity.gameObject;
+        hook.GetComponent<HookScript>().shooter = netIdentity.connectionToClient;
     }
 
 }

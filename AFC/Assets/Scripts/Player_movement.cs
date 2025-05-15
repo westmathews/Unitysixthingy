@@ -21,6 +21,8 @@ public class Player_Movement : NetworkBehaviour
     public float grenknockback;
     public bool darted = false;
     public float dartTimer = 0;
+    public bool hooked = false;
+    public float hooktime = 0;
     void Start()
     {        
         //jumpVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -55,6 +57,13 @@ public class Player_Movement : NetworkBehaviour
             hitdirection = hitdirection * 3;
         }
         Debug.Log("igodisway:" + hitdirection);
+    }
+    [TargetRpc]
+    public void HookMove(NetworkConnection networkconnectiontoclient, Vector3 HookVelocity)
+    {
+        hooked = true;
+        hitdirection = HookVelocity/12 + new Vector3(0,2,0);
+        Debug.Log("Triggeres hookmove. Velocity is: " + HookVelocity);
     }
     void Update()
     {
@@ -145,6 +154,24 @@ public class Player_Movement : NetworkBehaviour
                 }
                 controller.Move(hitdirection * speed * Time.deltaTime + new Vector3(0, ySpeed, 0) * Time.deltaTime);
                 grenknockback += Time.deltaTime;
+            }
+            if (hooked)
+            {
+                if (hooktime>.1 && isGrounded)
+                {
+                    hooked = false;
+                    hooktime = 0;
+                }
+                if (hooktime > 2)
+                {
+                    hooked = false;
+                    hooktime = 0;
+                }
+                move = transform.right * moveX + transform.forward * moveZ;
+                
+                controller.Move(hitdirection * speed * Time.deltaTime + new Vector3(0, ySpeed, 0) * Time.deltaTime);
+                hooktime += Time.deltaTime;
+
             }
             controller.Move(move * speed * Time.deltaTime + new Vector3(0, ySpeed, 0) * Time.deltaTime);
 
