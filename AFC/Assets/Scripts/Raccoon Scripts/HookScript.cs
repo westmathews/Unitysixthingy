@@ -11,14 +11,13 @@ public class HookScript : NetworkBehaviour
     {
         Debug.Log(shooter);
         gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * 100, ForceMode.Impulse);
-        SyncShooter(shooter.identity.netId, netId);
+        SyncShooter(shooter.identity.netId, gameObject);
     }
     [ClientRpc]
-    void SyncShooter(uint shootmanid, uint selfid)
+    void SyncShooter(uint shootmanid, GameObject hook)
     {
         NetworkServer.spawned.TryGetValue(shootmanid, out NetworkIdentity shootman);
-        NetworkServer.spawned.TryGetValue(selfid, out NetworkIdentity hook);
-        hook.GetComponent<HookScript>().shooter = shootman.connectionToClient;
+        hook.GetComponent<HookScript>().shooter = shootman.GetComponent<HookScript>().shooter;
     }
     private void Update()
     {
