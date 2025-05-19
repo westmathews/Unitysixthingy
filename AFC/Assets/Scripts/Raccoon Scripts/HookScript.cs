@@ -11,6 +11,12 @@ public class HookScript : NetworkBehaviour
     {
         Debug.Log(shooter);
         gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * 100, ForceMode.Impulse);
+        SyncShooter(shooter.identity.gameObject);
+    }
+    [ClientRpc]
+    void SyncShooter(GameObject shootman)
+    {
+        shooter = shootman.GetComponentInParent<NetworkConnection>();
     }
     private void Update()
     {
