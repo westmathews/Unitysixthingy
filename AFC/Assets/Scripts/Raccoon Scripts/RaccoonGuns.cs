@@ -27,6 +27,7 @@ public class RaccoonGuns : NetworkBehaviour
     public GameObject shootpointobj;
     public GameObject hookprefab;
     public float hooktimer = 0;
+    public GameObject UI;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -40,7 +41,15 @@ public class RaccoonGuns : NetworkBehaviour
         if (isLocalPlayer)
         {
 
-
+            UI.GetComponent<UI>().mvcool = (hooktimer - 5) * -1;
+            if (hooktimer > 5)
+            {
+                UI.GetComponent<UI>().mvready = true;
+            }
+            else
+            {
+                UI.GetComponent<UI>().mvready = false;
+            }
             flametimer += Time.deltaTime;
             hooktimer += Time.deltaTime;
             sndtime += Time.deltaTime;
