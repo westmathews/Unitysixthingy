@@ -1694,7 +1694,7 @@ Transform:
   m_GameObject: {fileID: 5581990982560975998}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.001, y: 0.139, z: 1.078}
+  m_LocalPosition: {x: 0.001, y: 0.139, z: 0.836}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2641,6 +2641,8 @@ MonoBehaviour:
   grenknockback: 0
   darted: 0
   dartTimer: 0
+  hooked: 0
+  hooktime: 0
 --- !u!143 &3445780037209799707
 CharacterController:
   m_ObjectHideFlags: 0
