@@ -5,38 +5,13 @@ public class HookScript : NetworkBehaviour
 {
     public Vector3 movingvelocity;
     public Rigidbody self;
-    public NetworkConnection shooter;
+    [SyncVar]
+    public uint shooter;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Debug.Log(shooter);
         gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * 100, ForceMode.Impulse);
-        dostuff();
-    }
-    [Server]
-    void dostuff()
-    {
-        if (shooter == null)
-        {
-            Debug.LogError("Shooter is null. Make sure it is assigned before calling dostuff.");
-            return;
-        }
-        NetworkConnection shttr = shooter;
-        SyncShooter(shttr.identity.netId);
-    }
-    [ClientRpc]
-    void SyncShooter(uint ShttrId)
-    {
-        if (!NetworkServer.spawned.TryGetValue(ShttrId, out NetworkIdentity Shoter))
-        {
-            Debug.LogError($"Failed to find NetworkIdentity with NetId {ShttrId}");
-            return;
-        }
-
-        Debug.Log("Triggered" + ShttrId);;
-
-        shooter = Shoter.connectionToClient;
-
     }
     void Update()
     {
@@ -49,8 +24,7 @@ public class HookScript : NetworkBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             Debug.Log("Hit Ground");
-            NetworkIdentity ShotId = shooter.identity;
-            HitGround(ShotId.netId,movingvelocity);
+            HitGround(shooter,movingvelocity);
         }
         if (other.gameObject.CompareTag("Player"))
         {
@@ -68,7 +42,7 @@ public class HookScript : NetworkBehaviour
         Debug.Log("Triggered targeting: " + shooter);
         NetworkServer.spawned.TryGetValue(ShooterId, out NetworkIdentity Shooter);
         Player_Movement movescript = Shooter.GetComponentInChildren<Player_Movement>();
-        movescript.HookMove(shooter,Selfvelocity);
+        movescript.HookMove(Shooter.connectionToClient,Selfvelocity);
         Debug.Log(Selfvelocity);
     }
 }
