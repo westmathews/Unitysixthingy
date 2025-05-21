@@ -32,7 +32,8 @@ public class HookScript : NetworkBehaviour
             NetworkIdentity enemyId = other.gameObject.GetComponent<NetworkIdentity>();
             if (enemyId != null)
             {
-
+                Debug.Log("hoooked player");
+                HitPlayer(enemyId.netId, movingvelocity);
             }
         }
     }
@@ -44,5 +45,16 @@ public class HookScript : NetworkBehaviour
         Player_Movement movescript = Shooter.GetComponentInChildren<Player_Movement>();
         movescript.HookMove(Shooter.connectionToClient,Selfvelocity);
         Debug.Log(Selfvelocity);
+        Destroy(gameObject);
+    }
+    [Command]
+    void HitPlayer(uint TargetId, Vector3 Selfvelocity)
+    {
+        Debug.Log("Triggered targeting: " + shooter);
+        NetworkServer.spawned.TryGetValue(TargetId, out NetworkIdentity Target);
+        Player_Movement movescript = Target.GetComponentInChildren<Player_Movement>();
+        movescript.HookMove(Target.connectionToClient, new Vector3 (Selfvelocity.x * -1,Selfvelocity.y,Selfvelocity.z *-1));
+        Debug.Log(Selfvelocity);
+        Destroy(gameObject);
     }
 }
