@@ -11,26 +11,46 @@ public class HookScript : NetworkBehaviour
     {
         Debug.Log(shooter);
         gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * 100, ForceMode.Impulse);
-        SyncShooter(shooter.identity.netId, gameObject);
+        dostuff();
+    }
+    [Server]
+    void dostuff()
+    {
+        if (shooter == null)
+        {
+            Debug.LogError("Shooter is null. Make sure it is assigned before calling dostuff.");
+            return;
+        }
+        NetworkConnection shttr = shooter;
+        SyncShooter(shttr.identity.netId);
     }
     [ClientRpc]
-    void SyncShooter(uint shootmanid, GameObject hook)
+    void SyncShooter(uint ShttrId)
     {
-        NetworkServer.spawned.TryGetValue(shootmanid, out NetworkIdentity shootman);
-        hook.GetComponent<HookScript>().shooter = shootman.GetComponent<HookScript>().shooter;
+        if (!NetworkServer.spawned.TryGetValue(ShttrId, out NetworkIdentity Shoter))
+        {
+            Debug.LogError($"Failed to find NetworkIdentity with NetId {ShttrId}");
+            return;
+        }
+
+        Debug.Log("Triggered" + ShttrId);;
+
+        shooter = Shoter.connectionToClient;
+
     }
-    private void Update()
+    void Update()
     {
         movingvelocity = self.linearVelocity;
     }
-    private void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collision other)
     {
         
         gameObject.GetComponent<Rigidbody>().linearVelocity = new Vector3(0, 0, 0);
         if (other.gameObject.CompareTag("Ground"))
         {
             Debug.Log("Hit Ground");
-            HitGround(shooter,movingvelocity);
+            NetworkIdentity ShotId = shooter.identity;
+            HitGround(ShotId.netId,movingvelocity);
         }
         if (other.gameObject.CompareTag("Player"))
         {
@@ -42,11 +62,12 @@ public class HookScript : NetworkBehaviour
             }
         }
     }
-    [TargetRpc]
-    private void HitGround(NetworkConnection Shooter, Vector3 Selfvelocity)
+    [Command]
+    void HitGround(uint ShooterId, Vector3 Selfvelocity)
     {
         Debug.Log("Triggered targeting: " + shooter);
-        Player_Movement movescript = shooter.identity.GetComponent<Player_Movement>();
+        NetworkServer.spawned.TryGetValue(ShooterId, out NetworkIdentity Shooter);
+        Player_Movement movescript = Shooter.GetComponentInChildren<Player_Movement>();
         movescript.HookMove(shooter,Selfvelocity);
         Debug.Log(Selfvelocity);
     }
