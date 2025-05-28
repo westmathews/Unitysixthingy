@@ -71,7 +71,7 @@ public class Dart : NetworkBehaviour
         }
         //DestroySelf();
     }
-    [Client]
+    [Command]
     void slow(NetworkIdentity enemyIdentity)
     {
         Debug.Log("I so smar");
@@ -87,9 +87,12 @@ public class Dart : NetworkBehaviour
             enemy.GetComponentInParent<Player_Movement>().darted = false;
             fast(enemy.netId);
         }
-        //NetworkServer.Destroy(gameObject);
+        else
+        {
+            NetworkServer.Destroy(gameObject);
+        }
     }
-    [Client]
+    [Command]
     void fast(uint enemyid)
     {
         if (NetworkServer.spawned.TryGetValue(enemyid, out NetworkIdentity enemy))
