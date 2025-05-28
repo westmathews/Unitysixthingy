@@ -137,7 +137,7 @@ public class LizardGuns : NetworkBehaviour
                         NetworkIdentity enemyId = hit.collider.GetComponent<NetworkIdentity>();
                         if (enemyId != null)
                         {
-                            dmgdealt = 10;
+                            dmgdealt = 20;
                             cmdchangehealth(enemyId.netId, dmgdealt);
                         }
                     }

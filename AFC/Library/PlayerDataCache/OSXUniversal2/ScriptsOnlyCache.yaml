@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - Batman
     - CameraFollowSetup
     - CameraSwitchWithRotation
     - CharacterSelectSender
@@ -112,7 +113,7 @@ ScriptsOnlyBuild:
     fullTypeName: CharacterSelectUI
     methodName: SelectSquirrel
   sceneClasses:
-    Assets/Scenes/Game.unity:
+    Assets/Scenes/Game 1.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -146,103 +147,105 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 17676}
+      Script: {instanceID: 25542}
     - Class: 114
-      Script: {instanceID: 17678}
+      Script: {instanceID: 25756}
     - Class: 114
-      Script: {instanceID: 25546}
+      Script: {instanceID: 25800}
     - Class: 114
-      Script: {instanceID: 25760}
+      Script: {instanceID: 25884}
     - Class: 114
-      Script: {instanceID: 25804}
+      Script: {instanceID: 26018}
     - Class: 114
-      Script: {instanceID: 25888}
+      Script: {instanceID: 26034}
     - Class: 114
-      Script: {instanceID: 26022}
+      Script: {instanceID: 26320}
     - Class: 114
-      Script: {instanceID: 26038}
+      Script: {instanceID: 26592}
     - Class: 114
-      Script: {instanceID: 26324}
+      Script: {instanceID: 26850}
     - Class: 114
-      Script: {instanceID: 26596}
+      Script: {instanceID: 27034}
     - Class: 114
-      Script: {instanceID: 26854}
+      Script: {instanceID: 27066}
     - Class: 114
-      Script: {instanceID: 27038}
+      Script: {instanceID: 27358}
     - Class: 114
-      Script: {instanceID: 27070}
+      Script: {instanceID: 27580}
     - Class: 114
-      Script: {instanceID: 27362}
+      Script: {instanceID: 27696}
     - Class: 114
-      Script: {instanceID: 27584}
+      Script: {instanceID: 27734}
     - Class: 114
-      Script: {instanceID: 27700}
+      Script: {instanceID: 27736}
     - Class: 114
-      Script: {instanceID: 27738}
+      Script: {instanceID: 27818}
     - Class: 114
-      Script: {instanceID: 27740}
+      Script: {instanceID: 28048}
     - Class: 114
-      Script: {instanceID: 27822}
+      Script: {instanceID: 28080}
     - Class: 114
-      Script: {instanceID: 28052}
+      Script: {instanceID: 28102}
     - Class: 114
-      Script: {instanceID: 28084}
+      Script: {instanceID: 28492}
     - Class: 114
-      Script: {instanceID: 28106}
+      Script: {instanceID: 28638}
     - Class: 114
-      Script: {instanceID: 28496}
+      Script: {instanceID: 28840}
     - Class: 114
-      Script: {instanceID: 28642}
+      Script: {instanceID: 28914}
     - Class: 114
-      Script: {instanceID: 28844}
+      Script: {instanceID: 29132}
     - Class: 114
-      Script: {instanceID: 28918}
+      Script: {instanceID: 29222}
     - Class: 114
-      Script: {instanceID: 29136}
+      Script: {instanceID: 29496}
     - Class: 114
-      Script: {instanceID: 29226}
+      Script: {instanceID: 29568}
     - Class: 114
-      Script: {instanceID: 29570}
+      Script: {instanceID: 29826}
     - Class: 114
-      Script: {instanceID: 29828}
+      Script: {instanceID: 29864}
     - Class: 114
-      Script: {instanceID: 29866}
+      Script: {instanceID: 30224}
     - Class: 114
-      Script: {instanceID: 30226}
+      Script: {instanceID: 30288}
     - Class: 114
-      Script: {instanceID: 30290}
+      Script: {instanceID: 30302}
     - Class: 114
-      Script: {instanceID: 30304}
+      Script: {instanceID: 30356}
     - Class: 114
-      Script: {instanceID: 30358}
+      Script: {instanceID: 30416}
     - Class: 114
-      Script: {instanceID: 30418}
+      Script: {instanceID: 30618}
     - Class: 114
-      Script: {instanceID: 30620}
+      Script: {instanceID: 30774}
     - Class: 114
-      Script: {instanceID: 30776}
+      Script: {instanceID: 30966}
     - Class: 114
-      Script: {instanceID: 30968}
+      Script: {instanceID: 31230}
     - Class: 114
-      Script: {instanceID: 31232}
+      Script: {instanceID: 31344}
     - Class: 114
-      Script: {instanceID: 31346}
+      Script: {instanceID: 31520}
     - Class: 114
-      Script: {instanceID: 31522}
+      Script: {instanceID: 31530}
     - Class: 114
-      Script: {instanceID: 31532}
+      Script: {instanceID: 31586}
     - Class: 114
-      Script: {instanceID: 31588}
+      Script: {instanceID: 31962}
     - Class: 114
-      Script: {instanceID: 31964}
+      Script: {instanceID: 32280}
     - Class: 114
-      Script: {instanceID: 32282}
+      Script: {instanceID: 32536}
     - Class: 114
-      Script: {instanceID: 32538}
+      Script: {instanceID: 32590}
     - Class: 114
-      Script: {instanceID: 32592}
+      Script: {instanceID: 32776}
     - Class: 114
       Script: {instanceID: 32816}
+    - Class: 114
+      Script: {instanceID: 35986}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -270,18 +273,6 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
-  - hash:
-      serializedVersion: 2
-      Hash: 087b25d683900c0619e997811fcc708b
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: PlaceholderPlayer
-  - hash:
-      serializedVersion: 2
-      Hash: 33872bd3a3ecfb86376abbfa3e810a60
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: LizardGuns
   - hash:
       serializedVersion: 2
       Hash: 312f1a1cca70a349ac4ab5518b32cf60
@@ -1328,7 +1319,7 @@ ScriptsOnlyBuild:
     className: CanvasHUD
   - hash:
       serializedVersion: 2
-      Hash: d504fbac49a782cad4d219d59278e12d
+      Hash: 0ac9d54a1f652c7143e3d0bd8791bafd
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: HookScript
@@ -1490,6 +1481,12 @@ ScriptsOnlyBuild:
     className: AudioTrack
   - hash:
       serializedVersion: 2
+      Hash: 087b25d683900c0619e997811fcc708b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: PlaceholderPlayer
+  - hash:
+      serializedVersion: 2
       Hash: 8e6dc3d79712ca4934f6d50c80f010b1
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
@@ -1514,7 +1511,7 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
-      Hash: 9908a131f81a6c3d497984ef8a5d57b0
+      Hash: 403b517053c91b94cefc856efc6387d8
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: RaccoonGuns
@@ -2378,11 +2375,23 @@ ScriptsOnlyBuild:
     className: NetworkManagerPredictionBenchmark
   - hash:
       serializedVersion: 2
+      Hash: 33872bd3a3ecfb86376abbfa3e810a60
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: LizardGuns
+  - hash:
+      serializedVersion: 2
       Hash: d5494951dccb016a8cc9da28f41cb2c3
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: MyPlayer
+  - hash:
+      serializedVersion: 2
+      Hash: 26485a3f11344f2c4fe02638ba4dae8d
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Batman
   platform: 2
   scenePathNames:
-  - Assets/Scenes/Game.unity
+  - Assets/Scenes/Game 1.unity
   playerPath: /Users/amackay4682/Documents/Unitysixthingy/AFC/a.app

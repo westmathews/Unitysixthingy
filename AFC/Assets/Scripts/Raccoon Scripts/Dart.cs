@@ -8,6 +8,7 @@ public class Dart : NetworkBehaviour
     public float damage = 25f;
     public GameObject intcam;
     private Rigidbody rb;
+    [SyncVar]
     public NetworkIdentity enemy;
     public void Start()
     {
@@ -29,6 +30,7 @@ public class Dart : NetworkBehaviour
             other.gameObject.GetComponentInParent<Player_Movement>().darted = true;
             Debug.Log("collided player");
             NetworkIdentity enemyId = other.gameObject.GetComponent<NetworkIdentity>();
+            enemy = enemyId;
             if (enemyId != null)
             {
 
@@ -56,7 +58,7 @@ public class Dart : NetworkBehaviour
                 enemyHealth.intcam = intcam;
                 enemyHealth.TakeDamage(dmgdealt, connectionToClient);
                 slow(enemyIdentity);
-                enemy = enemyIdentity;
+                
             }
             else
             {
@@ -77,22 +79,25 @@ public class Dart : NetworkBehaviour
         enemyIdentity.GetComponentInParent<Player_Movement>().dartTimer = 3;
         enemy = enemyIdentity;
     }
-    [Command]
+    //[Command]
     public void DestroySelf()
     {
         if (enemy != null)
         {
             enemy.GetComponentInParent<Player_Movement>().darted = false;
-            fast();
+            fast(enemy.netId);
         }
         //NetworkServer.Destroy(gameObject);
     }
     [Client]
-    void fast()
+    void fast(uint enemyid)
     {
-        Debug.Log("Fasted");
-        enemy.GetComponentInParent<Player_Movement>().darted = false;
-        NetworkServer.Destroy(gameObject);
+        if (NetworkServer.spawned.TryGetValue(enemyid, out NetworkIdentity enemy))
+        {
+            Debug.Log("Fasted");
+            enemy.GetComponentInParent<Player_Movement>().darted = false;
+            NetworkServer.Destroy(gameObject);
+        }
     }
 }
     
