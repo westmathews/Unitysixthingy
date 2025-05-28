@@ -77,8 +77,8 @@ public class Dart : NetworkBehaviour
         enemyIdentity.GetComponentInParent<Player_Movement>().dartTimer = 3;
         enemy = enemyIdentity;
     }
-    [Server]
-    private void DestroySelf()
+    [Command]
+    public void DestroySelf()
     {
         if (enemy != null)
         {
