@@ -55,7 +55,7 @@ public class Health : NetworkBehaviour
             hitcheck = hepo;
             regencool = 0;
         }
-        if (regencool > 3 && regentimer >= .1 && hepo < maxhp)
+        if (regencool > 3 && regentimer >= .2 && hepo < maxhp)
         {
             hepo += 1;
             regentimer = 0;

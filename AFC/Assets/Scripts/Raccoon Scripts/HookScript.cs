@@ -64,7 +64,7 @@ public class HookScript : NetworkBehaviour
         Debug.Log("Triggered targeting: " + shooter);
         NetworkServer.spawned.TryGetValue(TargetId, out NetworkIdentity Target);
         Player_Movement movescript = Target.GetComponentInChildren<Player_Movement>();
-        movescript.HookMove(Target.connectionToClient, new Vector3 (Selfvelocity.x * -1,Selfvelocity.y,Selfvelocity.z *-1));
+        movescript.HookMove(Target.connectionToClient, new Vector3 (Selfvelocity.x * -1,Selfvelocity.y *-1,Selfvelocity.z *-1));
         Debug.Log(Selfvelocity);
         
     }
