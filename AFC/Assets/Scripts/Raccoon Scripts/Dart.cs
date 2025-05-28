@@ -83,12 +83,12 @@ public class Dart : NetworkBehaviour
         if (enemy != null)
         {
             enemy.GetComponentInParent<Player_Movement>().darted = false;
-            fast(enemy);
+            fast();
         }
         //NetworkServer.Destroy(gameObject);
     }
     [Client]
-    void fast(NetworkIdentity enemy)
+    void fast()
     {
         Debug.Log("Fasted");
         enemy.GetComponentInParent<Player_Movement>().darted = false;
