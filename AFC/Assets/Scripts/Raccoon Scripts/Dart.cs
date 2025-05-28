@@ -14,7 +14,7 @@ public class Dart : NetworkBehaviour
         rb = GetComponent<Rigidbody>();
         //rb.linearVelocity = transform.forward * speed;
         rb.AddForce(transform.forward * 50, ForceMode.Impulse);
-        Invoke(nameof(DestroySelf), lifeTime);
+        //Invoke(nameof(DestroySelf), lifeTime);
     }
 
 
@@ -38,7 +38,10 @@ public class Dart : NetworkBehaviour
             rb.isKinematic = true;
             Invoke(nameof(DestroySelf), lifeTime);
         }
-
+        else
+        {
+            Invoke(nameof(DestroySelf), lifeTime);
+        }
         
     }
     [Command]
@@ -72,6 +75,7 @@ public class Dart : NetworkBehaviour
         Debug.Log("I so smar");
         enemyIdentity.GetComponentInParent<Player_Movement>().darted = true;
         enemyIdentity.GetComponentInParent<Player_Movement>().dartTimer = 3;
+        enemy = enemyIdentity;
     }
     [Server]
     private void DestroySelf()
@@ -81,11 +85,12 @@ public class Dart : NetworkBehaviour
             enemy.GetComponentInParent<Player_Movement>().darted = false;
             fast(enemy);
         }
-        NetworkServer.Destroy(gameObject);
+        //NetworkServer.Destroy(gameObject);
     }
     [Client]
     void fast(NetworkIdentity enemy)
     {
+        Debug.Log("Fasted");
         enemy.GetComponentInParent<Player_Movement>().darted = false;
         NetworkServer.Destroy(gameObject);
     }
