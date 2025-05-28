@@ -2021,6 +2021,8 @@ MonoBehaviour:
   hookprefab: {fileID: 2004404848294111234, guid: 5359e45eef84e4fd69c3ea9ac6fcbb01, type: 3}
   hooktimer: 0
   UI: {fileID: 4721789886095767761}
+  hookPrefab: {fileID: 2004404848294111234, guid: 5359e45eef84e4fd69c3ea9ac6fcbb01, type: 3}
+  chainPrefab: {fileID: 2785014000019367513, guid: f2d78cdc4ab7e4921bd9aff1b7102adc, type: 3}
 --- !u!114 &3961061995751767599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2578,7 +2580,6 @@ GameObject:
   - component: {fileID: 2802385740226254886}
   - component: {fileID: 5017589550615392954}
   - component: {fileID: 3445780037209799707}
-  - component: {fileID: 2380881828823269457}
   - component: {fileID: 771266994791552791}
   - component: {fileID: 4681496558961594327}
   - component: {fileID: 4947502780725202426}
@@ -2669,27 +2670,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &2380881828823269457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9102419443657893789}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaf6203e50b5b4ef69adcc380232081d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  tail: 1
-  Speebtime: 0
-  mvabtime: 0
-  mvcool: 0
-  self: {fileID: 846884930204375041}
-  UI: {fileID: 4721789886095767761}
 --- !u!114 &771266994791552791
 MonoBehaviour:
   m_ObjectHideFlags: 0

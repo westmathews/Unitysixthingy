@@ -189,7 +189,12 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  movingvelocity: {x: 0, y: 0, z: 0}
   self: {fileID: 9172731773509306229}
+  shooter: 0
+  chainLinkPrefab: {fileID: 2785014000019367513, guid: f2d78cdc4ab7e4921bd9aff1b7102adc, type: 3}
+  hookStart: {fileID: 0}
+  hookEnd: {fileID: 0}
 --- !u!54 &9172731773509306229
 Rigidbody:
   m_ObjectHideFlags: 0

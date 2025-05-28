@@ -28,6 +28,11 @@ public class RaccoonGuns : NetworkBehaviour
     public GameObject hookprefab;
     public float hooktimer = 0;
     public GameObject UI;
+    public GameObject hookPrefab;
+    public GameObject chainPrefab;
+    private GameObject currentHook;
+    private GameObject currentChain;
+    public Vector3 shooterStartPoint;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -37,7 +42,7 @@ public class RaccoonGuns : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         if (isLocalPlayer)
         {
 
@@ -60,7 +65,7 @@ public class RaccoonGuns : NetworkBehaviour
             }
             if (GetComponentInParent<PewPew>().maingun)
             {
-                flamie(flametimer,shootPoint.position);
+                flamie(flametimer, shootPoint.position);
             }
             if (GetComponentInParent<PewPew>().secondary)
             {
@@ -72,21 +77,21 @@ public class RaccoonGuns : NetworkBehaviour
                 hooktimer = 0;
                 Debug.Log("triggered shot");
             }
-            
+
         }
     }
-    [Command]    
+    [Command]
     void flamie(float flametimer, Vector3 shtpont)
     {
         if (flametimer > .05)
         {
-            
+
             actvfire = Instantiate(fire, shootPoint.position, shootPoint.rotation);
             NetworkServer.Spawn(actvfire, connectionToClient);
             //actvfire.GetComponent<FlameThrowerParticle>().ownplayer = shootpointobj;
             actvfire.transform.parent = netIdentity.connectionToClient.identity.gameObject.transform;
             //actvfire.transform.position = shtpont;
-            
+
             actvfire.GetComponent<FlameThrowerParticle>().intcam = intcam;
             actvfire.GetComponent<FlameThrowerParticle>().playerCamera = playerCamera;
             flametimer = 0;
@@ -116,12 +121,50 @@ public class RaccoonGuns : NetworkBehaviour
     [Command]
     void ShootHook()
     {
-        GameObject hook = Instantiate(hookprefab, shootPoint.position + shootPoint.forward, shootPoint.rotation);
-        NetworkServer.Spawn(hook, connectionToClient);
-        HookScript hookScript = hook.GetComponent<HookScript>();
+        // 1. Spawn the hook
+        currentHook = Instantiate(hookprefab, shootPoint.position + shootPoint.forward, shootPoint.rotation);
+        HookScript hookScript = currentHook.GetComponent<HookScript>();
+        hookScript.hookStart = shootPoint;
         hookScript.shooter = netIdentity.netId;
-        
-        Debug.Log("Shot properly");
+
+        NetworkServer.Spawn(currentHook, connectionToClient);
+
+        // 2. Spawn the chain
+        currentChain = Instantiate(chainPrefab);
+        NetworkServer.Spawn(currentChain, connectionToClient);
+
+        // 3. Send setup data
+        NetworkIdentity hookId = currentHook.GetComponent<NetworkIdentity>();
+        NetworkIdentity chainId = currentChain.GetComponent<NetworkIdentity>();
+        RpcSetChainEndpoints(chainId.netId, hookId.netId);
+
+        // 4. OPTIONAL: If you want the chain to start building now on the server too:
+        Batman chainScript = currentChain.GetComponent<Batman>();
+        chainScript.startPoint = shootPoint;
+        chainScript.endPoint = currentHook.transform;
     }
 
+
+    [ClientRpc]
+    void RpcSetChainEndpoints(uint chainNetId, uint hookNetId)
+    {
+        if (NetworkClient.spawned.TryGetValue(chainNetId, out NetworkIdentity chainIdentity) &&
+            NetworkClient.spawned.TryGetValue(hookNetId, out NetworkIdentity hookIdentity))
+        {
+            Batman chainScript = chainIdentity.GetComponent<Batman>();
+
+            // 🧠 Assign start and end
+            chainScript.startPoint = shootPoint;
+            chainScript.endPoint = hookIdentity.transform;
+
+            // 🔗 Assign chain link prefab (make sure it's set on the player script)
+            chainScript.chainLinkPrefab = chainPrefab;
+        }
+        else
+        {
+            Debug.LogWarning("Could not find chain or hook in spawned objects");
+        }
+
+
+    }
 }
