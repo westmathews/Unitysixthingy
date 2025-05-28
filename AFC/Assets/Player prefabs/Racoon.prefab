@@ -2023,6 +2023,7 @@ MonoBehaviour:
   UI: {fileID: 4721789886095767761}
   hookPrefab: {fileID: 2004404848294111234, guid: 5359e45eef84e4fd69c3ea9ac6fcbb01, type: 3}
   chainPrefab: {fileID: 2785014000019367513, guid: f2d78cdc4ab7e4921bd9aff1b7102adc, type: 3}
+  shooterStartPoint: {x: 0, y: 0, z: 0}
 --- !u!114 &3961061995751767599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2663,13 +2664,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
+  m_Height: 0.5
+  m_Radius: 1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 1, z: -0.56}
 --- !u!114 &771266994791552791
 MonoBehaviour:
   m_ObjectHideFlags: 0
