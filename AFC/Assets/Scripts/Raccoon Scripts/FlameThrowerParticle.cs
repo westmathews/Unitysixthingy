@@ -49,7 +49,7 @@ public class FlameThrowerParticle : NetworkBehaviour
                 {
 
                     NetworkIdentity enemyId = other.GetComponentInParent<NetworkIdentity>();
-                    cmdchangehealth(enemyId.netId, 5);
+                    cmdchangehealth(enemyId.netId, 1);
                     /*other.gameObject.GetComponentInChildren<Health>().hepo -= 1;
                     other.gameObject.GetComponentInChildren<Health>().burn = 5;
                     other.gameObject.GetComponentInChildren<Health>().burnTimer = 1;

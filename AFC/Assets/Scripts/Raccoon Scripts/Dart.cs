@@ -8,13 +8,12 @@ public class Dart : NetworkBehaviour
     public float damage = 25f;
     public GameObject intcam;
     private Rigidbody rb;
-    [SyncVar]
     public NetworkIdentity enemy;
     public void Start()
     {
         rb = GetComponent<Rigidbody>();
         //rb.linearVelocity = transform.forward * speed;
-        rb.AddForce(transform.forward * 100, ForceMode.Impulse);
+        rb.AddForce(transform.forward * 50, ForceMode.Impulse);
         Invoke(nameof(DestroySelf), lifeTime);
     }
 
@@ -74,19 +73,15 @@ public class Dart : NetworkBehaviour
         enemyIdentity.GetComponentInParent<Player_Movement>().darted = true;
         enemyIdentity.GetComponentInParent<Player_Movement>().dartTimer = 3;
     }
-    
-    void DestroySelf()
+    [Server]
+    private void DestroySelf()
     {
         if (enemy != null)
         {
             enemy.GetComponentInParent<Player_Movement>().darted = false;
             fast(enemy);
         }
-        else
-        {
-            NetworkServer.Destroy(gameObject);
-        }
-        
+        NetworkServer.Destroy(gameObject);
     }
     [Client]
     void fast(NetworkIdentity enemy)
