@@ -85,7 +85,9 @@ public class Dart : NetworkBehaviour
         if (enemy != null)
         {
             enemy.GetComponentInParent<Player_Movement>().darted = false;
+            fast2(enemy.netId);
             fast(enemy.netId);
+            
         }
         else
         {
@@ -94,6 +96,16 @@ public class Dart : NetworkBehaviour
     }
     [Command]
     void fast(uint enemyid)
+    {
+        if (NetworkServer.spawned.TryGetValue(enemyid, out NetworkIdentity enemy))
+        {
+            Debug.Log("Fasted");
+            enemy.GetComponentInParent<Player_Movement>().darted = false;
+            NetworkServer.Destroy(gameObject);
+        }
+    }
+    [Client]
+    void fast2(uint enemyid)
     {
         if (NetworkServer.spawned.TryGetValue(enemyid, out NetworkIdentity enemy))
         {
