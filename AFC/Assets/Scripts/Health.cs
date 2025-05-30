@@ -98,11 +98,16 @@ public class Health : NetworkBehaviour
     public void TakeDamage(float amount, NetworkConnectionToClient shooterConn)
     {
         hepo -= amount;
-        TargetShowHitIndicator(shooterConn, amount, intcam.transform.rotation);
+        
 
         if (hepo <= 0)
         {
+            TargetShowHitIndicator(shooterConn, 0, intcam.transform.rotation);
             // Die();
+        }
+        else
+        {
+            TargetShowHitIndicator(shooterConn, amount, intcam.transform.rotation);
         }
     }
     [TargetRpc]
@@ -110,7 +115,14 @@ public class Health : NetworkBehaviour
     {
         GameObject hitind = Instantiate(hitfab, transform.position, Quaternion.identity);
         hitind.transform.rotation = camRot;
-        hitind.GetComponent<TextMeshPro>().text = amount.ToString();
+        if (amount == 0)
+        {
+            hitind.GetComponent<TextMeshPro>().text = "I have died";
+        }
+        else
+        {
+            hitind.GetComponent<TextMeshPro>().text = amount.ToString();
+        }
     }
     void OnCollisionEnter(Collision other)
     {
