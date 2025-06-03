@@ -79,22 +79,23 @@ public class Dart : NetworkBehaviour
         enemyIdentity.GetComponentInParent<Player_Movement>().dartTimer = 3;
         enemy = enemyIdentity;
     }
-    //[Command]
+    [Command]
     public void DestroySelf()
     {
         if (enemy != null)
         {
-            enemy.GetComponentInParent<Player_Movement>().darted = false;
-            fast2(enemy.netId);
-            fast(enemy.netId);
-            
+            var playerMovement = enemy.GetComponentInParent<Player_Movement>();
+            if (playerMovement != null)
+            {
+                playerMovement.darted = false; // Revert darted state
+                playerMovement.dartTimer = 0; // Reset timer, if used
+                Debug.Log("Undarted");
+            }
         }
-        else
-        {
-            NetworkServer.Destroy(gameObject);
-        }
+        NetworkServer.Destroy(gameObject); // Destroy the dart
     }
-    [Command]
+
+    /*[Command]
     void fast(uint enemyid)
     {
         if (NetworkServer.spawned.TryGetValue(enemyid, out NetworkIdentity enemy))
@@ -114,5 +115,6 @@ public class Dart : NetworkBehaviour
             NetworkServer.Destroy(gameObject);
         }
     }
+    */
 }
     

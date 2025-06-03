@@ -19,6 +19,7 @@ public class Player_Movement : NetworkBehaviour
     Vector3 move;
     Vector3 hitdirection;
     public float grenknockback;
+    [SyncVar]
     public bool darted = false;
     public float dartTimer = 0;
     public bool hooked = false;
