@@ -14,7 +14,7 @@ public class Dart : NetworkBehaviour
     {
         rb = GetComponent<Rigidbody>();
         //rb.linearVelocity = transform.forward * speed;
-        rb.AddForce(transform.forward * 50, ForceMode.Impulse);
+        rb.AddForce(transform.forward * 150, ForceMode.Impulse);
         //Invoke(nameof(DestroySelf), lifeTime);
     }
 
